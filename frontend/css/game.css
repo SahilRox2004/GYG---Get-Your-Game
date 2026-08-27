@@ -1572,7 +1572,16 @@ overflow-x:auto;
 
     #gameCover {
 
-        width: 150px;
+        width: 125px;
+
+    }
+
+
+    .platformLogo {
+
+        width: 64px;
+
+        height: 42px;
 
     }
 

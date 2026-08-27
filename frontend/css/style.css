@@ -1797,7 +1797,11 @@ header {
         margin-left: 0;
     }
 
-    .search-wrapper,
+    .search-wrapper {
+        width: 46px;
+        max-width: 46px;
+    }
+
     .search-wrapper.searchOpen {
         width: 100%;
         max-width: none;
@@ -1826,6 +1830,31 @@ header {
     #heroButton {
         padding: 13px 22px;
         font-size: 15px;
+    }
+
+    .consoleDropdown,
+    .collectionDropdown {
+        position: fixed;
+        top: 78px;
+        left: 16px;
+        right: 16px;
+        width: auto;
+        padding: 12px;
+        gap: 8px;
+        transform: translateY(-10px);
+    }
+
+    .consoleDropdown.open,
+    .collectionDropdown.open {
+        transform: translateY(0);
+    }
+
+    .consoleDropdown a,
+    .collectionDropdown a {
+        min-width: 0;
+        flex: 1 1 calc(50% - 8px);
+        padding: 11px 10px;
+        font-size: 13px;
     }
 
 }
