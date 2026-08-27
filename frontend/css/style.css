@@ -1772,6 +1772,64 @@ header {
 
 }
 
+@media (max-width: 768px) {
+
+    header {
+        flex-wrap: wrap;
+    }
+
+    .consoleMenu,
+    .collectionMenu,
+    .loginMenu {
+        transform: none;
+    }
+
+    .consoleButton,
+    .collectionButton,
+    .loginButton {
+        font-size: 11px;
+        gap: 5px;
+    }
+
+    .search-container {
+        order: 2;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .search-wrapper,
+    .search-wrapper.searchOpen {
+        width: 100%;
+        max-width: none;
+    }
+
+    .hero-content {
+        max-height: calc(100% - 125px);
+        overflow: hidden;
+    }
+
+    #heroSummary {
+        font-size: 16px;
+        line-height: 1.45;
+        display: -webkit-box;
+        line-clamp: 3;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    #heroDate {
+        font-size: 15px;
+        margin-bottom: 18px;
+    }
+
+    #heroButton {
+        padding: 13px 22px;
+        font-size: 15px;
+    }
+
+}
+
 /* ========================= */
 /* CONSOLE MENU */
 /* ========================= */
