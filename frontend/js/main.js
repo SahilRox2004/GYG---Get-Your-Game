@@ -1,6 +1,62 @@
 console.log("GYG Loaded");
 
 
+/* Hide the mobile header while scrolling down. */
+
+const mobileHeaderQuery =
+    window.matchMedia(
+        "(max-width: 768px)"
+    );
+
+const siteHeader =
+    document.querySelector("header");
+
+let previousScrollY =
+    window.scrollY;
+
+if (siteHeader && mobileHeaderQuery.matches) {
+
+    window.addEventListener(
+        "scroll",
+        () => {
+
+            const currentScrollY =
+                window.scrollY;
+
+            if (currentScrollY <= 10) {
+
+                siteHeader.classList.remove(
+                    "header-hidden"
+                );
+
+            }
+
+            else if (currentScrollY > previousScrollY) {
+
+                siteHeader.classList.add(
+                    "header-hidden"
+                );
+
+            }
+
+            else if (currentScrollY < previousScrollY) {
+
+                siteHeader.classList.remove(
+                    "header-hidden"
+                );
+
+            }
+
+            previousScrollY =
+                currentScrollY;
+
+        },
+        { passive: true }
+    );
+
+}
+
+
 /* ========================= */
 /* SEARCH ELEMENTS */
 /* ========================= */
