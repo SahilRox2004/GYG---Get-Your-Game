@@ -214,8 +214,6 @@ function openSearch() {
     }, 150);
 
 }
-
-
 /* ========================= */
 /* CLOSE SEARCH */
 /* ========================= */
@@ -824,80 +822,3 @@ document.addEventListener(
     }
 );
 
-/* ========================= */
-/* CONSOLE DROPDOWN */
-/* ========================= */
-
-const consoleButton =
-    document.getElementById(
-        "consoleButton"
-    );
-
-const consoleDropdown =
-    document.getElementById(
-        "consoleDropdown"
-    );
-
-
-if (
-    consoleButton &&
-    consoleDropdown
-) {
-
-    consoleButton.addEventListener(
-        "click",
-        event => {
-
-            event.stopPropagation();
-
-            const isOpen =
-                consoleDropdown.classList.toggle(
-                    "open"
-                );
-
-            consoleButton.classList.toggle(
-                "active",
-                isOpen
-            );
-
-            consoleButton.setAttribute(
-                "aria-expanded",
-                isOpen
-            );
-
-        }
-    );
-
-
-    document.addEventListener(
-        "click",
-        event => {
-
-            if (
-                !consoleDropdown.contains(
-                    event.target
-                ) &&
-                !consoleButton.contains(
-                    event.target
-                )
-            ) {
-
-                consoleDropdown.classList.remove(
-                    "open"
-                );
-
-                consoleButton.classList.remove(
-                    "active"
-                );
-
-                consoleButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-            }
-
-        }
-    );
-
-}

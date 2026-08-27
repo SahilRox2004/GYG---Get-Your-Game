@@ -198,61 +198,7 @@ const consoleDropdown =
     );
 
 
-const collectionsButton =
-    document.getElementById(
-        "collectionsButton"
-    );
-
-
-const collectionsDropdown =
-    document.getElementById(
-        "collectionsDropdown"
-    );
-
-
-
-/* ========================= */
-/* CREATE PLATFORM LINKS */
-/* ========================= */
-
-if (consoleDropdown) {
-
-    // Only create links dynamically if the dropdown is empty
-    if (consoleDropdown.children.length === 0) {
-        consolePlatforms.forEach(
-            item => {
-
-                const link =
-                    document.createElement(
-                        "a"
-                    );
-
-
-                link.href =
-                    `platform.html?platform=${encodeURIComponent(
-                        item.platform
-                    )}`;
-
-
-                link.textContent =
-                    item.name;
-
-
-                consoleDropdown.appendChild(
-                    link
-                );
-
-            }
-        );
-    }
-
-}
-
-
-
-/* ========================= */
 /* OPEN / CLOSE DROPDOWN */
-/* ========================= */
 
 if (
     consoleButton &&
@@ -265,18 +211,15 @@ if (
 
             event.stopPropagation();
 
-
             const isOpen =
                 consoleDropdown.classList.toggle(
                     "open"
                 );
 
-
             consoleButton.classList.toggle(
                 "active",
                 isOpen
             );
-
 
             consoleButton.setAttribute(
                 "aria-expanded",
@@ -285,7 +228,6 @@ if (
 
         }
     );
-
 
     document.addEventListener(
         "click",
@@ -304,11 +246,9 @@ if (
                     "open"
                 );
 
-
                 consoleButton.classList.remove(
                     "active"
                 );
-
 
                 consoleButton.setAttribute(
                     "aria-expanded",
@@ -323,74 +263,4 @@ if (
 }
 
 
-/* ========================= */
-/* COLLECTIONS DROPDOWN */
-/* ========================= */
 
-if (
-    collectionsButton &&
-    collectionsDropdown
-) {
-
-    collectionsButton.addEventListener(
-        "click",
-        event => {
-
-            event.stopPropagation();
-
-
-            const isOpen =
-                collectionsDropdown.classList.toggle(
-                    "open"
-                );
-
-
-            collectionsButton.classList.toggle(
-                "active",
-                isOpen
-            );
-
-
-            collectionsButton.setAttribute(
-                "aria-expanded",
-                isOpen
-            );
-
-        }
-    );
-
-
-    document.addEventListener(
-        "click",
-        event => {
-
-            if (
-                !collectionsButton.contains(
-                    event.target
-                ) &&
-                !collectionsDropdown.contains(
-                    event.target
-                )
-            ) {
-
-                collectionsDropdown.classList.remove(
-                    "open"
-                );
-
-
-                collectionsButton.classList.remove(
-                    "active"
-                );
-
-
-                collectionsButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-            }
-
-        }
-    );
-
-}

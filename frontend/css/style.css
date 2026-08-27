@@ -1624,7 +1624,7 @@ header {
         min-width: 420px;
     }
 
-    .search-wrapper.search-active {
+    .search-wrapper.searchOpen {
         width: 380px;
     }
 
@@ -1648,7 +1648,7 @@ header {
         height: 46px;
     }
 
-    .search-wrapper.search-active {
+    .search-wrapper.searchOpen {
         width: 280px;
     }
 
@@ -1761,7 +1761,7 @@ header {
         width: 60px;
     }
 
-    .search-wrapper.search-active {
+    .search-wrapper.searchOpen {
         width:
             calc(100vw - 100px);
     }
