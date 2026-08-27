@@ -3,7 +3,7 @@ async function loadGamingNews() {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/news"
+            "https://gyg-backend-hjbx.onrender.com/api/news"
         );
 
         if (!response.ok) {

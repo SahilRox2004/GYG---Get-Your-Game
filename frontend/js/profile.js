@@ -23,7 +23,7 @@ async function loadProfile() {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/auth/profile",
+            "https://gyg-backend-hjbx.onrender.com/api/auth/profile",
             {
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -141,7 +141,7 @@ async function removeGame(event) {
     try {
 
         const response = await fetch(
-            `http://localhost:5000/api/auth/favourites/${encodeURIComponent(gameId)}?list=${listType}`,
+            `https://gyg-backend-hjbx.onrender.com/api/auth/favourites/${encodeURIComponent(gameId)}?list=${listType}`,
             {
                 method: "DELETE",
                 headers: {

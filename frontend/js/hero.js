@@ -33,7 +33,7 @@ async function loadHero() {
 
         const response =
             await fetch(
-                "http://localhost:5000/api/hero"
+                "https://gyg-backend-hjbx.onrender.com/api/hero"
             );
 
 

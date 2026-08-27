@@ -383,7 +383,7 @@ searchBox.addEventListener(
                         const response =
                             await fetch(
 
-                                `http://localhost:5000/api/search/${encodeURIComponent(
+                                `https://gyg-backend-hjbx.onrender.com/api/search/${encodeURIComponent(
                                     query
                                 )}`
 

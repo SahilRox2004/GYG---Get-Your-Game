@@ -505,7 +505,7 @@ async function loadPlatform() {
 
         const response =
             await fetch(
-                `http://localhost:5000/api/platform/${encodeURIComponent(platform)}`
+                `https://gyg-backend-hjbx.onrender.com/api/platform/${encodeURIComponent(platform)}`
             );
 
 

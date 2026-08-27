@@ -160,7 +160,7 @@ signinForm.addEventListener(
 
             const response =
                 await fetch(
-                    "http://localhost:5000/api/auth/signin",
+                    "https://gyg-backend-hjbx.onrender.com/api/auth/signin",
                     {
 
                         method: "POST",
@@ -280,7 +280,7 @@ signupForm.addEventListener(
 
             const response =
                 await fetch(
-                    "http://localhost:5000/api/auth/signup",
+                    "https://gyg-backend-hjbx.onrender.com/api/auth/signup",
                     {
 
                         method: "POST",

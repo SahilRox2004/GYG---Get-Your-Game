@@ -3,7 +3,7 @@ async function loadUpcomingGames() {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/upcoming"
+            "https://gyg-backend-hjbx.onrender.com/api/upcoming"
         );
 
         const games = await response.json();

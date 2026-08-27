@@ -2425,7 +2425,7 @@ async function searchGame(name) {
 
         const response =
             await fetch(
-                `http://localhost:5000/api/search/${encodeURIComponent(name)}`
+                `https://gyg-backend-hjbx.onrender.com/api/search/${encodeURIComponent(name)}`
             );
 
         if (!response.ok) {
@@ -2631,7 +2631,7 @@ async function getGameDetails(id) {
 
         const response =
             await fetch(
-                `http://localhost:5000/api/game/${id}`
+                `https://gyg-backend-hjbx.onrender.com/api/game/${id}`
             );
 
         if (!response.ok) {

@@ -13,7 +13,7 @@ let currentGameSaved = false;
 async function loadGame() {
 
     const response = await fetch(
-        `http://localhost:5000/api/game/${gameId}`
+        `https://gyg-backend-hjbx.onrender.com/api/game/${gameId}`
     );
 
     const game = await response.json();
@@ -1081,7 +1081,7 @@ document.getElementById("closeLightbox")
     async function loadSimilarGames() {
 
     const response = await fetch(
-        `http://localhost:5000/api/similar/${gameId}`
+        `https://gyg-backend-hjbx.onrender.com/api/similar/${gameId}`
     );
 
     const games = await response.json();
@@ -1175,7 +1175,7 @@ async function loadDLC() {
 
         const response =
             await fetch(
-                `http://localhost:5000/api/dlc/${gameId}`
+                `https://gyg-backend-hjbx.onrender.com/api/dlc/${gameId}`
             );
 
 
@@ -1376,7 +1376,7 @@ async function loadGameGuide() {
 
         const response =
             await fetch(
-                `http://localhost:5000/api/guide/${gameId}`
+                `https://gyg-backend-hjbx.onrender.com/api/guide/${gameId}`
             );
 
 
@@ -1720,7 +1720,7 @@ async function syncSavedState(actionButton) {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/auth/profile",
+            "https://gyg-backend-hjbx.onrender.com/api/auth/profile",
             {
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -1836,8 +1836,8 @@ if (favouriteButton) {
                 const response =
                     await fetch(
                         currentGameSaved
-                            ? `http://localhost:5000/api/auth/favourites/${currentGame.id}?list=${currentListType}`
-                            : "http://localhost:5000/api/auth/favourites",
+                            ? `https://gyg-backend-hjbx.onrender.com/api/auth/favourites/${currentGame.id}?list=${currentListType}`
+                            : "https://gyg-backend-hjbx.onrender.com/api/auth/favourites",
                         request
                     );
 

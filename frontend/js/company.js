@@ -36,7 +36,7 @@ async function loadCompany() {
 
         const response =
             await fetch(
-                `http://localhost:5000/api/company/${encodeURIComponent(
+                `https://gyg-backend-hjbx.onrender.com/api/company/${encodeURIComponent(
                     companyName
                 )}`
             );

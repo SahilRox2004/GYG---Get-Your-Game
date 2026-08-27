@@ -2,7 +2,7 @@ async function loadReleasedToday(){
 
     const response =
         await fetch(
-        "http://localhost:5000/api/releasedtoday"
+        "https://gyg-backend-hjbx.onrender.com/api/releasedtoday"
     );
 
     const games =
