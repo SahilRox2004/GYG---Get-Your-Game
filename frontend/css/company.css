@@ -1,0 +1,900 @@
+/* ========================================
+   COMPANY PAGE
+======================================== */
+
+body {
+    background: #12091f;
+}
+
+
+/* ========================================
+   COMPANY HERO
+======================================== */
+
+#companyHero {
+    position: relative;
+
+    min-height: 560px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    overflow: hidden;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* ========================================
+   HERO GAME COLLAGE
+======================================== */
+
+#companyBackground {
+    position: absolute;
+
+    inset: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, 1fr);
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #24113b,
+            #12091f
+        );
+
+    opacity: 0.55;
+
+    transform: scale(1.04);
+}
+
+
+#companyBackground img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    filter: saturate(0.85);
+}
+
+
+/* ========================================
+   DARK HERO OVERLAY
+======================================== */
+
+.companyHeroOverlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(10, 5, 20, 0.98) 0%,
+            rgba(10, 5, 20, 0.92) 35%,
+            rgba(10, 5, 20, 0.60) 65%,
+            rgba(10, 5, 20, 0.30) 100%
+        ),
+        linear-gradient(
+            0deg,
+            #12091f 0%,
+            transparent 65%
+        );
+}
+
+
+/* ========================================
+   HERO CONTENT
+======================================== */
+
+.companyHeroContent {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(900px, 90%);
+
+    padding: 170px 7% 80px;
+
+    box-sizing: border-box;
+}
+
+
+#companyEyebrow {
+    font-size: 0.8rem;
+
+    letter-spacing: 3px;
+
+    color: #b78cff;
+
+    font-weight: 700;
+
+    margin-bottom: 12px;
+}
+
+
+#companyName {
+    font-size:
+        clamp(3rem, 6vw, 6.5rem);
+
+    line-height: 0.95;
+
+    margin: 0 0 25px;
+
+    color: white;
+
+    max-width: 900px;
+}
+
+
+#companyFounded,
+#companyLocation {
+    display: inline-block;
+
+    margin-right: 18px;
+
+    color: #c8bfd5;
+
+    font-size: 0.95rem;
+}
+
+
+#companyHeroDescription {
+    max-width: 780px;
+
+    margin-top: 28px;
+
+    font-size: 1.05rem;
+
+    line-height: 1.7;
+
+    color: #ded6e8;
+}
+
+
+/* ========================================
+   COMPANY INFORMATION
+======================================== */
+
+#companyInfo {
+    padding: 100px 7%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #12091f,
+            #160a26
+        );
+}
+
+
+/* ========================================
+   GENERAL SECTION HEADER
+======================================== */
+
+.sectionHeader {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    margin-bottom: 40px;
+}
+
+
+.sectionEyebrow {
+    color: #a875ff;
+
+    font-size: 0.75rem;
+
+    letter-spacing: 3px;
+
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+
+.sectionHeader h2 {
+    font-size:
+        clamp(2rem, 4vw, 4rem);
+
+    line-height: 0.95;
+
+    margin: 0;
+
+    color: white;
+}
+
+
+.companySectionDescription {
+    margin: 8px 0 0;
+
+    color: #d5cede;
+
+    font-size: 1rem;
+
+    line-height: 1.5;
+}
+
+
+.companyAboutContent {
+    max-width: 1200px;
+}
+
+
+#companySummary {
+    max-width: 950px;
+
+    color: #d5cede;
+
+    font-size: 1.1rem;
+
+    line-height: 1.8;
+
+    margin-bottom: 50px;
+}
+
+
+/* ========================================
+   COMPANY FACTS
+======================================== */
+
+.companyFacts {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.companyFact {
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 10px;
+
+    padding: 25px;
+
+    backdrop-filter: blur(10px);
+}
+
+
+.companyFact span {
+    display: block;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 2px;
+
+    color: #9876c4;
+
+    margin-bottom: 10px;
+}
+
+
+.companyFact strong {
+    color: white;
+
+    font-size: 1.1rem;
+}
+
+
+/* ========================================
+   GAME SECTIONS
+======================================== */
+
+.companyGameSection {
+    padding: 90px 7%;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+}
+
+
+#companyGamesSection {
+    background: #160a26;
+}
+
+
+/* ========================================
+   CAROUSELS
+======================================== */
+
+.companyCarousel,
+.studioGamesCarousel {
+    display: flex;
+
+    gap: 20px;
+
+    overflow-x: auto;
+
+    scroll-behavior: smooth;
+
+    padding: 0 2px 20px;
+
+    scrollbar-width: none;
+}
+
+
+.companyCarousel::-webkit-scrollbar,
+.studioGamesCarousel::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* ========================================
+   GAME CARD
+======================================== */
+
+.companyGameCard {
+    flex: 0 0 210px;
+
+    width: 210px;
+
+    min-width: 210px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+.companyGameCard:hover {
+    transform:
+        translateY(-8px);
+}
+
+
+.companyGamePoster {
+    display: block;
+
+    width: 100%;
+
+    height: 315px;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    border-radius: 8px;
+
+    background: #241337;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.4);
+}
+
+
+.companyGameTitle {
+    margin-top: 12px;
+
+    color: white;
+
+    font-size: 0.95rem;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+.companyGameMeta {
+    margin-top: 5px;
+
+    color: #a99bb8;
+
+    font-size: 0.8rem;
+}
+
+
+/* ========================================
+   CAROUSEL BUTTONS
+======================================== */
+
+.carouselControls {
+    display: flex;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+}
+
+
+.carouselControls button {
+    width: 45px;
+
+    height: 45px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.15);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.carouselControls button:hover {
+    background: #7d3cff;
+
+    border-color: #7d3cff;
+}
+
+
+/* ========================================
+   STUDIOS & SUBSIDIARIES
+======================================== */
+
+#studiosSection {
+    background: #12091f;
+}
+
+
+/* ========================================
+   MAIN STUDIOS HEADER
+
+   EXACT SAME ALIGNMENT AS:
+
+   .companyGameSection {
+       padding: 90px 7%;
+   }
+======================================== */
+
+.studioMainHeader {
+    padding: 90px 7%;
+
+    margin: 0;
+
+    box-sizing: border-box;
+
+    background: #12091f;
+}
+
+
+/* ========================================
+   STUDIO GAME SECTIONS
+======================================== */
+
+#studioGameSections {
+    background: #12091f;
+}
+
+
+/* ========================================
+   EACH STUDIO
+======================================== */
+
+.studioGameSection {
+    padding: 90px 7%;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    background:
+        linear-gradient(
+            180deg,
+            #12091f,
+            #160a26
+        );
+}
+
+
+.studioGameSection:nth-child(even) {
+    background: #160a26;
+}
+
+
+/* ========================================
+   STUDIO HEADER
+======================================== */
+
+.studioSectionHeader {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    gap: 40px;
+
+    width: 100%;
+
+    margin: 0 0 40px;
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   STUDIO TEXT
+======================================== */
+
+.studioDetails {
+    max-width: 1000px;
+}
+
+
+.studioDetails h2 {
+    margin: 0;
+
+    color: white;
+
+    font-size:
+        clamp(2rem, 4vw, 4.5rem);
+
+    line-height: 1;
+
+    letter-spacing: -1px;
+}
+
+
+/* ========================================
+   STUDIO META
+======================================== */
+
+.studioMeta {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px 20px;
+
+    margin-top: 18px;
+
+    color: #bfb4cc;
+
+    font-size: 0.9rem;
+}
+
+
+.studioMeta span {
+    position: relative;
+}
+
+
+.studioMeta span + span::before {
+    content: "";
+
+    position: absolute;
+
+    left: -11px;
+
+    top: 50%;
+
+    width: 4px;
+
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: #7d3cff;
+
+    transform:
+        translateY(-50%);
+}
+
+
+/* ========================================
+   STUDIO DESCRIPTION
+======================================== */
+
+.studioDescription {
+    max-width: 950px;
+
+    margin: 20px 0 0;
+
+    color: #d5cede;
+
+    font-size: 1rem;
+
+    line-height: 1.7;
+}
+
+
+/* ========================================
+   STUDIO GAMES
+======================================== */
+
+.studioGamesCarousel {
+    width: 100%;
+
+    max-width: none;
+
+    margin: 0;
+}
+
+
+/* ========================================
+   NO GAMES
+======================================== */
+
+.noStudioGames {
+    width: 100%;
+
+    padding: 35px;
+
+    box-sizing: border-box;
+
+    border:
+        1px dashed
+        rgba(255, 255, 255, 0.12);
+
+    border-radius: 10px;
+
+    color: #a99bb8;
+
+    text-align: center;
+
+    background:
+        rgba(255, 255, 255, 0.02);
+}
+
+
+/* ========================================
+   MOBILE & TABLET
+======================================== */
+
+@media (max-width: 800px) {
+
+    /* =====================================
+       HERO
+    ===================================== */
+
+    #companyHero {
+        min-height: 620px;
+    }
+
+
+    #companyBackground {
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        grid-template-rows:
+            repeat(2, 1fr);
+    }
+
+
+    .companyHeroOverlay {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(10, 5, 20, 0.96) 0%,
+                rgba(10, 5, 20, 0.88) 60%,
+                rgba(10, 5, 20, 0.60) 100%
+            ),
+            linear-gradient(
+                0deg,
+                #12091f 0%,
+                transparent 70%
+            );
+    }
+
+
+    .companyHeroContent {
+        width: 100%;
+
+        padding:
+            140px 7% 60px;
+    }
+
+
+    #companyName {
+        font-size:
+            clamp(3rem, 14vw, 5rem);
+
+        line-height: 0.95;
+
+        margin-bottom: 20px;
+    }
+
+
+    #companyHeroDescription {
+        font-size: 1rem;
+
+        line-height: 1.65;
+    }
+
+
+    /* =====================================
+       COMPANY INFO
+    ===================================== */
+
+    #companyInfo {
+        padding: 70px 7%;
+    }
+
+
+    .companyFacts {
+        grid-template-columns: 1fr;
+    }
+
+
+    .sectionHeader {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 25px;
+    }
+
+
+    #companySummary {
+        font-size: 1rem;
+
+        line-height: 1.7;
+    }
+
+
+    /* =====================================
+       GAME SECTION
+    ===================================== */
+
+    .companyGameSection {
+        padding: 70px 7%;
+    }
+
+
+    /* =====================================
+       STUDIOS MAIN HEADER
+
+       SAME 7% HORIZONTAL ALIGNMENT
+    ===================================== */
+
+    .studioMainHeader {
+        padding: 70px 7%;
+    }
+
+
+    /* =====================================
+       STUDIO SECTIONS
+    ===================================== */
+
+    .studioGameSection {
+        padding: 70px 7%;
+    }
+
+
+    .studioSectionHeader {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 25px;
+
+        margin-bottom: 30px;
+    }
+
+
+    .studioDetails {
+        width: 100%;
+    }
+
+
+    .studioDetails h2 {
+        font-size:
+            clamp(2rem, 10vw, 3.5rem);
+    }
+
+
+    .studioDescription {
+        font-size: 0.95rem;
+
+        line-height: 1.65;
+    }
+
+
+    /* =====================================
+       CAROUSEL CONTROLS
+    ===================================== */
+
+    .carouselControls {
+        align-self: flex-start;
+    }
+
+
+    .carouselControls button {
+        width: 42px;
+
+        height: 42px;
+    }
+
+
+    /* =====================================
+       MOBILE GAME CARDS
+    ===================================== */
+
+    .companyGameCard {
+        flex: 0 0 150px;
+
+        width: 150px;
+
+        min-width: 150px;
+    }
+
+
+    .companyGamePoster {
+        width: 150px;
+
+        height: 225px;
+
+        aspect-ratio: 2 / 3;
+
+        object-fit: cover;
+
+        object-position: center;
+    }
+
+
+    .companyGameTitle {
+        font-size: 0.9rem;
+    }
+
+
+    .companyGameMeta {
+        font-size: 0.75rem;
+    }
+
+
+    /* =====================================
+       CAROUSELS
+    ===================================== */
+
+    .companyCarousel,
+    .studioGamesCarousel {
+        gap: 15px;
+
+        padding-bottom: 15px;
+    }
+
+
+    /* =====================================
+       NO GAMES
+    ===================================== */
+
+    .noStudioGames {
+        padding: 25px 15px;
+
+        font-size: 0.9rem;
+    }
+
+}

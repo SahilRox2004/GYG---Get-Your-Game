@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>GYG - Platform</title>
+
+
+    <!-- MAIN GYG STYLES -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/platform.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ========================= -->
+<!-- HEADER -->
+<!-- ========================= -->
+
+<header>
+
+    <!-- GYG LOGO -->
+
+    <a
+        href="index.html"
+        class="gygHeaderLogo"
+    >
+
+        <img
+            src="assets/logo.png"
+            alt="GYG"
+        >
+
+    </a>
+
+
+    <!-- ========================= -->
+    <!-- CONSOLE DROPDOWN -->
+    <!-- ========================= -->
+
+    <div class="consoleMenu">
+
+        <button
+            id="consoleButton"
+            class="consoleButton"
+            type="button"
+            aria-expanded="false"
+        >
+
+            <span>
+                CONSOLES
+            </span>
+
+            <svg
+                class="consoleChevron"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <path
+                    d="M6 9l6 6 6-6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+
+            </svg>
+
+        </button>
+
+
+        <div
+            id="consoleDropdown"
+            class="consoleDropdown"
+        >
+
+            <!-- PLAYSTATION -->
+
+            <a href="platform.html?platform=PlayStation">
+                PlayStation
+            </a>
+
+            <a href="platform.html?platform=PlayStation%202">
+                PlayStation 2
+            </a>
+
+            <a href="platform.html?platform=PlayStation%203">
+                PlayStation 3
+            </a>
+
+            <a href="platform.html?platform=PlayStation%204">
+                PlayStation 4
+            </a>
+
+            <a href="platform.html?platform=PlayStation%205">
+                PlayStation 5
+            </a>
+
+            <a href="platform.html?platform=PlayStation%20Portable">
+                PSP
+            </a>
+
+            <a href="platform.html?platform=PlayStation%20Vita">
+                PS Vita
+            </a>
+
+
+            <!-- XBOX -->
+
+            <a href="platform.html?platform=Xbox">
+                Xbox
+            </a>
+
+            <a href="platform.html?platform=Xbox%20360">
+                Xbox 360
+            </a>
+
+            <a href="platform.html?platform=Xbox%20One">
+                Xbox One
+            </a>
+
+            <a href="platform.html?platform=Xbox%20Series%20X%7CS">
+                Xbox Series X|S
+            </a>
+
+
+            <!-- NINTENDO CONSOLES -->
+
+            <a href="platform.html?platform=Nintendo%20Entertainment%20System">
+                NES
+            </a>
+
+            <a href="platform.html?platform=Super%20Nintendo%20Entertainment%20System">
+                SNES
+            </a>
+
+            <a href="platform.html?platform=Nintendo%2064">
+                Nintendo 64
+            </a>
+
+            <a href="platform.html?platform=Nintendo%20GameCube">
+                GameCube
+            </a>
+
+            <a href="platform.html?platform=Wii">
+                Wii
+            </a>
+
+            <a href="platform.html?platform=Wii%20U">
+                Wii U
+            </a>
+
+            <a href="platform.html?platform=Nintendo%20Switch">
+                Nintendo Switch
+            </a>
+
+            <a href="platform.html?platform=Nintendo%20Switch%202">
+                Nintendo Switch 2
+            </a>
+
+
+            <!-- NINTENDO HANDHELDS -->
+
+            <a href="platform.html?platform=Game%20Boy">
+                Game Boy
+            </a>
+
+            <a href="platform.html?platform=Game%20Boy%20Color">
+                Game Boy Color
+            </a>
+
+            <a href="platform.html?platform=Game%20Boy%20Advance">
+                Game Boy Advance
+            </a>
+
+            <a href="platform.html?platform=Nintendo%20DS">
+                Nintendo DS
+            </a>
+
+            <a href="platform.html?platform=Nintendo%20DSi">
+                Nintendo DSi
+            </a>
+
+            <a href="platform.html?platform=Nintendo%203DS">
+                Nintendo 3DS
+            </a>
+
+            <a href="platform.html?platform=New%20Nintendo%203DS">
+                New Nintendo 3DS
+            </a>
+
+
+            <!-- SEGA -->
+
+            <a href="platform.html?platform=Sega%20Genesis">
+                Sega Genesis
+            </a>
+
+            <a href="platform.html?platform=Sega%20Mega%20Drive">
+                Sega Mega Drive
+            </a>
+
+            <a href="platform.html?platform=Sega%20Saturn">
+                Sega Saturn
+            </a>
+
+            <a href="platform.html?platform=Dreamcast">
+                Dreamcast
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- ========================= -->
+<!-- COLLECTION DROPDOWN -->
+<!-- ========================= -->
+
+<div class="collectionMenu">
+
+    <button
+        id="collectionButton"
+        class="collectionButton"
+        type="button"
+        aria-expanded="false"
+    >
+
+        <span>
+            COLLECTIONS
+        </span>
+
+        <svg
+            class="collectionChevron"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+        >
+
+            <path
+                d="M6 9l6 6 6-6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+
+        </svg>
+
+    </button>
+
+
+    <div
+        id="collectionDropdown"
+        class="collectionDropdown"
+    ></div>
+
+</div>
+
+<!-- ========================= -->
+<!-- LOGIN DROPDOWN -->
+<!-- ========================= -->
+
+<div class="loginMenu">
+
+    <button
+        id="loginButton"
+        class="loginButton"
+        type="button"
+        aria-expanded="false"
+    >
+
+        <span>
+            LOGIN
+        </span>
+
+        <svg
+            class="loginChevron"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+        >
+
+            <path
+                d="M6 9l6 6 6-6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+
+        </svg>
+
+    </button>
+
+
+    <div
+        id="loginDropdown"
+        class="loginDropdown"
+    >
+
+        <a href="login.html?mode=signin">
+            Sign In
+        </a>
+
+        <a href="login.html?mode=signup">
+            Sign Up
+        </a>
+
+    </div>
+
+</div>
+
+
+    <!-- EXPANDABLE SEARCH -->
+
+    <div class="search-container">
+
+        <div class="search-wrapper">
+
+            <div class="searchInputRow">
+
+                <input
+                    type="text"
+                    id="searchBox"
+                    placeholder="Search Games..."
+                    autocomplete="off"
+                    aria-label="Search games"
+                >
+
+                <button
+                    id="searchButton"
+                    type="button"
+                    aria-label="Search"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="22"
+                        height="22"
+                        aria-hidden="true"
+                    >
+
+                        <circle
+                            cx="11"
+                            cy="11"
+                            r="6"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        />
+
+                        <path
+                            d="M16 16l5 5"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                        />
+
+                    </svg>
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="searchSuggestions"
+            ></div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- ========================= -->
+<!-- PLATFORM HERO -->
+<!-- ========================= -->
+
+<section
+    id="platformHero"
+>
+
+    <!-- Console Landscape Image -->
+
+    <div
+        id="platformBackground"
+    ></div>
+
+
+    <!-- Dark Overlay -->
+
+    <div
+        class="platformHeroOverlay"
+    ></div>
+
+
+    <!-- Hero Content -->
+
+    <div
+        class="platformHeroContent"
+    >
+
+        <p
+            id="platformEyebrow"
+        >
+            GAMING PLATFORM
+        </p>
+
+
+        <h1
+            id="platformName"
+        >
+            Loading...
+        </h1>
+
+
+        <p
+            id="platformManufacturer"
+        ></p>
+
+
+        <p
+            id="platformRelease"
+        ></p>
+
+
+        <p
+            id="platformHeroDescription"
+        ></p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================= -->
+<!-- ABOUT PLATFORM -->
+<!-- ========================= -->
+
+<section
+    id="platformInfo"
+>
+
+    <div
+        class="sectionHeader"
+    >
+
+        <div>
+
+            <p
+                class="sectionEyebrow"
+            >
+                THE STORY BEHIND 
+            </p>
+
+
+            <h2>
+
+                <span id="platformAboutName">
+                    THIS PLATFORM
+                </span><br>
+                
+
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="platformAboutContent"
+    >
+
+        <p
+            id="platformSummary"
+        >
+            Loading...
+        </p>
+
+
+        <div
+            class="platformFacts"
+        >
+
+            <div
+                class="platformFact"
+            >
+
+                <span>
+                    MANUFACTURER
+                </span>
+
+                <strong
+                    id="platformFactManufacturer"
+                ></strong>
+
+            </div>
+
+
+            <div
+                class="platformFact"
+            >
+
+                <span>
+                    RELEASED
+                </span>
+
+                <strong
+                    id="platformFactRelease"
+                ></strong>
+
+            </div>
+
+
+            <div
+                class="platformFact"
+            >
+
+                <span>
+                    PRECEDED BY
+                </span>
+
+                <strong
+                    id="platformPredecessor"
+                ></strong>
+
+            </div>
+
+
+            <div
+                class="platformFact"
+            >
+
+                <span>
+                    SUCCEEDED BY
+                </span>
+
+                <strong
+                    id="platformSuccessor"
+                ></strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================= -->
+<!-- POPULAR GAMES -->
+<!-- ========================= -->
+
+<section
+    class="platformGameSection"
+    id="popularSection"
+>
+
+    <div
+        class="sectionHeader"
+    >
+
+        <div>
+
+            <p
+                class="sectionEyebrow"
+            >
+                DISCOVER THE BEST
+            </p>
+
+
+            <h2>
+
+                POPULAR ON<br>
+
+                <span
+                    class="platformSectionName"
+                ></span>
+
+            </h2>
+
+
+            <p
+                class="platformSectionDescription"
+            >
+                The games players are talking about,
+                playing and returning to.
+            </p>
+
+        </div>
+
+
+        <div
+            class="carouselControls"
+        >
+
+            <button
+                class="platformLeft"
+                type="button"
+            >
+                ❮
+            </button>
+
+
+            <button
+                class="platformRight"
+                type="button"
+            >
+                ❯
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="platformCarousel"
+        id="popularGames"
+    ></div>
+
+</section>
+
+
+
+<!-- ========================= -->
+<!-- HIGHEST RATED -->
+<!-- ========================= -->
+
+<section
+    class="platformGameSection"
+    id="ratedSection"
+>
+
+    <div
+        class="sectionHeader"
+    >
+
+        <div>
+
+            <p
+                class="sectionEyebrow"
+            >
+                THE CRITICS' CHOICE
+            </p>
+
+
+            <h2>
+
+                HIGHEST<br>
+                RATED
+            </h2>
+
+
+            <p
+                class="platformSectionDescription"
+            >
+                The highest-rated experiences
+                available on this platform.
+            </p>
+
+        </div>
+
+
+        <div
+            class="carouselControls"
+        >
+
+            <button
+                class="platformLeft"
+                type="button"
+            >
+                ❮
+            </button>
+
+
+            <button
+                class="platformRight"
+                type="button"
+            >
+                ❯
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="platformCarousel"
+        id="ratedGames"
+    ></div>
+
+</section>
+
+
+
+<!-- ========================= -->
+<!-- MOST ANTICIPATED -->
+<!-- ========================= -->
+
+<section
+    class="platformGameSection"
+    id="anticipatedSection"
+>
+
+    <div
+        class="sectionHeader"
+    >
+
+        <div>
+
+            <p
+                class="sectionEyebrow"
+            >
+                WHAT'S NEXT
+            </p>
+
+
+            <h2>
+
+                MOST<br>
+                ANTICIPATED
+            </h2>
+
+
+            <p
+                class="platformSectionDescription"
+            >
+                The upcoming games players
+                are waiting to experience.
+            </p>
+
+        </div>
+
+
+        <div
+            class="carouselControls"
+        >
+
+            <button
+                class="platformLeft"
+                type="button"
+            >
+                ❮
+            </button>
+
+
+            <button
+                class="platformRight"
+                type="button"
+            >
+                ❯
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="platformCarousel"
+        id="anticipatedGames"
+    ></div>
+
+</section>
+
+
+
+<!-- ========================= -->
+<!-- EXCLUSIVE GAMES -->
+<!-- ========================= -->
+
+<section
+    class="platformGameSection"
+    id="exclusiveSection"
+>
+
+    <div
+        class="sectionHeader"
+    >
+
+        <div>
+
+            <p
+                class="sectionEyebrow"
+            >
+                ONLY ON THIS PLATFORM
+            </p>
+
+
+            <h2>
+
+                <span
+                    class="platformSectionName"
+                ></span><br>
+
+                
+
+                EXCLUSIVES
+            </h2>
+
+
+            <p
+                class="platformSectionDescription"
+            >
+                Games officially released
+                exclusively for this platform.
+            </p>
+
+        </div>
+
+
+        <div
+            class="carouselControls"
+        >
+
+            <button
+                class="platformLeft"
+                type="button"
+            >
+                ❮
+            </button>
+
+
+            <button
+                class="platformRight"
+                type="button"
+            >
+                ❯
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="platformCarousel"
+        id="exclusiveGames"
+    ></div>
+
+</section>
+
+
+
+<!-- ========================= -->
+<!-- SCRIPTS -->
+<!-- ========================= -->
+
+<script
+    src="js/main.js"
+></script>
+
+<script src="js/consoleDropdown.js"></script>
+
+    <script src="js/collectionDropdown.js"></script>
+
+    <script src="js/loginDropdown.js"></script>
+
+<script
+    src="js/platform.js"
+></script>
+
+
+</body>
+
+</html>

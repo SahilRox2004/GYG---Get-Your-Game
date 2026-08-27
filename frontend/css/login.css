@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+:root {
+	--gyg-deep: #160b2e;
+	--gyg-violet: #2b1055;
+	--gyg-purple: #5b2a86;
+	--gyg-light: #9b6dff;
+	--surface: rgba(20, 10, 40, 0.88);
+	--line: rgba(155, 109, 255, 0.28);
+	--muted: rgba(255, 255, 255, 0.64);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	min-height: 100vh;
+	margin: 0;
+	color: white;
+	font-family: "Space Grotesk", Arial, sans-serif;
+	background:
+		radial-gradient(circle at 12% 12%, rgba(91, 42, 134, 0.58), transparent 38%),
+		radial-gradient(circle at 88% 86%, rgba(43, 16, 85, 0.72), transparent 44%),
+		linear-gradient(135deg, #0b0618, var(--gyg-deep) 52%, #241044);
+	display: grid;
+	place-items: center;
+	padding: 32px 20px;
+}
+
+.authContainer {
+	width: min(100%, 460px);
+}
+
+.authLogo {
+	display: block;
+	width: fit-content;
+	margin: 0 auto 24px;
+}
+
+.authLogo img {
+	display: block;
+	width: 126px;
+	height: auto;
+	transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.authLogo:hover img,
+.authLogo:focus-visible img {
+	filter: drop-shadow(0 0 30px white) brightness(2);
+	transform: scale(1.04);
+}
+
+.authBox {
+	padding: 36px;
+	background: var(--surface);
+	border: 1px solid var(--line);
+	border-radius: 8px;
+	box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42), 0 0 32px rgba(91, 42, 134, 0.16);
+	backdrop-filter: blur(14px);
+}
+
+h1 {
+	margin: 0 0 28px;
+	color: white;
+	font-size: clamp(28px, 6vw, 38px);
+	line-height: 1.1;
+	letter-spacing: 0;
+}
+
+form {
+	display: grid;
+	gap: 14px;
+}
+
+input {
+	width: 100%;
+	min-height: 48px;
+	padding: 0 15px;
+	border: 1px solid rgba(155, 109, 255, 0.32);
+	border-radius: 5px;
+	outline: none;
+	background: rgba(7, 4, 16, 0.62);
+	color: white;
+	font: inherit;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input::placeholder {
+	color: var(--muted);
+}
+
+input:focus {
+	border-color: var(--gyg-light);
+	box-shadow: 0 0 0 3px rgba(155, 109, 255, 0.14);
+}
+
+button {
+	justify-self: center;
+	min-height: 46px;
+	padding: 0 18px;
+	border: 1px solid var(--gyg-light);
+	border-radius: 5px;
+	background: linear-gradient(135deg, var(--gyg-violet), var(--gyg-purple));
+	color: white;
+	font: 600 15px "Space Grotesk", Arial, sans-serif;
+	cursor: pointer;
+	box-shadow: none;
+	transition: filter 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+form button:hover,
+form button:focus-visible {
+	filter: brightness(1.2);
+	transform: translateY(-2px);
+	box-shadow: 0 10px 35px rgba(155, 109, 255, 0.42);
+}
+
+form button {
+	display: block;
+	margin-inline: auto;
+}
+
+#switchText {
+	margin: 24px 0 0;
+	color: var(--muted);
+	text-align: center;
+	font-size: 14px;
+}
+
+#switchAuth {
+	justify-self: auto;
+	display: inline;
+	min-height: auto;
+	padding: 0;
+	border: none;
+	background: none;
+	box-shadow: none;
+	color: var(--gyg-light);
+	font-size: inherit;
+	line-height: inherit;
+	text-decoration: none;
+	transition: color 0.25s ease, filter 0.25s ease, text-shadow 0.25s ease;
+}
+
+#switchAuth:hover,
+#switchAuth:focus-visible {
+	color: white;
+	filter: brightness(1.15);
+	transform: none;
+	box-shadow: none;
+	text-shadow: 0 0 10px rgba(255, 255, 255, 0.55);
+}
+
+#switchAuth:hover {
+	color: white;
+	filter: brightness(1.15);
+	transform: none;
+	box-shadow: none;
+	text-shadow: 0 0 10px rgba(255, 255, 255, 0.55);
+}
+
+@media (max-width: 520px) {
+	body {
+		padding: 22px 14px;
+	}
+
+	.authBox {
+		padding: 28px 20px;
+	}
+}

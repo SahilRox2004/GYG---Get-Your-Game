@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>GYG - Authentication</title>
+
+    <link
+        rel="stylesheet"
+        href="css/login.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <div class="authContainer">
+
+        <a
+            class="authLogo"
+            href="index.html"
+        >
+            <img
+                src="assets/logo.png"
+                alt="GYG"
+            >
+        </a>
+
+        <div class="authBox">
+
+
+            <!-- ========================= -->
+            <!-- AUTH TITLE -->
+            <!-- ========================= -->
+
+            <h1 id="authTitle">
+
+                Welcome Back
+
+            </h1>
+
+
+            <!-- ========================= -->
+            <!-- SIGN IN FORM -->
+            <!-- ========================= -->
+
+            <form id="signinForm">
+
+
+                <input
+                    type="email"
+                    id="signinEmail"
+                    placeholder="Email"
+                    required
+                >
+
+
+                <input
+                    type="password"
+                    id="signinPassword"
+                    placeholder="Password"
+                    required
+                >
+
+
+                <button
+                    type="submit"
+                >
+
+                    Sign In
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- ========================= -->
+            <!-- SIGN UP FORM -->
+            <!-- ========================= -->
+
+            <form
+                id="signupForm"
+                style="display: none;"
+            >
+
+
+                <input
+                    type="text"
+                    id="signupUsername"
+                    placeholder="Username"
+                    required
+                >
+
+
+                <input
+                    type="email"
+                    id="signupEmail"
+                    placeholder="Email"
+                    required
+                >
+
+
+                <input
+                    type="password"
+                    id="signupPassword"
+                    placeholder="Password"
+                    required
+                >
+
+
+                <button
+                    type="submit"
+                >
+
+                    Create Account
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- ========================= -->
+            <!-- SWITCH AUTH MODE -->
+            <!-- ========================= -->
+
+            <p id="switchText">
+
+                Don't have an account?
+
+                <button
+                    id="switchAuth"
+                    type="button"
+                >
+
+                    Sign Up
+
+                </button>
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- AUTHENTICATION SCRIPT -->
+    <!-- ========================= -->
+
+    <script src="js/login.js"></script>
+
+
+</body>
+
+</html>

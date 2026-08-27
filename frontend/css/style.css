@@ -1,0 +1,2478 @@
+/* ========================= */
+/* GYG VIOLET THEME */
+/* ========================= */
+
+@property --theme-progress {
+    syntax: "<percentage>";
+    inherits: true;
+    initial-value: 0%;
+}
+
+:root {
+    --theme-progress: 0%;
+
+    --gyg-deep: #160B2E;
+    --gyg-violet: #2B1055;
+    --gyg-purple: #5B2A86;
+    --gyg-light: #9B6DFF;
+
+    --gyg-accent:
+        color-mix(
+            in srgb,
+            var(--gyg-violet)
+                calc(100% - var(--theme-progress)),
+            var(--gyg-purple)
+                var(--theme-progress)
+        );
+
+    --gyg-glow:
+        color-mix(
+            in srgb,
+            var(--gyg-light)
+                calc(100% - var(--theme-progress)),
+            var(--gyg-purple)
+                var(--theme-progress)
+        );
+
+    animation:
+        gygThemeCycle
+        90s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+@keyframes gygThemeCycle {
+    0% {
+        --theme-progress: 0%;
+    }
+
+    100% {
+        --theme-progress: 100%;
+    }
+}
+
+
+/* ========================= */
+/* GLOBAL */
+/* ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+html {
+    overscroll-behavior: none;
+}
+
+body {
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(91,42,134,0.55),
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(43,16,85,0.65),
+            transparent 50%
+        ),
+        var(--gyg-deep);
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    overscroll-behavior: none;
+}
+
+#mainSite {
+    background: transparent;
+}
+
+
+/* ========================= */
+/* HEADER */
+/* ========================= */
+
+header {
+    min-height: 110px;
+    padding: 20px 35px;
+
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background:
+        rgba(20, 10, 40, 0.92);
+
+    backdrop-filter:
+        blur(12px);
+
+    border-bottom:
+        1px solid
+        rgba(155, 109, 255, 0.2);
+}
+
+
+/* ========================= */
+/* GYG LOGO */
+/* ========================= */
+
+.gygHeaderLogo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+    margin-right: auto;
+}
+
+.gygHeaderLogo img {
+    width: 110px;
+    height: auto;
+    display: block;
+
+    transition:
+        transform .3s ease,
+        filter .3s ease;
+}
+
+.gygHeaderLogo:hover img {
+    transform:
+        scale(1.08);
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            var(--gyg-light)
+        );
+}
+
+
+/* ========================= */
+/* EXPANDABLE SEARCH */
+/* ========================= */
+
+.search-container {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    margin-left: auto;
+
+}
+
+
+/* WRAPPER */
+
+.search-wrapper {
+
+    position: relative;
+
+    width: 52px;
+
+    height: 50px;
+
+    transition:
+
+        width .4s ease;
+
+}
+
+
+/* WHEN SEARCH IS OPEN */
+
+.search-wrapper.searchOpen {
+
+    width: 460px;
+
+    max-width: 42vw;
+
+}
+
+
+/* SEARCH ROW */
+
+.searchInputRow {
+
+    position: absolute;
+
+    top: 0;
+
+    right: 0;
+
+    width: 100%;
+
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+
+        rgba(15, 8, 28, 0.95);
+
+    border:
+
+        1px solid
+        rgba(155, 109, 255, 0.4);
+
+    border-radius: 6px;
+
+    transition:
+
+        border-color .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+/* FOCUS EFFECT */
+
+.searchInputRow:focus-within {
+
+    border-color:
+
+        var(--gyg-light);
+
+    box-shadow:
+
+        0 0 20px
+        rgba(155, 109, 255, 0.2);
+
+}
+
+
+/* INPUT */
+
+#searchBox {
+
+    flex: 1;
+
+    width: 100%;
+
+    height: 100%;
+
+    min-width: 0;
+
+    padding: 0 18px;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 16px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+
+        opacity .2s ease;
+
+}
+
+
+/* SHOW INPUT WHEN OPEN */
+
+.search-wrapper.searchOpen #searchBox {
+
+    opacity: 1;
+
+    pointer-events: auto;
+
+}
+
+
+/* PLACEHOLDER */
+
+#searchBox::placeholder {
+
+    color:
+
+        rgba(255,255,255,.55);
+
+}
+
+
+/* SEARCH BUTTON */
+
+#searchButton {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: 52px;
+
+    min-width: 52px;
+
+    height: 100%;
+
+    border: none;
+
+    border-left:
+
+        1px solid
+        rgba(155,109,255,.25);
+
+    background:
+
+        var(--gyg-accent);
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition:
+
+        filter .25s ease,
+        background .25s ease;
+
+}
+
+
+#searchButton svg {
+
+    display:
+        block;
+
+    width:
+        22px;
+
+    height:
+        22px;
+
+    flex-shrink:
+        0;
+
+    color:
+        white;
+
+}
+
+
+/* CLOSED STATE */
+
+.search-wrapper:not(.searchOpen) #searchButton {
+
+    border-left: none;
+
+}
+
+
+/* HOVER */
+
+#searchButton:hover {
+
+    filter:
+
+        brightness(1.25);
+
+}
+
+
+/* ========================= */
+/* COMPACT SEARCH SUGGESTIONS */
+/* ========================= */
+
+#searchSuggestions {
+
+    position: absolute;
+
+    top: calc(100% + 8px);
+
+    right: 0;
+
+    width: 100%;
+
+    max-height: 380px;
+
+    overflow-y: auto;
+
+    background:
+        rgba(20, 10, 40, 0.98);
+
+    border:
+        1px solid
+        rgba(155, 109, 255, 0.35);
+
+    border-radius: 8px;
+
+    z-index: 2000;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, .6);
+
+    display: none;
+
+}
+
+
+/* INDIVIDUAL RESULT */
+
+.searchSuggestion {
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 8px 12px;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, .06);
+
+}
+
+
+.searchSuggestion:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.searchSuggestion:hover {
+
+    background:
+        rgba(155, 109, 255, .16);
+
+}
+
+
+/* SMALL GAME COVER */
+
+.searchSuggestion img {
+
+    width: 38px;
+
+    height: 54px;
+
+    flex-shrink: 0;
+
+    object-fit: cover;
+
+    border-radius: 4px;
+
+}
+
+
+/* GAME INFO */
+
+.suggestionInfo {
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 4px;
+
+}
+
+
+/* GAME TITLE */
+
+.suggestionTitle {
+
+    max-width: 100%;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: white;
+
+}
+
+
+/* RELEASE YEAR */
+
+.suggestionYear {
+
+    font-size: 11px;
+
+    color:
+        rgba(255, 255, 255, .55);
+
+}
+
+
+/* PLATFORM RESULT */
+
+.platformSuggestionIcon {
+
+    width: 38px;
+
+    height: 54px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 22px;
+
+    background:
+        rgba(155, 109, 255, .12);
+
+    border-radius: 4px;
+
+}
+
+/* ========================= */
+/* HERO BANNER */
+/* ========================= */
+
+#hero {
+    position: relative;
+
+    width: 100%;
+    height: 78vh;
+
+    min-height: 600px;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+
+    transition:
+        background-image .8s ease-in-out;
+}
+
+
+/* ========================= */
+/* HERO OVERLAY */
+/* ========================= */
+
+.hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.92) 0%,
+            rgba(0,0,0,.78) 22%,
+            rgba(0,0,0,.38) 50%,
+            rgba(0,0,0,.08) 75%,
+            rgba(0,0,0,.15) 100%
+        );
+}
+
+
+#hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,.75) 0%,
+            transparent 35%
+        );
+}
+
+
+/* ========================= */
+/* HERO CONTENT */
+/* ========================= */
+
+.hero-content {
+    position: absolute;
+
+    left: 8%;
+    bottom: 17%;
+
+    width: 600px;
+
+    max-width: 48%;
+
+    z-index: 3;
+}
+
+
+/* ========================= */
+/* HERO BADGE */
+/* ========================= */
+
+#heroBadge {
+    display: inline-block;
+
+    padding: 10px 20px;
+
+    margin-bottom: 24px;
+
+    border-radius: 30px;
+
+    background: var(--gyg-violet);
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    box-shadow:
+        0 5px 25px
+        rgba(91,42,134,.35);
+}
+
+
+/* ========================= */
+/* HERO TITLE */
+/* ========================= */
+
+.hero-content h1 {
+    font-size: 68px;
+
+    line-height: 1.05;
+
+    margin-bottom: 20px;
+
+    font-weight: 800;
+
+    color: white;
+
+    text-shadow:
+        0 4px 20px
+        rgba(0,0,0,.7);
+}
+
+
+/* ========================= */
+/* HERO SUMMARY */
+/* ========================= */
+
+#heroSummary {
+    font-size: 19px;
+
+    line-height: 1.6;
+
+    color: #e5e5e5;
+
+    margin-bottom: 20px;
+
+    max-width: 580px;
+}
+
+
+/* ========================= */
+/* HERO DATE */
+/* ========================= */
+
+#heroDate {
+    font-size: 18px;
+
+    color: #ddd;
+
+    margin-bottom: 28px;
+}
+
+
+/* ========================= */
+/* HERO BUTTON */
+/* ========================= */
+
+#heroButton {
+    padding: 16px 30px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    color: white;
+
+    background:
+        var(--gyg-accent);
+
+    box-shadow:
+        0 8px 25px
+        color-mix(
+            in srgb,
+            var(--gyg-accent) 45%,
+            transparent
+        );
+
+    transition:
+        transform .25s ease,
+        filter .25s ease,
+        box-shadow .25s ease;
+}
+
+
+#heroButton:hover {
+    transform:
+        translateY(-2px);
+
+    filter:
+        brightness(1.2);
+
+    box-shadow:
+        0 10px 35px
+        color-mix(
+            in srgb,
+            var(--gyg-accent) 55%,
+            transparent
+        );
+}
+
+
+/* ========================= */
+/* HERO ARROWS */
+/* ========================= */
+
+#prevSlide,
+#nextSlide {
+    position: absolute;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    width: 55px;
+    height: 100px;
+
+    border: none;
+
+    background:
+        rgba(0,0,0,.18);
+
+    color: white;
+
+    font-size: 48px;
+
+    cursor: pointer;
+
+    z-index: 5;
+
+    opacity: .75;
+}
+
+#prevSlide {
+    left: 10px;
+}
+
+#nextSlide {
+    right: 10px;
+}
+
+
+/* ========================= */
+/* HERO DOTS */
+/* ========================= */
+
+#dots {
+    position: absolute;
+
+    bottom: 28px;
+
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    z-index: 5;
+}
+
+
+.dot {
+    width: 11px;
+    height: 11px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.45);
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease,
+        background .25s ease;
+}
+
+
+.dot:hover {
+    transform:
+        scale(1.2);
+}
+
+
+.activeDot {
+    background: white;
+
+    transform:
+        scale(1.2);
+}
+
+
+/* ========================= */
+/* UPCOMING GAMES */
+/* ========================= */
+
+#upcomingGamesSection {
+    padding: 70px 0 60px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #39245d 0%,
+            #24143d 55%,
+            #0d0815 100%
+        );
+
+    overflow: hidden;
+}
+
+
+.upcomingGamesHeader {
+    min-height: 300px;
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 12%;
+
+    margin-bottom: 35px;
+}
+
+
+.upcomingText {
+    max-width: 560px;
+}
+
+
+.upcomingEyebrow {
+    font-size: 16px;
+
+    letter-spacing: 4px;
+
+    margin: 0 0 15px;
+
+    color: #c9c3d6;
+}
+
+
+.upcomingText h2 {
+    margin: 0;
+
+    font-size: 60px;
+
+    line-height: 1.05;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: #ffffff;
+}
+
+
+.upcomingDescription {
+    margin-top: 22px;
+
+    max-width: 520px;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+
+    color: #c7c1d0;
+}
+
+
+/* ========================= */
+/* UPCOMING CAROUSEL */
+/* ========================= */
+
+#upcomingGamesGrid {
+    display: flex;
+
+    gap: 22px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+
+    padding: 0 40px 20px;
+
+    scrollbar-width: none;
+}
+
+
+#upcomingGamesGrid::-webkit-scrollbar {
+    display: none;
+}
+
+
+.anticipatedCard {
+    position: relative;
+
+    min-width: 480px;
+    height: 310px;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+    border-radius: 16px;
+
+    cursor: pointer;
+
+    background: #111;
+}
+
+
+.anticipatedCard img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform .5s ease;
+}
+
+
+.anticipatedCard:hover img {
+    transform:
+        scale(1.06);
+}
+
+
+.anticipatedOverlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.92) 0%,
+            rgba(0,0,0,.35) 55%,
+            rgba(0,0,0,.05) 100%
+        );
+}
+
+
+.anticipatedInfo {
+    position: absolute;
+
+    left: 28px;
+    right: 28px;
+    bottom: 25px;
+}
+
+
+.anticipatedInfo h3 {
+    margin: 0 0 10px;
+
+    font-size: 28px;
+
+    line-height: 1.1;
+
+    color: white;
+}
+
+
+.anticipatedInfo p {
+    margin: 0;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    color: #d7d2df;
+}
+
+
+/* ========================= */
+/* VIEW GAME BUTTON */
+/* ========================= */
+
+.viewButton {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 16px;
+
+    padding: 10px 18px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.8);
+
+    border-radius: 2px;
+
+    background:
+        rgba(255,255,255,.12);
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    backdrop-filter:
+        blur(5px);
+
+    opacity: 0;
+
+    transform:
+        translateY(12px);
+
+    transition:
+        opacity .3s ease,
+        transform .3s ease,
+        background .3s ease,
+        color .3s ease;
+}
+
+
+.viewButton:hover {
+    background: white;
+    color: #181020;
+}
+
+
+.anticipatedCard:hover .viewButton {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* ========================= */
+/* UPCOMING ARROWS */
+/* ========================= */
+
+.upcomingCarouselWrapper {
+    position: relative;
+}
+
+
+.upcomingArrow {
+    position: absolute;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    width: 52px;
+    height: 52px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(15,8,25,.85);
+
+    color: white;
+
+    font-size: 32px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    opacity: 0;
+
+    transition:
+        opacity .3s ease,
+        background .3s ease;
+}
+
+
+.upcomingCarouselWrapper:hover .upcomingArrow {
+    opacity: 1;
+}
+
+
+.upcomingArrow:hover {
+    background:
+        rgba(255,255,255,.18);
+}
+
+
+.upcomingArrowLeft {
+    left: 15px;
+}
+
+
+.upcomingArrowRight {
+    right: 15px;
+}
+
+
+/* ========================= */
+/* LATEST GAMING NEWS */
+/* ========================= */
+
+#gamingNewsSection {
+    padding: 80px 40px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #0d0815 0%,
+            #171020 100%
+        );
+}
+
+
+.gamingNewsHeader {
+    max-width: 1600px;
+
+    margin: 0 auto 45px;
+}
+
+
+.gamingNewsEyebrow {
+    font-size: 16px;
+
+    letter-spacing: 4px;
+
+    margin: 0 0 15px;
+
+    color: #c9c3d6;
+}
+
+
+.gamingNewsHeader h2 {
+    margin: 0;
+
+    font-size: 60px;
+
+    line-height: 1.05;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: #ffffff;
+}
+
+
+.gamingNewsDescription {
+    margin-top: 22px;
+
+    max-width: 600px;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+
+    color: #c7c1d0;
+}
+
+
+/* ========================= */
+/* NEWS GRID */
+/* ========================= */
+
+#gamingNewsGrid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 24px;
+
+    max-width: 1600px;
+
+    margin: 0 auto;
+}
+
+
+.newsCard {
+    min-height: 420px;
+
+    background: #17151b;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.newsCard:hover {
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.45);
+}
+
+
+.newsImage {
+    width: 100%;
+    height: 210px;
+
+    overflow: hidden;
+
+    background: #0b0b0d;
+}
+
+
+.newsImage img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform .5s ease;
+}
+
+
+.newsCard:hover .newsImage img {
+    transform:
+        scale(1.07);
+}
+
+
+.newsContent {
+    padding: 24px;
+}
+
+
+.newsMeta {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 14px;
+
+    font-size: 13px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    color: #a99fb8;
+}
+
+
+.newsSource {
+    color: #d4c6eb;
+    font-weight: 600;
+}
+
+
+.newsTitle {
+    margin: 0 0 14px;
+
+    font-size: 23px;
+
+    line-height: 1.3;
+
+    color: white;
+}
+
+
+.newsDescription {
+    margin: 0;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    color: #bdb7c7;
+}
+
+
+/* ========================= */
+/* FEATURED COLLECTION */
+/* ========================= */
+
+#featuredSection {
+    position: relative;
+
+    min-height: 620px;
+
+    padding: 90px 10%;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #171020 0%,
+            #24183a 100%
+        );
+}
+
+
+#featuredBackground {
+    position: absolute;
+
+    inset: 0;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transition:
+        background-image .7s ease;
+}
+
+
+.featuredBackgroundOverlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(18,10,30,.96) 0%,
+            rgba(18,10,30,.88) 35%,
+            rgba(18,10,30,.45) 65%,
+            rgba(18,10,30,.15) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(13,8,21,.15) 0%,
+            rgba(13,8,21,.75) 100%
+        );
+}
+
+
+.featuredContent {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 620px;
+}
+
+
+.featuredEyebrow {
+    font-size: 16px;
+
+    letter-spacing: 4px;
+
+    margin: 0 0 15px;
+
+    color: #c9c3d6;
+}
+
+
+#featuredTitle {
+    margin: 0;
+
+    font-size: 60px;
+
+    line-height: 1.05;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: #ffffff;
+}
+
+
+#featuredSubtitle {
+    margin: 22px 0 0;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    color: #d0c9dc;
+}
+
+
+#featuredDescription {
+    margin: 22px 0 0;
+
+    max-width: 600px;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    color: #c7c1d0;
+}
+
+
+.featuredCollectionButton {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 30px;
+
+    padding: 13px 22px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.7);
+
+    background:
+        rgba(255,255,255,.08);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: .5px;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease;
+}
+
+
+.featuredCollectionButton:hover {
+    background: white;
+
+    color: #181020;
+
+    transform:
+        translateX(5px);
+}
+
+
+.featuredArrow {
+    position: absolute;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    width: 54px;
+    height: 70px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background:
+        rgba(10,8,15,.7);
+
+    backdrop-filter:
+        blur(8px);
+
+    color: white;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    z-index: 5;
+
+    opacity: 0;
+
+    transition:
+        opacity .3s ease,
+        background .25s ease;
+}
+
+
+#featuredSection:hover .featuredArrow {
+    opacity: 1;
+}
+
+
+.featuredArrow:hover {
+    background:
+        rgba(255,255,255,.15);
+}
+
+
+.featuredArrow.left {
+    left: 30px;
+}
+
+
+.featuredArrow.right {
+    right: 30px;
+}
+
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 1000px) {
+
+    #gamingNewsGrid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .upcomingText h2 {
+        font-size: 48px;
+    }
+
+    .anticipatedCard {
+        min-width: 420px;
+    }
+
+    .search-wrapper.search-active {
+        width: 380px;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    header {
+        min-height: auto;
+
+        padding: 15px 20px;
+    }
+
+    .gygHeaderLogo img {
+        width: 75px;
+    }
+
+    .search-wrapper {
+        width: 46px;
+        height: 46px;
+    }
+
+    .search-wrapper.search-active {
+        width: 280px;
+    }
+
+    .searchInputRow {
+        height: 46px;
+    }
+
+    #searchButton {
+        width: 46px;
+        min-width: 46px;
+    }
+
+    #hero {
+        height: 75vh;
+
+        min-height: 520px;
+
+        background-position: center;
+    }
+
+    .hero-overlay {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(0,0,0,.9),
+                rgba(0,0,0,.35)
+            );
+    }
+
+    .hero-content {
+        left: 25px;
+
+        bottom: 90px;
+
+        width: calc(100% - 50px);
+
+        max-width: none;
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
+    }
+
+    #upcomingGamesSection {
+        padding: 50px 0;
+    }
+
+    .upcomingGamesHeader {
+        min-height: 220px;
+
+        padding: 0 25px;
+    }
+
+    .upcomingText h2 {
+        font-size: 40px;
+    }
+
+    #upcomingGamesGrid {
+        padding: 0 20px 20px;
+
+        gap: 15px;
+    }
+
+    .anticipatedCard {
+        min-width: 85vw;
+
+        height: 280px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    #gamingNewsSection {
+        padding: 60px 20px;
+    }
+
+    .gamingNewsHeader h2 {
+        font-size: 42px;
+    }
+
+    #gamingNewsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    #featuredSection {
+        padding:
+            55px
+            20px
+            65px;
+    }
+
+    #featuredTitle {
+        font-size: 30px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    header {
+        gap: 12px;
+
+        padding: 12px 15px;
+    }
+
+    .gygHeaderLogo img {
+        width: 60px;
+    }
+
+    .search-wrapper.search-active {
+        width:
+            calc(100vw - 100px);
+    }
+
+    #searchBox {
+        font-size: 14px;
+    }
+
+}
+
+/* ========================= */
+/* CONSOLE MENU */
+/* ========================= */
+
+.consoleMenu {
+
+    position: relative;
+
+    margin-left: 0;
+
+    transform: translateX(-42px);
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+/* CONSOLE BUTTON */
+
+.consoleButton {
+
+    height: 46px;
+
+    padding: 0 6px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    border: none;
+
+    border-radius: 0;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    transition:
+
+        color .25s ease,
+        transform .3s ease,
+        filter .3s ease;
+
+}
+
+
+.consoleButton:hover,
+.consoleButton.active {
+
+    color: white;
+
+    transform: scale(1.08);
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            white
+        );
+
+}
+
+
+/* CHEVRON */
+
+.consoleChevron {
+
+    width: 16px;
+
+    height: 16px;
+
+    transition:
+
+        transform .3s ease;
+
+}
+
+
+.consoleButton.active .consoleChevron {
+
+    transform:
+
+        rotate(180deg);
+
+}
+
+
+/* ========================= */
+/* HORIZONTAL DROPDOWN */
+/* ========================= */
+
+.consoleDropdown {
+
+    position: absolute;
+
+    top: calc(100% + 14px);
+
+    left: 50%;
+
+    right: auto;
+
+    width:
+
+        min(1100px, calc(100vw - 70px));
+
+    padding: 18px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    background:
+
+        rgba(20, 10, 40, .98);
+
+    border:
+
+        1px solid
+        rgba(155, 109, 255, .35);
+
+    border-radius: 10px;
+
+    box-shadow:
+
+        0 20px 50px
+        rgba(0, 0, 0, .65);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+
+        translate(-50%, -10px);
+
+    pointer-events: none;
+
+    transition:
+
+        opacity .25s ease,
+        transform .25s ease,
+        visibility .25s ease;
+
+    z-index: 3000;
+
+}
+
+
+/* OPEN */
+
+.consoleDropdown.open {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+
+        translate(-50%, 0);
+
+    pointer-events: auto;
+
+}
+
+
+/* PLATFORM ITEMS */
+
+.consoleDropdown a {
+
+    min-width: 150px;
+
+    padding: 13px 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    text-decoration: none;
+
+    color: white;
+
+    background:
+
+        rgba(255, 255, 255, .04);
+
+    border:
+
+        1px solid
+        rgba(255, 255, 255, .08);
+
+    border-radius: 5px;
+
+    font-size: 14px;
+
+    transition:
+
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+
+}
+
+
+.consoleDropdown a:hover {
+
+    background:
+
+        rgba(155, 109, 255, .18);
+
+    border-color:
+
+        rgba(155, 109, 255, .6);
+
+    transform:
+
+        translateY(-2px);
+
+}
+
+/* ========================= */
+/* COLLECTION MENU */
+/* ========================= */
+
+.collectionMenu {
+
+    position: relative;
+
+    margin-left: 0;
+
+    transform: translateX(-42px);
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+/* COLLECTION BUTTON */
+
+.collectionButton {
+
+    height: 46px;
+
+    padding: 0 6px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    border: none;
+
+    border-radius: 0;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    transition:
+
+        color .25s ease,
+        transform .3s ease,
+        filter .3s ease;
+
+}
+
+
+.collectionButton:hover,
+.collectionButton.active {
+
+    color: white;
+
+    transform: scale(1.08);
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            white
+        );
+
+}
+
+
+/* COLLECTION CHEVRON */
+
+.collectionChevron {
+
+    width: 16px;
+
+    height: 16px;
+
+    transition:
+
+        transform .3s ease;
+
+}
+
+
+.collectionButton.active .collectionChevron {
+
+    transform:
+
+        rotate(180deg);
+
+}
+
+
+/* ========================= */
+/* COLLECTION DROPDOWN */
+/* ========================= */
+
+.collectionDropdown {
+
+    position: absolute;
+
+    top: calc(100% + 14px);
+
+    left: 50%;
+
+    right: auto;
+
+    width:
+
+        min(1100px, calc(100vw - 70px));
+
+    padding: 18px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    background:
+
+        rgba(20, 10, 40, .98);
+
+    border:
+
+        1px solid
+        rgba(155, 109, 255, .35);
+
+    border-radius: 10px;
+
+    box-shadow:
+
+        0 20px 50px
+        rgba(0, 0, 0, .65);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+
+        translate(-50%, -10px);
+
+    pointer-events: none;
+
+    transition:
+
+        opacity .25s ease,
+        transform .25s ease,
+        visibility .25s ease;
+
+    z-index: 3000;
+
+}
+
+
+/* OPEN */
+
+.collectionDropdown.open {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+
+        translate(-50%, 0);
+
+    pointer-events: auto;
+
+}
+
+
+/* COLLECTION ITEMS */
+
+.collectionDropdown a {
+
+    min-width: 190px;
+
+    padding: 13px 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    text-decoration: none;
+
+    color: white;
+
+    background:
+
+        rgba(255, 255, 255, .04);
+
+    border:
+
+        1px solid
+        rgba(255, 255, 255, .08);
+
+    border-radius: 5px;
+
+    font-size: 14px;
+
+    transition:
+
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+
+}
+
+
+.collectionDropdown a:hover {
+
+    background:
+
+        rgba(155, 109, 255, .18);
+
+    border-color:
+
+        rgba(155, 109, 255, .6);
+
+    transform:
+
+        translateY(-2px);
+
+}
+
+/* ========================= */
+/* LOGIN MENU */
+/* ========================= */
+
+.loginMenu {
+
+    position: relative;
+
+    margin-left: 0;
+
+    transform: translateX(-42px);
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+/* ========================= */
+/* LOGIN BUTTON */
+/* ========================= */
+
+.loginButton {
+
+    height: 46px;
+
+    padding: 0 6px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    border: none;
+
+    border-radius: 0;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    transition:
+
+        color .25s ease,
+        transform .3s ease,
+        filter .3s ease;
+
+}
+
+
+/* HOVER / ACTIVE */
+
+.loginButton:hover,
+.loginButton.active {
+
+    color: white;
+
+    transform: scale(1.08);
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            white
+        );
+
+}
+
+
+/* ========================= */
+/* LOGIN CHEVRON */
+/* ========================= */
+
+.loginChevron {
+
+    width: 16px;
+
+    height: 16px;
+
+    transition:
+
+        transform .3s ease;
+
+}
+
+
+.loginButton.active .loginChevron {
+
+    transform:
+
+        rotate(180deg);
+
+}
+
+/* ========================= */
+/* LOGIN DROPDOWN */
+/* ========================= */
+
+.loginDropdown {
+
+    position: absolute;
+
+    top: calc(100% + 14px);
+
+    left: 50%;
+
+    right: auto;
+
+    width: 280px;
+
+    padding: 8px;
+
+    display: flex;
+
+    flex-direction: row;
+
+    gap: 8px;
+
+    background:
+
+        rgba(20, 10, 40, .98);
+
+    border:
+
+        1px solid
+        rgba(155, 109, 255, .35);
+
+    border-radius: 10px;
+
+    box-shadow:
+
+        0 20px 50px
+        rgba(0, 0, 0, .65);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+
+        translate(-50%, -10px);
+
+    pointer-events: none;
+
+    transition:
+
+        opacity .25s ease,
+        transform .25s ease,
+        visibility .25s ease;
+
+    z-index: 3000;
+
+}
+
+
+/* OPEN */
+
+.loginDropdown.open {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+
+        translate(-50%, 0);
+
+    pointer-events: auto;
+
+}
+
+
+/* ========================= */
+/* LOGIN OPTIONS */
+/* ========================= */
+
+.loginDropdown a {
+
+    flex: 1;
+
+    padding: 13px 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-decoration: none;
+
+    color: white;
+
+    background:
+
+        rgba(255, 255, 255, .04);
+
+    border:
+
+        1px solid
+        rgba(255, 255, 255, .08);
+
+    border-radius: 5px;
+
+    font-size: 14px;
+
+    white-space: nowrap;
+
+    transition:
+
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+
+}
+
+
+.loginDropdown a:hover {
+
+    background:
+
+        rgba(155, 109, 255, .18);
+
+    border-color:
+
+        rgba(155, 109, 255, .6);
+
+    transform:
+
+        translateY(-2px);
+
+}

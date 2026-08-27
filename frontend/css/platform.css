@@ -1,0 +1,897 @@
+/* ========================= */
+/* PLATFORM PAGE */
+/* ========================= */
+
+
+/* ========================= */
+/* PLATFORM HERO */
+/* ========================= */
+
+#platformHero {
+
+    position: relative;
+
+    min-height: 720px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    overflow: hidden;
+
+}
+
+
+#platformBackground {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-position: center;
+
+    background-size: cover;
+
+    background-repeat: no-repeat;
+
+    transform: scale(1);
+
+}
+
+
+/* ========================= */
+/* HERO OVERLAY */
+/* ========================= */
+
+.platformHeroOverlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(8, 5, 15, 0.96) 0%,
+            rgba(8, 5, 15, 0.78) 35%,
+            rgba(8, 5, 15, 0.22) 72%,
+            rgba(8, 5, 15, 0.35) 100%
+        ),
+
+        linear-gradient(
+            0deg,
+            rgba(8, 5, 15, 0.95) 0%,
+            transparent 45%
+        );
+
+}
+
+
+/* ========================= */
+/* HERO CONTENT */
+/* ========================= */
+
+.platformHeroContent {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 720px;
+
+    padding:
+        80px
+        10vw
+        90px;
+
+}
+
+
+#platformEyebrow {
+
+    margin: 0 0 18px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 5px;
+
+    color: #cfc8db;
+
+}
+
+
+#platformName {
+
+    margin: 0;
+
+    font-size: clamp(
+        58px,
+        7vw,
+        110px
+    );
+
+    line-height: 0.9;
+
+    letter-spacing: -2px;
+
+}
+
+
+#platformManufacturer {
+
+    margin: 25px 0 0;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    color: #ffffff;
+
+}
+
+
+#platformRelease {
+
+    margin: 8px 0 0;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+
+    color: #c7c2cf;
+
+}
+
+
+#platformHeroDescription {
+
+    max-width: 620px;
+
+    margin: 28px 0 0;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    color: #ded9e6;
+
+}
+
+/* ========================= */
+/* SECTION EYEBROWS */
+/* ========================= */
+
+.sectionEyebrow {
+
+    margin: 0 0 18px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 5px;
+
+    color: #cfc8db;
+
+}
+
+
+
+/* ========================= */
+/* ABOUT PLATFORM */
+/* ========================= */
+
+#platformInfo {
+
+    padding:
+        100px
+        10vw;
+
+}
+
+
+/* Use collection-style heading */
+
+#platformInfo h2 {
+
+    margin: 0;
+
+    font-size: clamp(
+        48px,
+        5vw,
+        82px
+    );
+
+    line-height: 0.92;
+
+}
+
+
+.platformAboutContent {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.5fr)
+        minmax(280px, 0.7fr);
+
+    gap: 100px;
+
+    margin-top: 60px;
+
+    align-items: start;
+
+}
+
+
+#platformSummary {
+
+    margin: 0;
+
+    max-width: 800px;
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+}
+
+
+/* ========================= */
+/* PLATFORM FACTS */
+/* ========================= */
+
+.platformFacts {
+
+    display: flex;
+
+    flex-direction: column;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.15);
+
+}
+
+
+.platformFact {
+
+    padding: 22px 0;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.15);
+
+}
+
+
+.platformFact span {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    color: #aaa4b2;
+
+}
+
+
+.platformFact strong {
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+}
+
+
+.platformFact strong a {
+
+    color:
+        inherit;
+
+    text-decoration:
+        none;
+
+    transition:
+        color .25s ease,
+        text-shadow .25s ease;
+
+}
+
+
+.platformFact strong a:hover {
+
+    color:
+        #ffffff;
+
+    text-shadow:
+        0 0 10px
+        rgba(255, 255, 255, .75);
+
+}
+
+
+
+/* ========================= */
+/* GAME SECTIONS */
+/* ========================= */
+
+.platformGameSection {
+
+    position: relative;
+
+    padding:
+        90px
+        6vw
+        100px;
+
+}
+
+
+/* ========================= */
+/* ALTERNATING GYG THEME */
+/* ========================= */
+
+
+/* Section 1 */
+
+#popularSection {
+
+    background: #3b2c59;
+
+    color: #f4f1f7;
+
+}
+
+
+/* Section 2 */
+
+#ratedSection {
+
+    background: #110c18;
+
+    color: #f4f1f7;
+
+}
+
+
+/* Section 3 */
+
+#anticipatedSection {
+
+    background: #3b2c59;
+
+    color: #f4f1f7;
+
+}
+
+
+/* Section 4 */
+
+#exclusiveSection {
+
+    background: #110c18;
+
+    color: #f4f1f7;
+
+}
+
+
+
+/* ========================= */
+/* SECTION HEADER */
+/* ========================= */
+
+.platformGameSection
+.sectionHeader {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    gap: 40px;
+
+    margin-bottom: 50px;
+
+}
+
+
+.platformGameSection h2 {
+
+    margin: 0;
+
+    font-size: clamp(
+        52px,
+        5vw,
+        86px
+    );
+
+    line-height: 0.9;
+
+    letter-spacing: -1px;
+
+}
+
+
+.platformSectionName {
+
+    display: inline-block;
+
+}
+
+
+.platformSectionDescription {
+
+    max-width: 520px;
+
+    margin: 25px 0 0;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+
+    color: rgba(
+        255,
+        255,
+        255,
+        0.72
+    );
+
+}
+
+
+/* ========================= */
+/* CAROUSEL */
+/* ========================= */
+
+.platformCarousel {
+
+    display: flex;
+
+    gap: 20px;
+
+    overflow-x: auto;
+
+    scroll-behavior: smooth;
+
+    scrollbar-width: none;
+
+    padding-bottom: 10px;
+
+}
+
+
+.platformCarousel::-webkit-scrollbar {
+
+    display: none;
+
+}
+
+
+
+/* ========================= */
+/* GAME CARD */
+/* ========================= */
+
+.platformGameCard {
+
+    position: relative;
+
+    min-width: 210px;
+
+    width: 210px;
+
+    aspect-ratio: 2 / 3;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+
+    background: #17121f;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.35);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.platformGameCard img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.5s ease;
+
+}
+
+
+/* ========================= */
+/* CARD OVERLAY */
+/* ========================= */
+
+.platformGameCard::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.95) 0%,
+            rgba(0, 0, 0, 0.65) 30%,
+            rgba(0, 0, 0, 0.08) 65%,
+            transparent 100%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.platformGameCard:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 20px 45px
+        rgba(0, 0, 0, 0.5);
+
+}
+
+
+.platformGameCard:hover img {
+
+    transform: scale(1.05);
+
+}
+
+
+/* ========================= */
+/* CARD TEXT */
+/* ========================= */
+
+.platformCardInfo {
+
+    position: absolute;
+
+    z-index: 2;
+
+    left: 16px;
+
+    right: 16px;
+
+    bottom: 16px;
+
+}
+
+
+.platformGameCard h3 {
+
+    margin: 0;
+
+    font-size: 19px;
+
+    line-height: 1.15;
+
+    color: white;
+
+}
+
+
+.platformGameMeta {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 8px;
+
+    font-size: 12px;
+
+    color: rgba(
+        255,
+        255,
+        255,
+        0.85
+    );
+
+}
+
+
+
+/* ========================= */
+/* CAROUSEL CONTROLS */
+/* ========================= */
+
+.platformGameSection
+.carouselControls {
+
+    display: flex;
+
+    gap: 10px;
+
+}
+
+
+.platformGameSection
+.carouselControls button {
+
+    width: 52px;
+
+    height: 52px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+
+}
+
+
+.platformGameSection
+.carouselControls button:hover {
+
+    transform: scale(1.08);
+
+    opacity: 0.85;
+
+}
+
+
+
+/* ========================= */
+/* LIGHT SECTION CONTROLS */
+/* ========================= */
+
+#popularSection
+.carouselControls button,
+
+#anticipatedSection
+.carouselControls button {
+
+    background: #18121f;
+
+    color: white;
+
+}
+
+
+
+/* ========================= */
+/* DARK SECTION CONTROLS */
+/* ========================= */
+
+#ratedSection
+.carouselControls button,
+
+#exclusiveSection
+.carouselControls button {
+
+    background: #3b2c59;
+
+    color: white;
+
+}
+
+
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 900px) {
+
+    #platformHero {
+
+        min-height: 620px;
+
+    }
+
+
+    .platformHeroContent {
+
+        padding:
+            60px
+            7vw
+            70px;
+
+    }
+
+
+    #platformInfo {
+
+        padding:
+            80px
+            7vw;
+
+    }
+
+
+    .platformAboutContent {
+
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+
+    }
+
+
+    .platformGameSection {
+
+        padding:
+            70px
+            7vw
+            80px;
+
+    }
+
+
+    .platformGameCard {
+
+    min-width: 180px;
+
+    width: 180px;
+
+    aspect-ratio: 2 / 3;
+
+}
+
+}
+
+
+
+@media (max-width: 600px) {
+
+    #platformHero {
+
+        min-height: 600px;
+
+    }
+
+
+    .platformHeroContent {
+
+        padding:
+            50px
+            25px
+            60px;
+
+    }
+
+
+    #platformEyebrow {
+
+        font-size: 10px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    #platformManufacturer {
+
+        font-size: 16px;
+
+    }
+
+
+    #platformHeroDescription {
+
+        font-size: 16px;
+
+    }
+
+
+    #platformInfo {
+
+        padding:
+            70px
+            25px;
+
+    }
+
+
+    #platformSummary {
+
+        font-size: 16px;
+
+    }
+
+
+    .platformGameSection {
+
+        padding:
+            65px
+            25px
+            70px;
+
+    }
+
+
+    .platformGameSection
+    .sectionHeader {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+
+    .platformGameCard {
+
+    min-width: 145px;
+
+    width: 145px;
+
+    aspect-ratio: 2 / 3;
+
+}
+
+
+    .platformCardInfo {
+
+        left: 20px;
+
+        right: 20px;
+
+        bottom: 20px;
+
+    }
+
+
+    .platformGameCard h3 {
+
+        font-size: 22px;
+
+    }
+
+
+    .platformGameSection
+    .carouselControls {
+
+        display: none;
+
+    }
+
+}

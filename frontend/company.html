@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>GYG - Company</title>
+
+
+    <!-- MAIN GYG STYLES -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+
+    <!-- COMPANY PAGE STYLES -->
+
+    <link
+        rel="stylesheet"
+        href="css/company.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ========================= -->
+<!-- HEADER -->
+<!-- ========================= -->
+
+<header>
+
+    <!-- GYG LOGO -->
+
+    <a
+        href="index.html"
+        class="gygHeaderLogo"
+    >
+
+        <img
+            src="assets/logo.png"
+            alt="GYG"
+        >
+
+    </a>
+
+
+    <!-- ========================= -->
+    <!-- CONSOLE DROPDOWN -->
+    <!-- ========================= -->
+
+    <div class="consoleMenu">
+
+        <button
+            id="consoleButton"
+            class="consoleButton"
+            type="button"
+            aria-expanded="false"
+        >
+
+            <span>
+                CONSOLES
+            </span>
+
+            <svg
+                class="consoleChevron"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <path
+                    d="M6 9l6 6 6-6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+
+            </svg>
+
+        </button>
+
+
+        <div
+            id="consoleDropdown"
+            class="consoleDropdown"
+        >
+
+            <!-- PLAYSTATION -->
+
+            <a href="platform.html?platform=PlayStation">
+                PlayStation
+            </a>
+
+            <a href="platform.html?platform=PlayStation%202">
+                PlayStation 2
+            </a>
+
+            <a href="platform.html?platform=PlayStation%203">
+                PlayStation 3
+            </a>
+
+            <a href="platform.html?platform=PlayStation%204">
+                PlayStation 4
+            </a>
+
+            <a href="platform.html?platform=PlayStation%205">
+                PlayStation 5
+            </a>
+
+            <a href="platform.html?platform=PlayStation%20Portable">
+                PSP
+            </a>
+
+            <a href="platform.html?platform=PlayStation%20Vita">
+                PS Vita
+            </a>
+
+
+            <!-- XBOX -->
+
+            <a href="platform.html?platform=Xbox">
+                Xbox
+            </a>
+
+            <a href="platform.html?platform=Xbox%20360">
+                Xbox 360
+            </a>
+
+            <a href="platform.html?platform=Xbox%20One">
+                Xbox One
+            </a>
+
+            <a href="platform.html?platform=Xbox%20Series%20X%7CS">
+                Xbox Series X|S
+            </a>
+
+
+            <!-- NINTENDO CONSOLES -->
+
+            <a href="platform.html?platform=Nintendo%20Entertainment%20System">
+                NES
+            </a>
+
+            <a href="platform.html?platform=Super%20Nintendo%20Entertainment%20System">
+                SNES
+            </a>
+
+            <a href="platform.html?platform=Nintendo%2064">
+                Nintendo 64
+            </a>
+
+            <a href="platform.html?platform=Nintendo%20GameCube">
+                GameCube
+            </a>
+
+            <a href="platform.html?platform=Wii">
+                Wii
+            </a>
+
+            <a href="platform.html?platform=Wii%20U">
+                Wii U
+            </a>
+
+            <a href="platform.html?platform=Nintendo%20Switch">
+                Nintendo Switch
+            </a>
+
+            <a href="platform.html?platform=Nintendo%20Switch%202">
+                Nintendo Switch 2
+            </a>
+
+
+            <!-- NINTENDO HANDHELDS -->
+
+            <a href="platform.html?platform=Game%20Boy">
+                Game Boy
+            </a>
+
+            <a href="platform.html?platform=Game%20Boy%20Color">
+                Game Boy Color
+            </a>
+
+            <a href="platform.html?platform=Game%20Boy%20Advance">
+                Game Boy Advance
+            </a>
+
+            <a href="platform.html?platform=Nintendo%20DS">
+                Nintendo DS
+            </a>
+
+            <a href="platform.html?platform=Nintendo%20DSi">
+                Nintendo DSi
+            </a>
+
+            <a href="platform.html?platform=Nintendo%203DS">
+                Nintendo 3DS
+            </a>
+
+            <a href="platform.html?platform=New%20Nintendo%203DS">
+                New Nintendo 3DS
+            </a>
+
+
+            <!-- SEGA -->
+
+            <a href="platform.html?platform=Sega%20Genesis">
+                Sega Genesis
+            </a>
+
+            <a href="platform.html?platform=Sega%20Mega%20Drive">
+                Sega Mega Drive
+            </a>
+
+            <a href="platform.html?platform=Sega%20Saturn">
+                Sega Saturn
+            </a>
+
+            <a href="platform.html?platform=Dreamcast">
+                Dreamcast
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- ========================= -->
+<!-- COLLECTION DROPDOWN -->
+<!-- ========================= -->
+
+<div class="collectionMenu">
+
+    <button
+        id="collectionButton"
+        class="collectionButton"
+        type="button"
+        aria-expanded="false"
+    >
+
+        <span>
+            COLLECTIONS
+        </span>
+
+        <svg
+            class="collectionChevron"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+        >
+
+            <path
+                d="M6 9l6 6 6-6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+
+        </svg>
+
+    </button>
+
+
+    <div
+        id="collectionDropdown"
+        class="collectionDropdown"
+    ></div>
+
+</div>
+
+<!-- ========================= -->
+<!-- LOGIN DROPDOWN -->
+<!-- ========================= -->
+
+<div class="loginMenu">
+
+    <button
+        id="loginButton"
+        class="loginButton"
+        type="button"
+        aria-expanded="false"
+    >
+
+        <span>
+            LOGIN
+        </span>
+
+        <svg
+            class="loginChevron"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+        >
+
+            <path
+                d="M6 9l6 6 6-6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+
+        </svg>
+
+    </button>
+
+
+    <div
+        id="loginDropdown"
+        class="loginDropdown"
+    >
+
+        <a href="login.html?mode=signin">
+            Sign In
+        </a>
+
+        <a href="login.html?mode=signup">
+            Sign Up
+        </a>
+
+    </div>
+
+</div>
+
+
+    <!-- EXPANDABLE SEARCH -->
+
+    <div class="search-container">
+
+        <div class="search-wrapper">
+
+            <div class="searchInputRow">
+
+                <input
+                    type="text"
+                    id="searchBox"
+                    placeholder="Search Games..."
+                    autocomplete="off"
+                    aria-label="Search games"
+                >
+
+                <button
+                    id="searchButton"
+                    type="button"
+                    aria-label="Search"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="22"
+                        height="22"
+                        aria-hidden="true"
+                    >
+
+                        <circle
+                            cx="11"
+                            cy="11"
+                            r="6"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        />
+
+                        <path
+                            d="M16 16l5 5"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                        />
+
+                    </svg>
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="searchSuggestions"
+            ></div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- ========================= -->
+<!-- COMPANY HERO -->
+<!-- ========================= -->
+
+<section
+    id="companyHero"
+>
+
+
+    <!-- BEST GAMES BACKGROUND -->
+
+    <div
+        id="companyBackground"
+    >
+
+        <!-- Dynamically generated game images -->
+
+        <div
+            id="companyGameBackground"
+        ></div>
+
+    </div>
+
+
+    <!-- DARK OVERLAY -->
+
+    <div
+        class="companyHeroOverlay"
+    ></div>
+
+
+    <!-- HERO CONTENT -->
+
+    <div
+        class="companyHeroContent"
+    >
+
+        <p
+            id="companyEyebrow"
+        >
+            GAME COMPANY
+        </p>
+
+
+        <h1
+            id="companyName"
+        >
+            Loading...
+        </h1>
+
+
+        <div
+            class="companyHeroMeta"
+        >
+
+            <p
+                id="companyFounded"
+            ></p>
+
+
+            <p
+                id="companyLocation"
+            ></p>
+
+        </div>
+
+
+        <p
+            id="companyHeroDescription"
+        ></p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================= -->
+<!-- ABOUT COMPANY -->
+<!-- ========================= -->
+
+<section
+    id="companyInfo"
+>
+
+    <div
+        class="sectionHeader"
+    >
+
+        <div>
+
+            <p
+                class="sectionEyebrow"
+            >
+                THE STORY BEHIND
+            </p>
+
+
+            <h2>
+
+                <span
+                    id="companyAboutName"
+                >
+                    THIS COMPANY
+                </span>
+
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="companyAboutContent"
+    >
+
+        <p
+            id="companySummary"
+        >
+            Loading...
+        </p>
+
+
+        <div
+            class="companyFacts"
+        >
+
+
+            <!-- FOUNDED -->
+
+            <div
+                class="companyFact"
+            >
+
+                <span>
+                    FOUNDED
+                </span>
+
+                <strong
+                    id="companyFactFounded"
+                ></strong>
+
+            </div>
+
+
+
+            <!-- COUNTRY -->
+
+            <div
+                class="companyFact"
+            >
+
+                <span>
+                    COUNTRY
+                </span>
+
+                <strong
+                    id="companyFactCountry"
+                ></strong>
+
+            </div>
+
+
+
+            <!-- PARENT COMPANY -->
+
+            <div
+                class="companyFact"
+            >
+
+                <span>
+                    PARENT COMPANY
+                </span>
+
+                <strong
+                    id="companyParent"
+                ></strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================= -->
+<!-- GAMES BY PARENT COMPANY -->
+<!-- ========================= -->
+
+<section
+    class="companyGameSection"
+    id="companyGamesSection"
+>
+
+    <div
+        class="sectionHeader"
+    >
+
+        <div>
+
+            <p
+                class="sectionEyebrow"
+            >
+                BUILT BY THE COMPANY
+            </p>
+
+
+            <h2>
+
+                GAMES BY<br>
+
+                <span
+                    class="companySectionName"
+                ></span>
+
+            </h2>
+
+
+            <p
+                class="companySectionDescription"
+            >
+                Explore the games developed or published
+                throughout the company's history.
+            </p>
+
+        </div>
+
+
+        <div
+            class="carouselControls"
+        >
+
+            <button
+                class="companyGamesLeft"
+                type="button"
+                aria-label="Previous games"
+            >
+                ❮
+            </button>
+
+
+            <button
+                class="companyGamesRight"
+                type="button"
+                aria-label="Next games"
+            >
+                ❯
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="companyCarousel"
+        id="companyGames"
+    ></div>
+
+</section>
+
+
+
+<!-- ========================= -->
+<!-- STUDIOS & SUBSIDIARIES -->
+<!-- ========================= -->
+
+<section
+    id="studiosSection"
+>
+
+
+    <div
+        class="sectionHeader studioMainHeader"
+    >
+
+        <div>
+
+            <p
+                class="sectionEyebrow"
+            >
+                THE STUDIOS BEHIND THE GAMES
+            </p>
+
+
+            <h2>
+
+                STUDIOS &<br>
+
+                SUBSIDIARIES
+
+            </h2>
+
+
+            <p
+                class="companySectionDescription"
+            >
+
+                The studios and companies that make up
+
+                <span
+                    class="companySectionName"
+                ></span>.
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ========================= -->
+    <!-- DYNAMIC STUDIO SECTIONS -->
+    <!-- ========================= -->
+
+    <div
+        id="studioGameSections"
+    ></div>
+
+
+</section>
+
+
+
+<!-- ========================= -->
+<!-- FRANCHISES -->
+<!-- Future dynamic section -->
+<!-- ========================= -->
+
+<div
+    id="franchiseSections"
+></div>
+
+
+
+<!-- ========================= -->
+<!-- SCRIPTS -->
+<!-- ========================= -->
+
+<script
+    src="js/main.js"
+></script>
+
+<script src="js/consoleDropdown.js"></script>
+
+    <script src="js/collectionDropdown.js"></script>
+
+    <script src="js/loginDropdown.js"></script>
+
+
+<script
+    src="js/company.js"
+></script>
+
+
+</body>
+
+</html>

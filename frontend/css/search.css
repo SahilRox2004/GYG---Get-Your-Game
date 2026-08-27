@@ -1,0 +1,713 @@
+/* ========================= */
+/* SEARCH PAGE */
+/* ========================= */
+
+body {
+
+    background: #08080b;
+
+    color: #f4f1f7;
+
+}
+
+
+/* ========================= */
+/* SEARCH PAGE CONTAINER */
+/* ========================= */
+
+#searchPage {
+
+    padding-bottom: 120px;
+
+}
+
+
+/* ========================= */
+/* PLATFORM RESULTS */
+/* ========================= */
+
+#platformResultsSection {
+
+    padding:
+        110px
+        10vw
+        45px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #302044 0%,
+            #21162f 55%,
+            #130d1d 100%
+        );
+
+}
+
+
+/* ========================= */
+/* EYEBROW */
+/* ========================= */
+
+.searchEyebrow {
+
+    margin: 0 0 22px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    color: #cfc8db;
+
+}
+
+
+/* ========================= */
+/* PLATFORM RESULTS */
+/* SVG ONLY */
+/* ========================= */
+
+#platformResults {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 45px;
+
+    overflow-x: auto;
+
+    padding:
+        10px
+        0
+        25px;
+
+    scrollbar-width: none;
+
+}
+
+
+#platformResults::-webkit-scrollbar {
+
+    display: none;
+
+}
+
+
+/* ========================= */
+/* PLATFORM ITEM */
+/* ========================= */
+
+.platformSearchItem {
+
+    flex:
+        0 0 auto;
+
+    width: 155px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    cursor: pointer;
+
+    transition:
+
+        transform 0.3s ease,
+        opacity 0.3s ease;
+
+}
+
+
+.platformSearchItem:hover {
+
+    transform:
+        translateY(-6px);
+
+}
+
+
+/* ========================= */
+/* PLATFORM SVG */
+/* ========================= */
+
+.platformSearchLogo {
+
+    width: 150px;
+
+    height: 90px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.platformSearchLogo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    transition:
+
+        transform 0.3s ease,
+        filter 0.3s ease;
+
+}
+
+
+.platformSearchItem:hover
+.platformSearchLogo img {
+
+    transform:
+        scale(1.08);
+
+    filter:
+
+        drop-shadow(
+            0 0 12px
+            rgba(170, 100, 255, 0.45)
+        );
+
+}
+
+
+/* ========================= */
+/* PLATFORM NAME */
+/* ========================= */
+
+.platformSearchItem h3 {
+
+    margin:
+        14px
+        0
+        0;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    line-height: 1.3;
+
+    color: #d5cfdd;
+
+    transition:
+
+        color 0.3s ease;
+
+}
+
+
+.platformSearchItem:hover h3 {
+
+    color: #ffffff;
+
+}
+
+
+/* ========================= */
+/* GAME RESULTS */
+/* ========================= */
+
+#searchResultsSection {
+
+    padding:
+        70px
+        10vw
+        110px;
+
+    background: #0b0a0e;
+
+}
+
+
+/* ========================= */
+/* RESULTS TITLE */
+/* ========================= */
+
+#searchResultsTitle {
+
+    margin: 0 0 55px;
+
+    max-width: 900px;
+
+    font-size:
+
+        clamp(
+            52px,
+            5vw,
+            86px
+        );
+
+    font-weight: 700;
+
+    line-height: 0.92;
+
+    letter-spacing: -1px;
+
+    color: #f4f1f7;
+
+}
+
+
+/* ========================= */
+/* RESULTS GRID */
+/* ========================= */
+
+#searchResults {
+
+    display: grid;
+
+    grid-template-columns:
+
+        repeat(
+            auto-fill,
+            minmax(230px, 1fr)
+        );
+
+    gap:
+
+        50px
+        30px;
+
+    max-width: 1500px;
+
+}
+
+
+/* ========================= */
+/* GAME CARD */
+/* ========================= */
+
+.searchGameCard {
+
+    cursor: pointer;
+
+    transition:
+
+        transform 0.35s ease;
+
+}
+
+
+.searchGameCard:hover {
+
+    transform:
+        translateY(-8px);
+
+}
+
+
+/* ========================= */
+/* GAME COVER */
+/* ========================= */
+
+.searchGameCover {
+
+    width: 100%;
+
+    aspect-ratio: 2 / 3;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+
+    display: block;
+
+    box-shadow:
+
+        0 15px 35px
+        rgba(0, 0, 0, 0.35);
+
+    transition:
+
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+
+}
+
+
+.searchGameCard:hover
+.searchGameCover {
+
+    transform:
+        scale(1.02);
+
+    box-shadow:
+
+        0 25px 50px
+        rgba(0, 0, 0, 0.55);
+
+}
+
+
+/* ========================= */
+/* GAME NAME */
+/* ========================= */
+
+.searchGameCard h3 {
+
+    margin: 16px 0 0;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    line-height: 1.35;
+
+    color: #f4f1f7;
+
+}
+
+
+/* ========================= */
+/* GAME YEAR */
+/* ========================= */
+
+.searchGameYear {
+
+    margin: 7px 0 0;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    color: #aaa4b2;
+
+}
+
+
+/* ========================= */
+/* GAME PLATFORM LOGOS */
+/* NOT CLICKABLE */
+/* ========================= */
+
+.gamePlatformLogos {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 14px;
+
+    min-height: 22px;
+
+    overflow: hidden;
+
+}
+
+
+/* ========================= */
+/* SMALL PLATFORM SVG */
+/* ========================= */
+
+.gamePlatformLogo {
+
+    width: 26px;
+
+    height: 22px;
+
+    object-fit: contain;
+
+    opacity: 0.75;
+
+    pointer-events: none;
+
+}
+
+
+/* ========================= */
+/* NO RESULTS */
+/* ========================= */
+
+.noResults {
+
+    font-size: 17px;
+
+    color: #aaa4b2;
+
+}
+
+
+/* ========================= */
+/* TABLET */
+/* ========================= */
+
+@media (max-width: 900px) {
+
+    #platformResultsSection {
+
+        padding:
+            80px
+            7vw
+            35px;
+
+    }
+
+
+    #searchResultsSection {
+
+        padding:
+            70px
+            7vw
+            90px;
+
+    }
+
+
+    #platformResults {
+
+        gap: 35px;
+
+    }
+
+
+    .platformSearchItem {
+
+        width: 130px;
+
+    }
+
+
+    .platformSearchLogo {
+
+        width: 125px;
+
+        height: 75px;
+
+    }
+
+}
+
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 600px) {
+
+    #platformResultsSection {
+
+        padding:
+            65px
+            25px
+            30px;
+
+    }
+
+
+    #searchResultsSection {
+
+        padding:
+            65px
+            25px
+            80px;
+
+    }
+
+
+    .searchEyebrow {
+
+        font-size: 10px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    #platformResults {
+
+        gap: 25px;
+
+    }
+
+
+    .platformSearchItem {
+
+        width: 100px;
+
+    }
+
+
+    .platformSearchLogo {
+
+        width: 95px;
+
+        height: 60px;
+
+    }
+
+
+    .platformSearchItem h3 {
+
+        margin-top: 10px;
+
+        font-size: 11px;
+
+    }
+
+
+    #searchResultsTitle {
+
+        margin-bottom: 40px;
+
+    }
+
+
+    #searchResults {
+
+        grid-template-columns:
+
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+
+        gap:
+            30px
+            15px;
+
+    }
+
+
+    .searchGameCard h3 {
+
+        font-size: 15px;
+
+    }
+
+
+    .gamePlatformLogos {
+
+        gap: 7px;
+
+        margin-top: 10px;
+
+    }
+
+
+    .gamePlatformLogo {
+
+        width: 22px;
+
+        height: 18px;
+
+    }
+
+}
+
+/* ========================= */
+/* GAME PLATFORM LOGOS */
+/* ========================= */
+
+.gamePlatformLogos {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    margin-top: 24px;
+
+    min-height: 60px;
+
+}
+
+
+/* ========================= */
+/* DEFAULT */
+/* ========================= */
+
+.gamePlatformLogo {
+
+    width: 70px;
+
+    height: 52px;
+
+    object-fit: contain;
+
+    opacity: 0.9;
+
+    transition:
+
+        opacity 0.25s ease,
+        transform 0.25s ease;
+
+}
+
+
+/* ========================= */
+/* ONE PLATFORM */
+/* ========================= */
+
+.platformCount1
+.gamePlatformLogo {
+
+    width: 110px;
+
+    height: 70px;
+
+}
+
+
+/* ========================= */
+/* TWO PLATFORMS */
+/* ========================= */
+
+.platformCount2
+.gamePlatformLogo {
+
+    width: 85px;
+
+    height: 60px;
+
+}
+
+
+/* ========================= */
+/* THREE PLATFORMS */
+/* ========================= */
+
+.platformCount3
+.gamePlatformLogo {
+
+    width: 65px;
+
+    height: 48px;
+
+}
+
+
+/* ========================= */
+/* HOVER */
+/* ========================= */
+
+.searchGameCard:hover
+.gamePlatformLogo {
+
+    opacity: 1;
+
+    transform:
+        translateY(-4px)
+        scale(1.06);
+
+}

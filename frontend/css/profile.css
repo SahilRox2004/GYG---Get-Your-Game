@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+:root {
+    --ink: #f8f5ff;
+    --muted: #b9afca;
+    --panel: rgba(20, 11, 39, .9);
+    --line: rgba(177, 122, 255, .3);
+    --accent: #b77aff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    overscroll-behavior: none;
+    color: var(--ink);
+    font-family: "Space Grotesk", sans-serif;
+    background: radial-gradient(circle at 15% 10%, #3a1a5e, transparent 38%), linear-gradient(135deg, #0b0618, #241044 65%, #100820);
+}
+
+.profilePage {
+    width: min(100%, 1180px);
+    margin: auto;
+    padding: 90px 7vw 120px;
+}
+
+.profileHero {
+    max-width: 760px;
+    margin-bottom: 100px;
+}
+
+.profileHero h1 {
+    margin: 0;
+    font-size: clamp(56px, 8vw, 110px);
+    line-height: .9;
+    letter-spacing: 0;
+}
+
+.profileEmail {
+    margin: 22px 0 0;
+    color: var(--muted);
+    font-size: 18px;
+}
+
+.profileFavourites {
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+}
+
+.profileHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.profileHeader h2 {
+    margin: 0;
+    font-size: clamp(38px, 5vw, 72px);
+    line-height: .95;
+}
+
+.sectionEyebrow {
+    margin: 0 0 18px;
+    color: #cfc8db;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 5px;
+}
+
+.profileHeader > span {
+    color: var(--accent);
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.favouritesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 24px;
+    margin-top: 44px;
+}
+
+.favouriteCard {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    color: var(--ink);
+    text-decoration: none;
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .1);
+    transition: transform .25s ease, border-color .25s ease;
+}
+
+.favouriteCard:hover,
+.favouriteCard:focus-visible {
+    border-color: var(--accent);
+    transform: translateY(-6px);
+}
+
+.favouriteCard img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+}
+
+.platformCardInfo {
+    padding: 16px;
+}
+
+.platformCardInfo h3 {
+    margin: 0 0 12px;
+    font-size: 17px;
+}
+
+.platformGameMeta {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.profileMessage {
+    margin: 28px 0 0;
+    color: var(--muted);
+    text-decoration: none;
+}
+
+@media (max-width: 560px) {
+    .profilePage {
+        padding: 64px 20px 80px;
+    }
+
+    .profileHero {
+        margin-bottom: 70px;
+    }
+
+    .profileHeader {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+.favouriteLink {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.removeGameButton {
+    width: calc(100% - 32px);
+    margin: 0 16px 16px;
+    padding: 9px 12px;
+    border: 1px solid rgba(255, 255, 255, .18);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+}
+
+.removeGameButton:hover,
+.removeGameButton:focus-visible {
+    border-color: var(--accent);
+    color: var(--ink);
+}

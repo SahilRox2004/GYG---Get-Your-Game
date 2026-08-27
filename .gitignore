@@ -1,0 +1,11 @@
+# Local environment files and private configuration
+**/.env
+**/.env.*
+!**/.env.example
+backend/private/*
+!backend/private/.gitkeep
+!backend/private/.env.example
+
+# Dependencies and local editor files
+**/node_modules/
+.vscode/

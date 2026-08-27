@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYG - Profile</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+
+<body>
+    <header>
+
+        <a href="index.html" class="gygHeaderLogo">
+            <img src="assets/logo.png" alt="GYG">
+        </a>
+
+        <div class="consoleMenu">
+            <button id="consoleButton" class="consoleButton" type="button" aria-expanded="false">
+                <span>CONSOLES</span>
+                <svg class="consoleChevron" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+            <div id="consoleDropdown" class="consoleDropdown"></div>
+        </div>
+
+        <div class="collectionMenu">
+            <button id="collectionButton" class="collectionButton" type="button" aria-expanded="false">
+                <span>COLLECTIONS</span>
+                <svg class="collectionChevron" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+            <div id="collectionDropdown" class="collectionDropdown"></div>
+        </div>
+
+        <div class="loginMenu">
+            <button id="loginButton" class="loginButton" type="button" aria-expanded="false">
+                <span>LOGIN</span>
+                <svg class="loginChevron" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+            <div id="loginDropdown" class="loginDropdown"></div>
+        </div>
+
+        <div class="search-container">
+            <div class="search-wrapper">
+                <div class="searchInputRow">
+                    <input type="text" id="searchBox" placeholder="Search Games..." autocomplete="off" aria-label="Search games">
+                    <button id="searchButton" type="button" aria-label="Search">
+                        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                            <circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="2" />
+                            <path d="M16 16l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+                <div id="searchSuggestions"></div>
+            </div>
+        </div>
+
+    </header>
+
+    <main class="profilePage">
+        <section class="profileHero">
+            <p class="sectionEyebrow">YOUR GYG PROFILE</p>
+            <h1 id="profileUsername">Loading...</h1>
+            <p id="profileEmail" class="profileEmail"></p>
+        </section>
+
+        <section class="profileFavourites">
+            <div class="profileHeader">
+                <div>
+                    <p class="sectionEyebrow">YOUR LIBRARY</p>
+                    <h2>FAVOURITES</h2>
+                </div>
+                <span id="favouritesCount">0</span>
+            </div>
+
+            <div id="favouritesGrid" class="favouritesGrid"></div>
+            <p id="favouritesMessage" class="profileMessage"></p>
+        </section>
+
+        <section class="profileFavourites">
+            <div class="profileHeader">
+                <div>
+                    <p class="sectionEyebrow">SAVE FOR LATER</p>
+                    <h2>WISHLIST</h2>
+                </div>
+                <span id="wishlistCount">0</span>
+            </div>
+
+            <div id="wishlistGrid" class="favouritesGrid"></div>
+            <p id="wishlistMessage" class="profileMessage"></p>
+        </section>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/consoleDropdown.js"></script>
+    <script src="js/collectionDropdown.js"></script>
+    <script src="js/loginDropdown.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+
+</html>

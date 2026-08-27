@@ -1,0 +1,1926 @@
+/* ========================= */
+/* COLLECTION PAGE */
+/* ========================= */
+
+body {
+
+    background:
+        #171020;
+
+    color:
+        #ffffff;
+
+}
+
+
+/* ========================= */
+/* COLLECTION HERO */
+/* ========================= */
+
+#collectionHero {
+
+    position:
+        relative;
+
+    min-height:
+        620px;
+
+    overflow:
+        hidden;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+}
+
+
+/* ========================= */
+/* HERO BACKGROUND */
+/* ========================= */
+
+#collectionBackground {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background-size:
+        cover;
+
+    background-position:
+        center;
+
+    background-repeat:
+        no-repeat;
+
+    transform:
+        scale(1.03);
+
+}
+
+
+/* ========================= */
+/* HERO OVERLAY */
+/* ========================= */
+
+.collectionHeroOverlay {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(17, 10, 27, 0.98) 0%,
+            rgba(23, 16, 32, 0.92) 28%,
+            rgba(23, 16, 32, 0.55) 58%,
+            rgba(23, 16, 32, 0.15) 100%
+        ),
+
+        linear-gradient(
+            0deg,
+            rgba(23, 16, 32, 1) 0%,
+            rgba(23, 16, 32, 0) 45%
+        );
+
+    z-index:
+        1;
+
+}
+
+
+/* ========================= */
+/* HERO CONTENT */
+/* ========================= */
+
+.collectionHeroContent {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    max-width:
+        680px;
+
+    margin-left:
+        9%;
+
+    padding:
+        70px 0;
+
+}
+
+
+#collectionEyebrow {
+
+    font-size:
+        14px;
+
+    letter-spacing:
+        6px;
+
+    color:
+        #b7bdd4;
+
+    margin-bottom:
+        18px;
+
+}
+
+
+#collectionTitle {
+
+    font-size:
+        clamp(52px, 6vw, 88px);
+
+    line-height:
+        0.95;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        2px;
+
+    margin:
+        0 0 25px 0;
+
+}
+
+
+#collectionSubtitle {
+
+    font-size:
+        20px;
+
+    color:
+        #d7d9e5;
+
+    margin-bottom:
+        25px;
+
+}
+
+
+#collectionDescription {
+
+    font-size:
+        17px;
+
+    line-height:
+        1.85;
+
+    color:
+        #c3c5d1;
+
+    max-width:
+        650px;
+
+}
+
+
+/* ========================= */
+/* GENERAL SECTIONS */
+/* ========================= */
+
+#featuredRecommendedSection,
+#bestCollectionSection,
+#moreGamesSection {
+
+    padding:
+        70px 8%;
+
+}
+
+
+/* ========================= */
+/* SECTION HEADER */
+/* ========================= */
+
+.sectionHeader {
+
+    display:
+        flex;
+
+    align-items:
+        flex-end;
+
+    justify-content:
+        space-between;
+
+    margin-bottom:
+        35px;
+
+}
+
+
+.sectionEyebrow {
+
+    font-size:
+        13px;
+
+    letter-spacing:
+        4px;
+
+    color:
+        #aeb4ca;
+
+    margin:
+        0 0 12px 0;
+
+}
+
+
+.sectionHeader h2 {
+
+    font-size:
+        clamp(34px, 4vw, 55px);
+
+    line-height:
+        1;
+
+    margin:
+        0;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1px;
+
+}
+
+
+/* ========================= */
+/* FEATURED CONTAINER */
+/* ========================= */
+
+#featuredRecommended {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    height:
+        560px;
+
+    min-height:
+        560px;
+
+    overflow:
+        hidden;
+
+    background:
+        #21172d;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+}
+
+
+/* ========================= */
+/* FEATURED SLIDES */
+/* ========================= */
+
+.featuredSlide {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(0, 1.85fr)
+        minmax(470px, 0.95fr);
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    opacity:
+        0;
+
+    visibility:
+        hidden;
+
+    pointer-events:
+        none;
+
+    transform:
+        translateX(100%);
+
+    z-index:
+        1;
+
+}
+
+
+/* ========================= */
+/* ACTIVE SLIDE */
+/* ========================= */
+
+.featuredSlide.active {
+
+    opacity:
+        1;
+
+    visibility:
+        visible;
+
+    pointer-events:
+        auto;
+
+    transform:
+        translateX(0);
+
+    z-index:
+        2;
+
+}
+
+
+/* ========================= */
+/* SLIDE TRANSITIONS */
+/* ========================= */
+
+.featuredSlide.slideNext {
+
+    animation:
+        slideFromRight
+        0.85s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        )
+        forwards;
+
+}
+
+
+.featuredSlide.slidePrevious {
+
+    animation:
+        slideFromLeft
+        0.85s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        )
+        forwards;
+
+}
+
+
+.featuredSlide.leaving {
+
+    z-index:
+        1;
+
+    animation:
+        slideOut
+        0.85s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        )
+        forwards;
+
+}
+
+
+/* ========================= */
+/* NEXT SLIDE */
+/* ========================= */
+
+@keyframes slideFromRight {
+
+    from {
+
+        transform:
+            translateX(100%);
+
+    }
+
+    to {
+
+        transform:
+            translateX(0);
+
+    }
+
+}
+
+
+/* ========================= */
+/* PREVIOUS SLIDE */
+/* ========================= */
+
+@keyframes slideFromLeft {
+
+    from {
+
+        transform:
+            translateX(-100%);
+
+    }
+
+    to {
+
+        transform:
+            translateX(0);
+
+    }
+
+}
+
+
+/* ========================= */
+/* OLD SLIDE */
+/* ========================= */
+
+@keyframes slideOut {
+
+    from {
+
+        transform:
+            translateX(0);
+
+        opacity:
+            1;
+
+    }
+
+    to {
+
+        transform:
+            translateX(-12%);
+
+        opacity:
+            0;
+
+    }
+
+}
+
+
+/* ========================= */
+/* FEATURED MAIN */
+/* ========================= */
+
+.featuredMain {
+
+    position:
+        relative;
+
+    min-width:
+        0;
+
+    height:
+        560px;
+
+    background-size:
+        cover;
+
+    background-position:
+        center;
+
+    cursor:
+        pointer;
+
+    overflow:
+        hidden;
+
+}
+
+
+/* ========================= */
+/* CINEMATIC OVERLAY */
+/* ========================= */
+
+.featuredMain::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    pointer-events:
+        none;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(10, 6, 16, 0.30) 0%,
+            rgba(10, 6, 16, 0.08) 45%,
+            rgba(10, 6, 16, 0.78) 100%
+        ),
+
+        linear-gradient(
+            0deg,
+            rgba(10, 6, 16, 0.98) 0%,
+            rgba(10, 6, 16, 0.38) 38%,
+            transparent 75%
+        );
+
+}
+
+
+/* ========================= */
+/* FEATURED MAIN INFO */
+/* ========================= */
+
+.featuredMainInfo {
+
+    position:
+        absolute;
+
+    z-index:
+        3;
+
+    left:
+        46px;
+
+    bottom:
+        52px;
+
+    max-width:
+        680px;
+
+}
+
+
+.featuredBadge {
+
+    display:
+        inline-block;
+
+    padding:
+        7px 13px;
+
+    margin-bottom:
+        16px;
+
+    background:
+        rgba(112, 75, 180, 0.85);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.18);
+
+    font-size:
+        10px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        2px;
+
+}
+
+
+.featuredMainInfo h3 {
+
+    font-size:
+        clamp(
+            42px,
+            4vw,
+            62px
+        );
+
+    line-height:
+        0.95;
+
+    font-weight:
+        900;
+
+    margin:
+        0 0 20px;
+
+}
+
+
+.featuredMainDescription {
+
+    max-width:
+        650px;
+
+    margin:
+        0;
+
+    color:
+        #e0dce5;
+
+    font-size:
+        15px;
+
+    line-height:
+        1.7;
+
+}
+
+
+/* ========================= */
+/* FEATURED ARROWS */
+/* ========================= */
+
+.featuredArrow {
+
+    position:
+        absolute;
+
+    z-index:
+        5;
+
+    top:
+        50%;
+
+    transform:
+        translateY(-50%);
+
+    width:
+        48px;
+
+    height:
+        58px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.25);
+
+    background:
+        rgba(10, 6, 16, 0.35);
+
+    color:
+        white;
+
+    font-size:
+        26px;
+
+    cursor:
+        pointer;
+
+    opacity:
+        0;
+
+    transition:
+        opacity 0.25s ease,
+        background 0.25s ease;
+
+}
+
+
+.featuredMain:hover .featuredArrow {
+
+    opacity:
+        1;
+
+}
+
+
+.featuredArrow:hover {
+
+    background:
+        rgba(255, 255, 255, 0.15);
+
+}
+
+
+.featuredPrevious {
+
+    left:
+        0;
+
+}
+
+
+.featuredNext {
+
+    right:
+        0;
+
+}
+
+
+/* ========================= */
+/* FEATURED DOTS */
+/* ========================= */
+
+.featuredDots {
+
+    position:
+        absolute;
+
+    z-index:
+        5;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    left:
+        50%;
+
+    bottom:
+        30px;
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+.featuredDot {
+
+    width:
+        7px;
+
+    height:
+        7px;
+
+    padding:
+        0;
+
+    border:
+        none;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255, 255, 255, 0.4);
+
+    cursor:
+        pointer;
+
+    transition:
+        width 0.3s ease,
+        background 0.3s ease;
+
+}
+
+
+.featuredDot.active {
+
+    width:
+        28px;
+
+    border-radius:
+        10px;
+
+    background:
+        white;
+
+}
+
+
+/* ========================= */
+/* FEATURED SIDE */
+/* ========================= */
+
+.featuredSide {
+
+    height:
+        560px;
+
+    overflow:
+        hidden;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #31243f 0%,
+            #21182c 100%
+        );
+
+    border-left:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+}
+
+
+/* ========================= */
+/* FEATURED SIDE CONTENT */
+/* ========================= */
+
+.featuredSideContent {
+
+    height:
+        100%;
+
+    box-sizing:
+        border-box;
+
+    padding:
+        36px 44px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    overflow:
+        hidden;
+
+}
+
+
+/* ========================= */
+/* FEATURED EYEBROW */
+/* ========================= */
+
+.featuredEyebrow {
+
+    font-size:
+        10px;
+
+    letter-spacing:
+        4px;
+
+    color:
+        #aaa1bb;
+
+    margin:
+        0 0 12px;
+
+}
+
+
+.featuredGameTitle {
+
+    font-size:
+        36px;
+
+    line-height:
+        1.1;
+
+    margin:
+        0 0 18px;
+
+}
+
+
+/* ========================= */
+/* META */
+/* ========================= */
+
+.featuredMeta {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        18px;
+
+    padding-bottom:
+        20px;
+
+    margin-bottom:
+        20px;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.09);
+
+    font-size:
+        14px;
+
+    color:
+        #d9d5e2;
+
+}
+
+
+.featuredMetaGenres {
+
+    color:
+        #d9d5e2;
+
+}
+
+
+/* ========================= */
+/* COMPANY ROW */
+/* ========================= */
+
+.featuredCompanyRow {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        28px;
+
+    padding-bottom:
+        20px;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.09);
+
+}
+
+
+.featuredCompany p {
+
+    font-size:
+        10px;
+
+    letter-spacing:
+        3px;
+
+    color:
+        #aaa1bb;
+
+    margin:
+        0 0 8px;
+
+}
+
+
+.featuredCompany span {
+
+    display:
+        block;
+
+    color:
+        #f0edf5;
+
+    font-size:
+        15px;
+
+    line-height:
+        1.4;
+
+}
+
+
+/* ========================= */
+/* GENRES */
+/* ========================= */
+
+.featuredGenres {
+
+    padding:
+        20px 0;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.09);
+
+}
+
+
+.featuredGenres > p {
+
+    font-size:
+        10px;
+
+    letter-spacing:
+        3px;
+
+    color:
+        #aaa1bb;
+
+    margin:
+        0 0 12px;
+
+}
+
+
+.featuredGenreTags {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        9px;
+
+}
+
+
+.featuredGenreTag {
+
+    padding:
+        7px 12px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.14);
+
+    border-radius:
+        7px;
+
+    background:
+        rgba(255, 255, 255, 0.03);
+
+    color:
+        #ddd9e5;
+
+    font-size:
+        13px;
+
+}
+
+
+/* ========================= */
+/* PLATFORMS */
+/* ========================= */
+
+.featuredPlatforms {
+
+    margin-top:
+        20px;
+
+}
+
+
+.featuredPlatforms > p {
+
+    font-size:
+        10px;
+
+    letter-spacing:
+        4px;
+
+    color:
+        #aaa1bb;
+
+    margin:
+        0 0 12px;
+
+}
+
+
+/* ========================= */
+/* BIG PLATFORM LOGOS */
+/* ========================= */
+
+.featuredPlatformLogos {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    align-items:
+        center;
+
+    gap:
+        14px;
+
+}
+
+
+.featuredPlatformLogos a {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        72px;
+
+    height:
+        72px;
+
+    opacity:
+        0.95;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+
+}
+
+
+.featuredPlatformLogos a:hover {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(-4px)
+        scale(1.05);
+
+}
+
+
+.featuredPlatformLogos img {
+
+    display:
+        block;
+
+    width:
+        64px;
+
+    height:
+        64px;
+
+    max-width:
+        64px;
+
+    max-height:
+        64px;
+
+    object-fit:
+        contain;
+
+}
+
+
+.platformUnavailable {
+
+    font-size:
+        13px;
+
+    color:
+        #aaa1bb;
+
+}
+
+
+/* ========================= */
+/* EXPLORE BUTTON */
+/* ========================= */
+
+.featuredExploreButton {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        12px;
+
+    align-self:
+        flex-start;
+
+    margin-top:
+        auto;
+
+    padding:
+        15px 28px;
+
+    background:
+        transparent;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.35);
+
+    color:
+        white;
+
+    font-size:
+        11px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        2px;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        border-color 0.2s ease;
+
+}
+
+
+.featuredExploreButton:hover {
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border-color:
+        rgba(255, 255, 255, 0.7);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.exploreArrow {
+
+    font-size:
+        18px;
+
+    line-height:
+        0;
+
+}
+
+
+/* ========================= */
+/* GAME CAROUSEL */
+/* ========================= */
+
+.gameCarouselWrapper {
+
+    overflow:
+        hidden;
+
+}
+
+
+.gameCarousel {
+
+    display:
+        flex;
+
+    gap:
+        22px;
+
+    transition:
+        transform 0.45s ease;
+
+}
+
+
+/* ========================= */
+/* GAME CARD */
+/* ========================= */
+
+.collectionGameCard {
+
+    min-width:
+        220px;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.25s ease;
+
+}
+
+
+.collectionGameCard:hover {
+
+    transform:
+        translateY(-8px);
+
+}
+
+
+.collectionGameImage {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    height:
+        310px;
+
+    overflow:
+        hidden;
+
+    background:
+        #21172d;
+
+}
+
+
+.collectionGameImage img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    display:
+        block;
+
+    transition:
+        transform 0.35s ease;
+
+}
+
+
+.collectionGameCard:hover
+.collectionGameImage img {
+
+    transform:
+        scale(1.06);
+
+}
+
+
+/* ========================= */
+/* GAME RATING */
+/* ========================= */
+
+.gameRating {
+
+    position:
+        absolute;
+
+    top:
+        12px;
+
+    right:
+        12px;
+
+    padding:
+        7px 9px;
+
+    background:
+        rgba(15, 10, 22, 0.85);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+    backdrop-filter:
+        blur(8px);
+
+}
+
+
+.collectionGameInfo {
+
+    padding:
+        14px 4px;
+
+}
+
+
+.collectionGameInfo h3 {
+
+    font-size:
+        17px;
+
+    margin:
+        0 0 8px;
+
+}
+
+
+.gameMeta {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    flex-wrap:
+        nowrap;
+
+    width:
+        100%;
+
+    gap:
+        12px;
+
+    color:
+        #aeb4ca;
+
+    font-size:
+        13px;
+
+}
+
+
+.gameCardRating {
+
+    display:
+        block;
+
+    flex-shrink:
+        0;
+
+    margin-left:
+        auto;
+
+    text-align:
+        right;
+
+    color:
+        #ffffff;
+
+}
+
+
+/* ========================= */
+/* CAROUSEL BUTTONS */
+/* ========================= */
+
+.carouselControls {
+
+    display:
+        flex;
+
+    gap:
+        10px;
+
+}
+
+
+.carouselControls button {
+
+    width:
+        48px;
+
+    height:
+        48px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.2);
+
+    background:
+        transparent;
+
+    color:
+        white;
+
+    font-size:
+        22px;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.2s;
+
+}
+
+
+.carouselControls button:hover {
+
+    background:
+        white;
+
+    color:
+        #1b1325;
+
+}
+
+
+/* ========================= */
+/* MORE GAMES GRID */
+/* ========================= */
+
+#moreGamesGrid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(190px, 1fr)
+        );
+
+    gap:
+        25px;
+
+}
+
+
+/* ========================= */
+/* TABLET */
+/* ========================= */
+
+@media
+(max-width: 1100px) {
+
+    #featuredRecommended {
+
+        height:
+            auto;
+
+        min-height:
+            900px;
+
+    }
+
+
+    .featuredSlide {
+
+        grid-template-columns:
+            1fr;
+
+        min-height:
+            900px;
+
+    }
+
+
+    .featuredMain {
+
+        height:
+            480px;
+
+    }
+
+
+    .featuredSide {
+
+        height:
+            420px;
+
+        border-left:
+            none;
+
+        border-top:
+            1px solid
+            rgba(255, 255, 255, 0.08);
+
+    }
+
+
+    .featuredSideContent {
+
+        height:
+            420px;
+
+    }
+
+
+}
+
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media
+(max-width: 600px) {
+
+    #collectionHero {
+
+        min-height:
+            650px;
+
+    }
+
+
+    .collectionHeroContent {
+
+        margin:
+            0 8%;
+
+    }
+
+
+    #collectionTitle {
+
+        font-size:
+            48px;
+
+    }
+
+
+    #collectionSubtitle {
+
+        font-size:
+            17px;
+
+    }
+
+
+    #collectionDescription {
+
+        font-size:
+            15px;
+
+    }
+
+
+    #featuredRecommendedSection,
+    #bestCollectionSection,
+    #moreGamesSection {
+
+        padding:
+            55px 6%;
+
+    }
+
+
+    .sectionHeader {
+
+        align-items:
+            flex-start;
+
+        gap:
+            20px;
+
+    }
+
+
+    .sectionHeader h2 {
+
+        font-size:
+            36px;
+
+    }
+
+
+    #featuredRecommended {
+
+        min-height:
+            930px;
+
+    }
+
+
+    .featuredSlide {
+
+        min-height:
+            930px;
+
+    }
+
+
+    .featuredMain {
+
+        height:
+            430px;
+
+    }
+
+
+    .featuredMainInfo {
+
+        left:
+            25px;
+
+        right:
+            25px;
+
+        bottom:
+            48px;
+
+    }
+
+
+    .featuredMainInfo h3 {
+
+        font-size:
+            38px;
+
+    }
+
+
+    .featuredMainDescription {
+
+        font-size:
+            14px;
+
+    }
+
+
+    .featuredArrow {
+
+        opacity:
+            1;
+
+        width:
+            38px;
+
+        height:
+            48px;
+
+    }
+
+
+    .featuredDots {
+
+        bottom:
+            22px;
+
+    }
+
+
+    .featuredSide {
+
+        height:
+            500px;
+
+    }
+
+
+    .featuredSideContent {
+
+        height:
+            500px;
+
+        padding:
+            30px 25px;
+
+    }
+
+
+    .featuredGameTitle {
+
+        font-size:
+            29px;
+
+    }
+
+
+    .featuredCompanyRow {
+
+        gap:
+            15px;
+
+    }
+
+
+    .featuredCompany span {
+
+        font-size:
+            13px;
+
+    }
+
+
+    .featuredGenres {
+
+        padding:
+            16px 0;
+
+    }
+
+
+    /* BIG MOBILE PLATFORM LOGOS */
+
+    .featuredPlatformLogos {
+
+        gap:
+            10px;
+
+    }
+
+
+    .featuredPlatformLogos a {
+
+        width:
+            60px;
+
+        height:
+            60px;
+
+    }
+
+
+    .featuredPlatformLogos img {
+
+        width:
+            54px;
+
+        height:
+            54px;
+
+        max-width:
+            54px;
+
+        max-height:
+            54px;
+
+    }
+
+
+    .collectionGameCard {
+
+        min-width:
+            170px;
+
+    }
+
+
+    .collectionGameImage {
+
+        height:
+            250px;
+
+    }
+
+}
+
+/* ========================= */
+/* PLATFORM LOGOS */
+/* ========================= */
+
+.platformLogos {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 10px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.platformLogos img {
+
+    width: 22px;
+
+    height: 22px;
+
+    object-fit: contain;
+
+    opacity: 0.75;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.collectionGameCard:hover
+.platformLogos img {
+
+    opacity: 1;
+
+}
+
