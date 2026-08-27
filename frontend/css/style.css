@@ -2609,10 +2609,17 @@ header {
     .collectionButton,
     .loginButton {
         height: 42px;
-        padding: 0 2px;
-        gap: 3px;
-        font-size: 10px;
-        letter-spacing: 1px;
+        padding: 0;
+        gap: 2px;
+        font-size: 9px;
+        letter-spacing: .7px;
+    }
+
+    .consoleChevron,
+    .collectionChevron,
+    .loginChevron {
+        width: 13px;
+        height: 13px;
     }
 
     .search-container {
@@ -2639,7 +2646,8 @@ header {
     }
 
     .consoleDropdown,
-    .collectionDropdown {
+    .collectionDropdown,
+    .loginDropdown {
         position: fixed;
         top: 112px;
         left: 16px;
@@ -2651,12 +2659,14 @@ header {
     }
 
     .consoleDropdown.open,
-    .collectionDropdown.open {
+    .collectionDropdown.open,
+    .loginDropdown.open {
         transform: translateY(0);
     }
 
     .consoleDropdown a,
-    .collectionDropdown a {
+    .collectionDropdown a,
+    .loginDropdown a {
         min-width: 0;
         flex: 1 1 calc(50% - 8px);
         padding: 11px 10px;
