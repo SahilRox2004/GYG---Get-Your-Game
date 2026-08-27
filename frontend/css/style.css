@@ -2595,7 +2595,9 @@ header {
     .search-container {
         order: 2;
         flex: 1 0 100%;
-        width: 100%;
+        width: calc(100% - 30px);
+        max-width: calc(100% - 30px);
+        min-width: 0;
         margin-left: 0;
     }
 
@@ -2635,6 +2637,10 @@ header {
         flex: 1 1 calc(50% - 8px);
         padding: 11px 10px;
         font-size: 13px;
+    }
+
+    .anticipatedCard {
+        min-width: calc(100vw - 40px);
     }
 
 }
