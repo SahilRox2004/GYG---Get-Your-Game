@@ -2579,6 +2579,105 @@ header {
         margin-right: 0;
     }
 
+    .consoleMenu,
+    .collectionMenu,
+    .loginMenu {
+        transform: none;
+        flex-shrink: 0;
+    }
+
+    .consoleMenu {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .collectionMenu {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .loginMenu {
+        grid-column: 4;
+        grid-row: 1;
+    }
+
+    .consoleButton,
+    .collectionButton,
+    .loginButton {
+        height: 42px;
+        padding: 0;
+        gap: 2px;
+        font-size: 9px;
+        letter-spacing: .7px;
+    }
+
+    .consoleChevron,
+    .collectionChevron,
+    .loginChevron {
+        width: 13px;
+        height: 13px;
+    }
+
+    .search-container {
+        grid-column: 1 / 5;
+        grid-row: 2;
+        flex: none;
+        width: 100%;
+        max-width: none;
+        min-width: 0;
+        margin-left: 0;
+    }
+
+    .search-wrapper {
+        flex: 0 0 46px;
+        width: 46px;
+        max-width: 46px;
+        margin-left: auto;
+    }
+
+    .search-wrapper.searchOpen {
+        position: fixed;
+        top: 66px;
+        left: 15px;
+        right: 15px;
+        flex-basis: auto;
+        width: 100%;
+        max-width: none;
+    }
+
+    #dots,
+    #prevSlide,
+    #nextSlide,
+    .upcomingArrow {
+        display: none;
+    }
+
+    #upcomingGamesGrid {
+        touch-action: pan-x;
+        overscroll-behavior-x: contain;
+    }
+
+    .anticipatedCard {
+        min-width: calc(100vw - 40px);
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    header {
+        display: grid;
+        grid-template-columns: 58px minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+        gap: 8px;
+        padding: 12px 15px;
+    }
+
+    .gygHeaderLogo {
+        grid-column: 1;
+        grid-row: 1;
+        margin-right: 0;
+    }
+
     .gygHeaderLogo img {
         width: 58px;
     }
