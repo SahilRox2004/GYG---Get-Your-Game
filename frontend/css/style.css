@@ -2796,3 +2796,107 @@ header {
     }
 
 }
+
+@media (max-width: 768px) {
+
+    header {
+        display: grid;
+        grid-template-columns: 58px repeat(3, minmax(0, 1fr));
+        gap: 4px;
+        padding: 10px 12px;
+    }
+
+    .gygHeaderLogo {
+        grid-column: 1;
+        grid-row: 1;
+        margin-right: 0;
+    }
+
+    .gygHeaderLogo img {
+        width: 52px;
+    }
+
+    .consoleMenu {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .collectionMenu {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .loginMenu {
+        grid-column: 4;
+        grid-row: 1;
+    }
+
+    .consoleMenu,
+    .collectionMenu,
+    .loginMenu {
+        width: 100%;
+        transform: none;
+        min-width: 0;
+    }
+
+    .consoleButton,
+    .collectionButton,
+    .loginButton {
+        width: 100%;
+        height: 38px;
+        padding: 0;
+        gap: 1px;
+        justify-content: center;
+        font-size: 8px;
+        letter-spacing: .4px;
+        white-space: nowrap;
+    }
+
+    .consoleChevron,
+    .collectionChevron,
+    .loginChevron {
+        width: 11px;
+        height: 11px;
+    }
+
+    .search-container {
+        grid-column: 1 / 5;
+        grid-row: 2;
+        width: 100%;
+        max-width: none;
+        min-width: 0;
+        margin: 0;
+    }
+
+    .search-wrapper,
+    .search-wrapper.searchOpen {
+        position: relative;
+        inset: auto;
+        flex: 0 1 100%;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+
+    .searchInputRow {
+        width: 100%;
+        height: 42px;
+    }
+
+    #searchBox {
+        font-size: 13px;
+    }
+
+    #dots,
+    #prevSlide,
+    #nextSlide,
+    .upcomingArrow {
+        display: none;
+    }
+
+    #upcomingGamesGrid {
+        touch-action: pan-x;
+        overscroll-behavior-x: contain;
+    }
+
+}
