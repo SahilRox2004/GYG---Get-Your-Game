@@ -2567,8 +2567,16 @@ header {
 @media (max-width: 768px) {
 
     header {
+        display: grid;
+        grid-template-columns: 58px minmax(0, 1fr) minmax(0, 1fr);
         gap: 8px;
         padding: 12px 15px;
+    }
+
+    .gygHeaderLogo {
+        grid-column: 1;
+        grid-row: 1;
+        margin-right: 0;
     }
 
     .gygHeaderLogo img {
@@ -2582,6 +2590,21 @@ header {
         flex-shrink: 0;
     }
 
+    .consoleMenu {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .collectionMenu {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .loginMenu {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
     .consoleButton,
     .collectionButton,
     .loginButton {
@@ -2593,8 +2616,9 @@ header {
     }
 
     .search-container {
-        order: 2;
-        flex: 1 0 100%;
+        grid-column: 2 / 4;
+        grid-row: 2;
+        flex: none;
         width: calc(100% - 30px);
         max-width: calc(100% - 30px);
         min-width: 0;
