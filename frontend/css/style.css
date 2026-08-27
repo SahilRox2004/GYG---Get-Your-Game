@@ -2563,3 +2563,78 @@ header {
         translateY(-2px);
 
 }
+
+@media (max-width: 768px) {
+
+    header {
+        gap: 8px;
+        padding: 12px 15px;
+    }
+
+    .gygHeaderLogo img {
+        width: 58px;
+    }
+
+    .consoleMenu,
+    .collectionMenu,
+    .loginMenu {
+        transform: none;
+        flex-shrink: 0;
+    }
+
+    .consoleButton,
+    .collectionButton,
+    .loginButton {
+        height: 42px;
+        padding: 0 2px;
+        gap: 3px;
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .search-container {
+        order: 2;
+        flex: 1 0 100%;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .search-wrapper {
+        flex: 0 0 46px;
+        width: 46px;
+        max-width: 46px;
+        margin-left: auto;
+    }
+
+    .search-wrapper.searchOpen {
+        flex-basis: 100%;
+        width: 100%;
+        max-width: none;
+    }
+
+    .consoleDropdown,
+    .collectionDropdown {
+        position: fixed;
+        top: 112px;
+        left: 16px;
+        right: 16px;
+        width: auto;
+        padding: 12px;
+        gap: 8px;
+        transform: translateY(-10px);
+    }
+
+    .consoleDropdown.open,
+    .collectionDropdown.open {
+        transform: translateY(0);
+    }
+
+    .consoleDropdown a,
+    .collectionDropdown a {
+        min-width: 0;
+        flex: 1 1 calc(50% - 8px);
+        padding: 11px 10px;
+        font-size: 13px;
+    }
+
+}
