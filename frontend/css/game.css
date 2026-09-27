@@ -1541,6 +1541,52 @@ overflow-x:auto;
 
 @media (max-width: 768px) {
 
+    #hero {
+
+        min-height: calc(100svh - 72px);
+
+        background-position: center;
+
+    }
+
+
+    #heroOverlay {
+
+        background:
+            linear-gradient(
+                rgba(0, 0, 0, .18),
+                rgba(0, 0, 0, .78)
+            );
+
+    }
+
+
+    #heroContent {
+
+        inset: 0;
+
+        padding: 42px 22px 38px;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 24px;
+
+        text-align: center;
+
+    }
+
+
+    .gameHeroCover {
+
+        width: min(58vw, 230px);
+
+    }
+
+
     .gameSection {
 
         padding:
@@ -1559,11 +1605,11 @@ overflow-x:auto;
 
     #heroContent {
 
-        left: 22px;
+        left: 0;
 
-        right: 22px;
+        right: 0;
 
-        bottom: 30px;
+        bottom: 0;
 
         gap: 22px;
 
@@ -1572,7 +1618,20 @@ overflow-x:auto;
 
     #gameCover {
 
-        width: 125px;
+        width: 100%;
+
+        display: block;
+
+        border-radius: 12px;
+
+        box-shadow: 0 18px 42px rgba(0, 0, 0, .6);
+
+    }
+
+
+    #gameMeta {
+
+        width: min(100%, 520px);
 
     }
 
@@ -1588,7 +1647,52 @@ overflow-x:auto;
 
     #gameTitle {
 
-        font-size: 42px;
+        margin-bottom: 14px;
+
+        font-size: clamp(32px, 9vw, 48px);
+
+        line-height: 1.05;
+
+        letter-spacing: -1px;
+
+        color: #ffffff;
+
+        text-shadow:
+            0 2px 3px rgba(0, 0, 0, .95),
+            0 0 12px rgba(0, 0, 0, .8);
+
+    }
+
+
+    .gameQuickInfo {
+
+        justify-content: center;
+
+        gap: 12px;
+
+        margin-bottom: 18px;
+
+    }
+
+
+    .gameQuickInfo p {
+
+        font-size: 15px;
+
+        color: #ffffff;
+
+        text-shadow:
+            0 2px 3px rgba(0, 0, 0, .95),
+            0 0 8px rgba(0, 0, 0, .85);
+
+    }
+
+
+    #platformContainer {
+
+        justify-content: center;
+
+        margin-bottom: 16px;
 
     }
 
