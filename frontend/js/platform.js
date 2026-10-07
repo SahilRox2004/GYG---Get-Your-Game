@@ -10,6 +10,53 @@ const params =
 const platform =
     params.get("platform");
 
+const computerPlatformAliases = {
+    "pc": "pc",
+    "windows": "pc",
+    "microsoft windows": "pc",
+    "windows pc": "pc",
+    "pc (microsoft windows)": "pc",
+    "pc/windows": "pc",
+    "pc / windows": "pc",
+    "linux": "linux"
+};
+
+const computerPlatformContent = {
+    pc: {
+        name: "PC",
+        manufacturer: "Various manufacturers",
+        releaseDate: "1970s",
+        heroDescription: "A flexible gaming platform shaped by Windows, custom-built hardware, digital storefronts, mods, and a vast library that spans decades.",
+        summary: "PC gaming is an open ecosystem rather than a single console or fixed hardware generation. Players can choose from desktops, laptops, and handheld PCs, then tailor performance with different processors, graphics cards, displays, and controls. Windows is the most widely supported operating system, while Linux offers an open alternative with a growing catalog of native games and compatibility tools such as Proton. Digital storefronts make it easy to move between decades of releases, and mods, community servers, and configurable settings give players unusual control over how games look and feel.",
+        platformFacts: [
+            { label: "OPERATING SYSTEMS", value: "Windows, Linux, and more" },
+            { label: "GAME STOREFRONTS", value: "Steam, GOG, Epic Games Store, and more" }
+        ]
+    },
+    linux: {
+        name: "Linux",
+        manufacturer: "Open-source community",
+        releaseDate: "1991",
+        heroDescription: "An open PC gaming ecosystem where Linux distributions, native releases, and compatibility layers bring a growing library to desktops and handhelds.",
+        summary: "Linux gaming brings the flexibility of the PC to an open-source operating system. Players can choose from many distributions and desktop environments, use familiar storefronts such as Steam, and install games made specifically for Linux. Compatibility tools, especially Proton, have also made thousands of Windows games playable on Linux, helping devices such as the Steam Deck bring the platform to a wider audience. Support can vary by game, hardware, and anti-cheat software, but ongoing work from developers and the community continues to expand what runs well.",
+        platformFacts: [
+            { label: "SYSTEM MODEL", value: "Open-source operating system" },
+            { label: "GAME COMPATIBILITY", value: "Native games and Windows titles via Proton" }
+        ]
+    }
+};
+
+function getComputerPlatformContent(name) {
+    const platformKey = computerPlatformAliases[
+        (name || "").trim().toLowerCase()
+    ];
+    const content = computerPlatformContent[platformKey];
+
+    return content
+        ? { ...content, isComputerPlatform: true }
+        : null;
+}
+
 
 /* ========================= */
 /* PLATFORM IMAGE MAPPING */
@@ -513,23 +560,51 @@ async function loadPlatform() {
 
     try {
 
-        const response =
-            await fetch(
-                `https://gyg-backend-hjbx.onrender.com/api/platform/${encodeURIComponent(platform)}`
-            );
+        const localComputerContent =
+            getComputerPlatformContent(platform);
 
+        let data;
 
-        if (!response.ok) {
+        try {
 
-            throw new Error(
-                "Platform request failed"
-            );
+            const response =
+                await fetch(
+                    `https://gyg-backend-hjbx.onrender.com/api/platform/${encodeURIComponent(platform)}`
+                );
+
+            if (!response.ok) {
+                throw new Error("Platform request failed");
+            }
+
+            data = await response.json();
+
+            if (localComputerContent) {
+                data = {
+                    ...data,
+                    ...localComputerContent,
+                    popularGames: data.popularGames || [],
+                    ratedGames: data.ratedGames || [],
+                    anticipatedGames: data.anticipatedGames || [],
+                    exclusiveGames: data.exclusiveGames || []
+                };
+            }
 
         }
+        catch (error) {
 
+            if (!localComputerContent) {
+                throw error;
+            }
 
-        const data =
-            await response.json();
+            data = {
+                ...localComputerContent,
+                popularGames: [],
+                ratedGames: [],
+                anticipatedGames: [],
+                exclusiveGames: []
+            };
+
+        }
 
 
         /* ========================= */
@@ -777,16 +852,25 @@ async function loadPlatform() {
         if (platformName) {
 
             platformName.textContent =
+                getComputerPlatformContent(platform)?.name ||
                 platform ||
                 "Unknown Platform";
 
         }
 
+        if (platformAboutName) {
+            platformAboutName.textContent =
+                getComputerPlatformContent(platform)?.name ||
+                platform ||
+                "THIS PLATFORM";
+        }
+
 
         if (platformSummary) {
 
-            platformSummary.textContent =
-                "Unable to load platform information.";
+            platformSummary.textContent = getComputerPlatformContent(platform)
+                ? getComputerPlatformContent(platform).summary
+                : "Unable to load platform information.";
 
         }
 
