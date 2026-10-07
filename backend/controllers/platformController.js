@@ -23,17 +23,53 @@ const platformMap = {
         releaseDate:
             "1970s",
 
-        predecessor:
-            "Early personal computers",
-
-        successor:
-            "Modern PC Gaming",
+        platformFacts: [
+            {
+                label: "OPERATING SYSTEMS",
+                value: "Windows, Linux, and more"
+            },
+            {
+                label: "GAME STOREFRONTS",
+                value: "Steam, GOG, Epic Games Store, and more"
+            }
+        ],
 
         heroDescription:
-            "The most open and versatile gaming platform, constantly evolving alongside technology and giving players access to generations of games.",
+            "A flexible gaming platform shaped by Windows, custom-built hardware, digital storefronts, mods, and a vast library that spans decades.",
 
         summary:
-            "PC gaming developed alongside the rise of the personal computer. Unlike traditional consoles, it is not defined by a single manufacturer or hardware generation. Its open ecosystem has allowed games from different eras, genres and developers to coexist, while advances in graphics, processors and online technology continue to push the platform forward."
+            "PC gaming is an open ecosystem rather than a single console or fixed hardware generation. Players can choose from desktops, laptops, and handheld PCs, then tailor performance with different processors, graphics cards, displays, and controls. Windows is the most widely supported operating system, while Linux offers an open alternative with a growing catalog of native games and compatibility tools such as Proton. Digital storefronts make it easy to move between decades of releases, and mods, community servers, and configurable settings give players unusual control over how games look and feel."
+
+    },
+
+    "linux": {
+
+        id: 3,
+
+        name: "Linux",
+
+        manufacturer:
+            "Open-source community",
+
+        releaseDate:
+            "1991",
+
+        platformFacts: [
+            {
+                label: "SYSTEM MODEL",
+                value: "Open-source operating system"
+            },
+            {
+                label: "GAME COMPATIBILITY",
+                value: "Native games and Windows titles via Proton"
+            }
+        ],
+
+        heroDescription:
+            "An open PC gaming ecosystem where Linux distributions, native releases, and compatibility layers bring a growing library to desktops and handhelds.",
+
+        summary:
+            "Linux gaming brings the flexibility of the PC to an open-source operating system. Players can choose from many distributions and desktop environments, use familiar storefronts such as Steam, and install games made specifically for Linux. Compatibility tools, especially Proton, have also made thousands of Windows games playable on Linux, helping devices such as the Steam Deck bring the platform to a wider audience. Support can vary by game, hardware, and anti-cheat software, but ongoing work from developers and the community continues to expand what runs well."
 
     },
 
@@ -1052,6 +1088,15 @@ generationEnd: null,
 /* PLATFORM ALIASES */
 /* ========================= */
 
+platformMap["windows"] =
+    platformMap["pc"];
+
+platformMap["microsoft windows"] =
+    platformMap["pc"];
+
+platformMap["windows pc"] =
+    platformMap["pc"];
+
 platformMap["ps1"] =
     platformMap["playstation"];
 
@@ -1900,27 +1945,29 @@ const allowedPlatforms =
 
 
 const trueExclusiveResults =
-    exclusiveResults.filter(game => {
+    platform.platformFacts
+        ? exclusiveResults
+        : exclusiveResults.filter(game => {
 
-        if (
-            !game.platforms ||
-            !game.platforms.length
-        ) {
+            if (
+                !game.platforms ||
+                !game.platforms.length
+            ) {
 
-            return false;
+                return false;
 
-        }
+            }
 
 
-        return game.platforms.every(
-            gamePlatform =>
+            return game.platforms.every(
+                gamePlatform =>
 
-                allowedPlatforms.includes(
-                    gamePlatform
-                )
-        );
+                    allowedPlatforms.includes(
+                        gamePlatform
+                    )
+            );
 
-    });
+        });
 
 
 const exclusiveGames =
@@ -1954,6 +2001,14 @@ const exclusiveGames =
 
             releaseDate:
                 platform.releaseDate,
+
+
+            isComputerPlatform:
+                Boolean(platform.platformFacts),
+
+
+            platformFacts:
+                platform.platformFacts || [],
 
 
             predecessor:

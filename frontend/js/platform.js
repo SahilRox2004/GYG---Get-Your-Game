@@ -367,6 +367,16 @@ const platformSuccessor =
         "platformSuccessor"
     );
 
+const platformPredecessorFact =
+    document.getElementById(
+        "platformPredecessorFact"
+    );
+
+const platformSuccessorFact =
+    document.getElementById(
+        "platformSuccessorFact"
+    );
+
 
 function setPlatformFact(
     element,
@@ -599,12 +609,18 @@ async function loadPlatform() {
 
         if (platformFactManufacturer) {
 
-            setPlatformFact(
-                platformFactManufacturer,
-                data.manufacturer || "Unknown",
-                "company.html",
-                "company"
-            );
+            if (data.isComputerPlatform) {
+                platformFactManufacturer.textContent =
+                    data.manufacturer || "Unknown";
+            }
+            else {
+                setPlatformFact(
+                    platformFactManufacturer,
+                    data.manufacturer || "Unknown",
+                    "company.html",
+                    "company"
+                );
+            }
 
         }
 
@@ -614,6 +630,55 @@ async function loadPlatform() {
             platformFactRelease.textContent =
                 data.releaseDate ||
                 "Unknown";
+
+        }
+
+
+        if (data.isComputerPlatform) {
+
+            if (platformPredecessorFact) {
+                platformPredecessorFact.hidden = true;
+            }
+
+            if (platformSuccessorFact) {
+                platformSuccessorFact.hidden = true;
+            }
+
+            (data.platformFacts || []).slice(0, 2).forEach((fact, index) => {
+
+                const row = document.getElementById(
+                    `platformCustomFact${index === 0 ? "One" : "Two"}`
+                );
+                const label = document.getElementById(
+                    `platformCustomLabel${index === 0 ? "One" : "Two"}`
+                );
+                const value = document.getElementById(
+                    `platformCustomValue${index === 0 ? "One" : "Two"}`
+                );
+
+                if (row && label && value) {
+                    label.textContent = fact.label;
+                    value.textContent = fact.value;
+                    row.hidden = false;
+                }
+
+            });
+
+            const exclusiveEyebrow = document.getElementById("exclusiveEyebrow");
+            const exclusiveHeading = document.getElementById("exclusiveHeading");
+            const exclusiveDescription = document.getElementById("exclusiveDescription");
+
+            if (exclusiveEyebrow) {
+                exclusiveEyebrow.textContent = `THE ${data.name.toUpperCase()} LIBRARY`;
+            }
+
+            if (exclusiveHeading) {
+                exclusiveHeading.textContent = "GAMES";
+            }
+
+            if (exclusiveDescription) {
+                exclusiveDescription.textContent = "Games listed for this operating system and its ecosystem.";
+            }
 
         }
 

@@ -176,6 +176,14 @@ const consolePlatforms = [
     {
         name: "Dreamcast",
         platform: "Dreamcast"
+    },
+    {
+        name: "PC / Windows",
+        platform: "PC"
+    },
+    {
+        name: "Linux",
+        platform: "Linux"
     }
 
 ];
