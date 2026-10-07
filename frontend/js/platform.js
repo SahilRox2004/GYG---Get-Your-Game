@@ -10,7 +10,7 @@ const params =
 const platform =
     params.get("platform");
 
-const computerPlatformAliases = {
+const platformAliases = {
     "pc": "pc",
     "windows": "pc",
     "microsoft windows": "pc",
@@ -18,10 +18,28 @@ const computerPlatformAliases = {
     "pc (microsoft windows)": "pc",
     "pc/windows": "pc",
     "pc / windows": "pc",
-    "linux": "linux"
+    "linux": "linux",
+    "mac": "mac",
+    "mac os": "mac",
+    "macos": "mac",
+    "3do": "3do",
+    "3do interactive multiplayer": "3do",
+    "atari 2600": "atari2600",
+    "atari 5200": "atari5200",
+    "atari 7800": "atari7800",
+    "atari jaguar": "jaguar",
+    "atari lynx": "lynx",
+    "neo geo": "neogeoaes",
+    "neo geo aes": "neogeoaes",
+    "neo geo cd": "neogeocd",
+    "commodore 64": "commodore64",
+    "commodore c64/128/max": "commodore64",
+    "c64": "commodore64",
+    "commodore amiga": "amiga",
+    "amiga": "amiga"
 };
 
-const computerPlatformContent = {
+const platformContent = {
     pc: {
         name: "PC",
         manufacturer: "Various manufacturers",
@@ -43,17 +61,118 @@ const computerPlatformContent = {
             { label: "SYSTEM MODEL", value: "Open-source operating system" },
             { label: "GAME COMPATIBILITY", value: "Native games and Windows titles via Proton" }
         ]
+    },
+    mac: {
+        name: "Mac",
+        manufacturer: "Apple",
+        releaseDate: "1984",
+        heroDescription: "Explore Mac gaming across decades of Apple computers, from classic Macintosh releases to modern macOS games and Apple Silicon hardware.",
+        summary: "Mac gaming has grown alongside Apple's personal computers, from early Macintosh games to today's macOS releases. The library includes indie games, strategy titles, creative experiments, and selected major releases through storefronts such as Steam and the Mac App Store, as well as Apple Arcade. Modern Apple Silicon brings capable graphics and efficient performance to current Macs, while game availability and compatibility still vary by title.",
+        platformFacts: [
+            { label: "OPERATING SYSTEM", value: "macOS" },
+            { label: "GAME SOURCES", value: "Steam, Mac App Store, and Apple Arcade" }
+        ]
+    },
+    "3do": {
+        name: "3DO Interactive Multiplayer",
+        manufacturer: "The 3DO Company",
+        releaseDate: "October 1993",
+        predecessor: "None",
+        successor: "None",
+        heroDescription: "A multimedia-focused 32-bit console that brought CD-based games and ambitious 3D experiments to the early 1990s.",
+        summary: "The 3DO Interactive Multiplayer was a 32-bit CD-based console released in the early 1990s. The 3DO Company licensed the hardware design to partners including Panasonic, GoldStar, and Sanyo. Its multimedia ambitions and high launch price set it apart, while its library became known for experimental FMV, arcade conversions, and early 3D games."
+    },
+    atari2600: {
+        name: "Atari 2600",
+        manufacturer: "Atari",
+        releaseDate: "September 1977",
+        predecessor: "None",
+        successor: "Atari 5200",
+        heroDescription: "The cartridge-based home console that helped bring arcade-inspired video games into living rooms around the world.",
+        summary: "Originally released as the Atari Video Computer System, the Atari 2600 helped popularize interchangeable game cartridges for home consoles. Its joystick and paddle controls made arcade-style games accessible at home, and its broad library helped establish video games as a major form of home entertainment."
+    },
+    atari5200: {
+        name: "Atari 5200",
+        manufacturer: "Atari",
+        releaseDate: "November 1982",
+        predecessor: "Atari 2600",
+        successor: "Atari 7800",
+        heroDescription: "Atari's next-generation home console brought more detailed arcade conversions and analog controls to the early 1980s.",
+        summary: "The Atari 5200 brought Atari's 8-bit computer technology and arcade-style games into the home console market. It offered more capable graphics than the 2600 and came with distinctive analog controllers. The system had a short commercial run, but its hardware and games reflected the rapid technical changes of the early 1980s."
+    },
+    atari7800: {
+        name: "Atari 7800",
+        manufacturer: "Atari",
+        releaseDate: "May 1986",
+        predecessor: "Atari 5200",
+        successor: "Atari Jaguar",
+        heroDescription: "A backward-compatible Atari console built to deliver sharper arcade-style games while retaining access to the 2600 library.",
+        summary: "The Atari 7800 was designed as a more powerful successor to the Atari 5200 and could also play most Atari 2600 cartridges. Its compatibility gave owners access to a large existing library while the system added improved graphics and arcade conversions. After delays, it reached a wider market in 1986."
+    },
+    jaguar: {
+        name: "Atari Jaguar",
+        manufacturer: "Atari",
+        releaseDate: "November 1993",
+        predecessor: "Atari 7800",
+        successor: "None",
+        heroDescription: "Atari's ambitious 1990s console pursued advanced graphics and a new generation of home gaming.",
+        summary: "The Atari Jaguar was Atari's final major home console. Marketed around its multi-chip architecture, it aimed to compete in the transition to 3D graphics and CD-based gaming. Its library included distinctive releases such as Tempest 2000 and Alien vs. Predator, and the system remains a notable part of Atari's hardware history."
+    },
+    lynx: {
+        name: "Atari Lynx",
+        manufacturer: "Atari",
+        releaseDate: "1989",
+        predecessor: "None",
+        successor: "None",
+        heroDescription: "A color-screen handheld with advanced graphics and an innovative reversible design.",
+        summary: "The Atari Lynx was a color handheld released in 1989. Its backlit screen, capable graphics, and ambidextrous controls made it technically distinctive, while its size, battery demands, and competition limited its reach. The Lynx developed a lasting following around its arcade-style and multiplayer games."
+    },
+    neogeoaes: {
+        name: "Neo Geo AES",
+        manufacturer: "SNK",
+        releaseDate: "1990",
+        predecessor: "None",
+        successor: "Neo Geo CD",
+        heroDescription: "SNK's premium home system brought arcade-quality fighting games and action titles into the living room.",
+        summary: "The Neo Geo Advanced Entertainment System brought SNK's arcade hardware and games into the home. Its large cartridges and premium price delivered close conversions of arcade favorites, including The King of Fighters, Metal Slug, and Samurai Shodown. The AES became known for its high-quality library and collector appeal."
+    },
+    neogeocd: {
+        name: "Neo Geo CD",
+        manufacturer: "SNK",
+        releaseDate: "September 1994",
+        predecessor: "Neo Geo AES",
+        successor: "None",
+        heroDescription: "SNK's CD-based Neo Geo brought its celebrated arcade library to a more affordable home format.",
+        summary: "The Neo Geo CD offered a lower-cost way to play SNK's home and arcade titles by replacing the AES's expensive cartridges with compact discs. It retained much of the same game library and arcade feel, with longer loading times as the main tradeoff. The system remains a distinctive branch of the Neo Geo family."
+    },
+    commodore64: {
+        name: "Commodore 64",
+        manufacturer: "Commodore",
+        releaseDate: "August 1982",
+        predecessor: "None",
+        successor: "None",
+        heroDescription: "A hugely popular home computer whose sound, graphics, and low-cost games helped shape early personal computing.",
+        summary: "The Commodore 64 became one of the most successful home computers of its era. Its distinctive SID sound chip, colorful graphics, and accessible price attracted a large community of developers and players. Games arrived on cassette and disk, and its library ranged from arcade conversions to original adventures and programming experiments."
+    },
+    amiga: {
+        name: "Commodore Amiga",
+        manufacturer: "Commodore",
+        releaseDate: "July 1985",
+        predecessor: "None",
+        successor: "None",
+        heroDescription: "A multimedia home computer celebrated for its rich graphics, stereo sound, and influential game library.",
+        summary: "The Commodore Amiga brought advanced graphics and sound capabilities to home computing in the mid-1980s. Its multimedia hardware attracted game developers and creative communities, producing a distinctive catalog of strategy, simulation, platform, and arcade-style titles. The Amiga remained influential in Europe and among game developers long after its commercial peak."
     }
 };
 
-function getComputerPlatformContent(name) {
-    const platformKey = computerPlatformAliases[
+function getPlatformFallbackContent(name) {
+    const platformKey = platformAliases[
         (name || "").trim().toLowerCase()
     ];
-    const content = computerPlatformContent[platformKey];
+    const content = platformContent[platformKey];
 
     return content
-        ? { ...content, isComputerPlatform: true }
+        ? { ...content, isComputerPlatform: Boolean(content.platformFacts) }
         : null;
 }
 
@@ -561,7 +680,7 @@ async function loadPlatform() {
     try {
 
         const localComputerContent =
-            getComputerPlatformContent(platform);
+            getPlatformFallbackContent(platform);
 
         let data;
 
@@ -852,7 +971,7 @@ async function loadPlatform() {
         if (platformName) {
 
             platformName.textContent =
-                getComputerPlatformContent(platform)?.name ||
+                getPlatformFallbackContent(platform)?.name ||
                 platform ||
                 "Unknown Platform";
 
@@ -860,7 +979,7 @@ async function loadPlatform() {
 
         if (platformAboutName) {
             platformAboutName.textContent =
-                getComputerPlatformContent(platform)?.name ||
+                getPlatformFallbackContent(platform)?.name ||
                 platform ||
                 "THIS PLATFORM";
         }
@@ -868,8 +987,8 @@ async function loadPlatform() {
 
         if (platformSummary) {
 
-            platformSummary.textContent = getComputerPlatformContent(platform)
-                ? getComputerPlatformContent(platform).summary
+            platformSummary.textContent = getPlatformFallbackContent(platform)
+                ? getPlatformFallbackContent(platform).summary
                 : "Unable to load platform information.";
 
         }

@@ -205,6 +205,56 @@ const consoleDropdown =
         "consoleDropdown"
     );
 
+const additionalPlatforms = [
+    { name: "Mac", platform: "Mac", logo: "apple.svg" },
+    { name: "3DO Interactive Multiplayer", platform: "3DO", logo: "3do.svg" },
+    { name: "Atari 2600", platform: "Atari 2600", logo: "atari.svg" },
+    { name: "Atari 5200", platform: "Atari 5200", logo: "atari.svg" },
+    { name: "Atari 7800", platform: "Atari 7800", logo: "atari.svg" },
+    { name: "Atari Jaguar", platform: "Atari Jaguar", logo: "atari.svg" },
+    { name: "Atari Lynx", platform: "Atari Lynx", logo: "atari.svg" },
+    { name: "Neo Geo AES", platform: "Neo Geo AES", logo: "neo-geo.svg" },
+    { name: "Neo Geo CD", platform: "Neo Geo CD", logo: "neo-geo.svg" },
+    { name: "Commodore 64", platform: "Commodore 64", logo: "commodore.svg" },
+    { name: "Commodore Amiga", platform: "Commodore Amiga", logo: "commodore.svg" }
+];
+
+if (consoleDropdown) {
+
+    const existingPlatforms = new Set(
+        [...consoleDropdown.querySelectorAll("a")].map(link => {
+            const linkPlatform =
+                new URL(link.href).searchParams.get("platform");
+
+            return (linkPlatform || "").trim().toLowerCase();
+        })
+    );
+
+    additionalPlatforms.forEach(item => {
+
+        if (existingPlatforms.has(item.platform.toLowerCase())) {
+            return;
+        }
+
+        const link = document.createElement("a");
+        link.href = `platform.html?platform=${encodeURIComponent(item.platform)}`;
+
+        const icon = document.createElement("img");
+        icon.src = `assets/platform-logos/${item.logo}`;
+        icon.alt = "";
+        icon.setAttribute("aria-hidden", "true");
+
+        const label = document.createElement("span");
+        label.textContent = item.name;
+
+        link.append(icon, label);
+        consoleDropdown.appendChild(link);
+        existingPlatforms.add(item.platform.toLowerCase());
+
+    });
+
+}
+
 
 /* OPEN / CLOSE DROPDOWN */
 
