@@ -2907,19 +2907,3 @@ header.header-hidden {
     }
 
 }
-
-.consoleDropdown a img {
-
-    width: 24px;
-
-    height: 24px;
-
-    margin-right: 10px;
-
-    flex: 0 0 24px;
-
-    object-fit: contain;
-
-    filter: brightness(0) invert(1);
-
-}

@@ -206,17 +206,17 @@ const consoleDropdown =
     );
 
 const additionalPlatforms = [
-    { name: "Mac", platform: "Mac", logo: "apple.svg" },
-    { name: "3DO Interactive Multiplayer", platform: "3DO", logo: "3do.svg" },
-    { name: "Atari 2600", platform: "Atari 2600", logo: "atari.svg" },
-    { name: "Atari 5200", platform: "Atari 5200", logo: "atari.svg" },
-    { name: "Atari 7800", platform: "Atari 7800", logo: "atari.svg" },
-    { name: "Atari Jaguar", platform: "Atari Jaguar", logo: "atari.svg" },
-    { name: "Atari Lynx", platform: "Atari Lynx", logo: "atari.svg" },
-    { name: "Neo Geo AES", platform: "Neo Geo AES", logo: "neo-geo.svg" },
-    { name: "Neo Geo CD", platform: "Neo Geo CD", logo: "neo-geo.svg" },
-    { name: "Commodore 64", platform: "Commodore 64", logo: "commodore.svg" },
-    { name: "Commodore Amiga", platform: "Commodore Amiga", logo: "commodore.svg" }
+    { name: "Mac", platform: "Mac" },
+    { name: "3DO Interactive Multiplayer", platform: "3DO" },
+    { name: "Atari 2600", platform: "Atari 2600" },
+    { name: "Atari 5200", platform: "Atari 5200" },
+    { name: "Atari 7800", platform: "Atari 7800" },
+    { name: "Atari Jaguar", platform: "Atari Jaguar" },
+    { name: "Atari Lynx", platform: "Atari Lynx" },
+    { name: "Neo Geo AES", platform: "Neo Geo AES" },
+    { name: "Neo Geo CD", platform: "Neo Geo CD" },
+    { name: "Commodore 64", platform: "Commodore 64" },
+    { name: "Commodore Amiga", platform: "Commodore Amiga" }
 ];
 
 if (consoleDropdown) {
@@ -238,16 +238,7 @@ if (consoleDropdown) {
 
         const link = document.createElement("a");
         link.href = `platform.html?platform=${encodeURIComponent(item.platform)}`;
-
-        const icon = document.createElement("img");
-        icon.src = `assets/platform-logos/${item.logo}`;
-        icon.alt = "";
-        icon.setAttribute("aria-hidden", "true");
-
-        const label = document.createElement("span");
-        label.textContent = item.name;
-
-        link.append(icon, label);
+        link.textContent = item.name;
         consoleDropdown.appendChild(link);
         existingPlatforms.add(item.platform.toLowerCase());
 
