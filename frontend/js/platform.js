@@ -469,6 +469,72 @@ const platformImageSettings = {
         image: "assets/platform-images/dreamcast.webp",
         size: "80%",
         position: "center-right"
+    },
+
+    "Mac": {
+        image: "assets/platform-images/macintosh-128k.png",
+        size: "42%",
+        position: "center-right"
+    },
+
+    "3DO Interactive Multiplayer": {
+        image: "assets/platform-images/3do.png",
+        size: "70%",
+        position: "center-right"
+    },
+
+    "Atari 2600": {
+        image: "assets/platform-images/atari-2600.png",
+        size: "78%",
+        position: "center-right"
+    },
+
+    "Atari 5200": {
+        image: "assets/platform-images/atari-5200.png",
+        size: "78%",
+        position: "center-right"
+    },
+
+    "Atari 7800": {
+        image: "assets/platform-images/atari-7800.png",
+        size: "78%",
+        position: "center-right"
+    },
+
+    "Atari Jaguar": {
+        image: "assets/platform-images/atari-jaguar.png",
+        size: "78%",
+        position: "center-right"
+    },
+
+    "Atari Lynx": {
+        image: "assets/platform-images/atari-lynx.png",
+        size: "56%",
+        position: "center-right"
+    },
+
+    "Neo Geo AES": {
+        image: "assets/platform-images/neo-geo-aes.png",
+        size: "82%",
+        position: "center-right"
+    },
+
+    "Neo Geo CD": {
+        image: "assets/platform-images/neo-geo-cd.png",
+        size: "78%",
+        position: "center-right"
+    },
+
+    "Commodore 64": {
+        image: "assets/platform-images/commodore-64.png",
+        size: "76%",
+        position: "center-right"
+    },
+
+    "Commodore Amiga": {
+        image: "assets/platform-images/commodore-amiga.png",
+        size: "64%",
+        position: "center-right"
     }
 
 };
