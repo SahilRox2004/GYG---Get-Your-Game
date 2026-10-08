@@ -748,13 +748,18 @@ async function loadPlatform() {
         const localComputerContent =
             getPlatformFallbackContent(platform);
 
+        const apiPlatform =
+            localComputerContent?.isComputerPlatform
+                ? localComputerContent.name
+                : platform;
+
         let data;
 
         try {
 
             const response =
                 await fetch(
-                    `https://gyg-backend-hjbx.onrender.com/api/platform/${encodeURIComponent(platform)}`
+                    `https://gyg-backend-hjbx.onrender.com/api/platform/${encodeURIComponent(apiPlatform)}`
                 );
 
             if (!response.ok) {

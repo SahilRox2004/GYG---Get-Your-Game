@@ -1258,6 +1258,15 @@ platformMap["microsoft windows"] =
 platformMap["windows pc"] =
     platformMap["pc"];
 
+platformMap["pc (microsoft windows)"] =
+    platformMap["pc"];
+
+platformMap["pc/windows"] =
+    platformMap["pc"];
+
+platformMap["pc / windows"] =
+    platformMap["pc"];
+
 platformMap["mac os"] =
     platformMap["mac"];
 
