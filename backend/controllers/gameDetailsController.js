@@ -46,6 +46,15 @@ exports.getGameDetails = async (req, res) => {
 
         category,
 
+        franchise.id,
+        franchise.name,
+        franchises.id,
+        franchises.name,
+        collection.id,
+        collection.name,
+        collections.id,
+        collections.name,
+
         version_parent.id,
         version_parent.name,
 
@@ -106,6 +115,75 @@ exports.getGameDetails = async (req, res) => {
 
         const game =
             games[0];
+
+        const franchiseRecord =
+            game.franchise?.id
+                ? { ...game.franchise, kind: "franchise" }
+                : game.franchises?.find(item => item.id)
+                    ? { ...game.franchises.find(item => item.id), kind: "franchise" }
+                    : game.collection?.id
+                        ? { ...game.collection, kind: "collection" }
+                        : game.collections?.find(item => item.id)
+                            ? { ...game.collections.find(item => item.id), kind: "collection" }
+                            : null;
+
+        const series =
+            franchiseRecord
+                ? {
+                    id: franchiseRecord.id,
+                    name: franchiseRecord.name || "Series",
+                    kind: franchiseRecord.kind
+                }
+                : null;
+
+        let seriesGames = [];
+
+        if (series) {
+
+            const seriesFilter =
+                series.kind === "franchise"
+                    ? `franchise = ${series.id} | franchises = (${series.id})`
+                    : `collection = ${series.id} | collections = (${series.id})`;
+
+            try {
+
+                const seriesResults =
+                    await queryIGDB(`
+                        fields
+                            id,
+                            name,
+                            cover.image_id,
+                            first_release_date;
+
+                        where (${seriesFilter})
+                            & first_release_date != null;
+
+                        sort first_release_date asc;
+
+                        limit 500;
+                    `);
+
+                seriesGames =
+                    seriesResults.map(seriesGame => ({
+                        id: seriesGame.id,
+                        name: seriesGame.name || "Unknown Game",
+                        cover: seriesGame.cover?.image_id
+                            ? getCoverUrl(seriesGame.cover.image_id)
+                            : null,
+                        release_date: seriesGame.first_release_date
+                            ? formatDate(seriesGame.first_release_date)
+                            : null
+                    }));
+
+            }
+            catch (seriesError) {
+                console.error(
+                    "Series timeline error:",
+                    seriesError.response?.data || seriesError.message
+                );
+            }
+
+        }
 
 
         /* ========================= */
@@ -367,7 +445,12 @@ const publishers =
 
 
             version_parent:
-                versionParent
+                versionParent,
+
+            series,
+
+            series_games:
+                seriesGames
 
         };
 

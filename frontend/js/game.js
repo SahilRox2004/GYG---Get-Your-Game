@@ -10,6 +10,216 @@ let currentGameSaved = false;
 
 
 
+function renderSeriesTimeline(game) {
+
+    const section =
+        document.getElementById("seriesTimelineSection");
+
+    const viewport =
+        document.getElementById("seriesTimelineViewport");
+
+    const track =
+        document.getElementById("seriesTimelineTrack");
+
+    const seriesGames =
+        Array.isArray(game.series_games)
+            ? game.series_games.filter(item => item.release_date)
+            : [];
+
+    if (!section || !viewport || !track || !game.series) {
+        return;
+    }
+
+    if (
+        game.release_date &&
+        !seriesGames.some(item => String(item.id) === String(game.id))
+    ) {
+        seriesGames.push({
+            id: game.id,
+            name: game.name,
+            cover: game.cover,
+            release_date: game.release_date
+        });
+    }
+
+    if (seriesGames.length < 2) {
+        return;
+    }
+
+    section.hidden = false;
+
+    document.getElementById("seriesTimelineName").textContent =
+        game.series.name;
+
+    document.getElementById("seriesTimelineTitle").textContent =
+        game.series.kind === "franchise"
+            ? "FRANCHISE TIMELINE"
+            : "SERIES TIMELINE";
+
+    seriesGames.sort((first, second) => {
+        const firstDate = first.release_date
+            ? Date.parse(`${first.release_date}T00:00:00`)
+            : Infinity;
+
+        const secondDate = second.release_date
+            ? Date.parse(`${second.release_date}T00:00:00`)
+            : Infinity;
+
+        return firstDate - secondDate ||
+            first.name.localeCompare(second.name);
+    });
+
+    let currentCard = null;
+
+    seriesGames.forEach(seriesGame => {
+
+        const isCurrentGame =
+            String(seriesGame.id) === String(game.id);
+
+        const item =
+            document.createElement("article");
+
+        item.className =
+            `seriesTimelineItem${isCurrentGame ? " isCurrent" : ""}`;
+
+        const marker =
+            document.createElement("span");
+
+        marker.className = "seriesTimelineMarker";
+        marker.setAttribute("aria-hidden", "true");
+
+        const link =
+            document.createElement("a");
+
+        link.className = "seriesTimelineCard";
+        link.href = `game.html?id=${encodeURIComponent(seriesGame.id)}`;
+
+        if (isCurrentGame) {
+            link.setAttribute("aria-current", "page");
+            currentCard = link;
+        }
+
+        const cover =
+            document.createElement("div");
+
+        cover.className = "seriesTimelineCover";
+
+        if (seriesGame.cover) {
+            const image =
+                document.createElement("img");
+
+            image.src = seriesGame.cover;
+            image.alt = `${seriesGame.name} cover`;
+            image.loading = "lazy";
+            image.draggable = false;
+            cover.appendChild(image);
+        }
+        else {
+            cover.classList.add("isMissing");
+            cover.textContent = seriesGame.name;
+        }
+
+        const title =
+            document.createElement("span");
+
+        title.className = "seriesTimelineGameTitle";
+        title.textContent = seriesGame.name;
+
+        const year =
+            document.createElement("span");
+
+        year.className = "seriesTimelineGameYear";
+        year.textContent = seriesGame.release_date.slice(0, 4);
+
+        link.append(cover, title, year);
+        item.append(marker, link);
+        track.appendChild(item);
+
+    });
+
+    const scrollTimeline = direction => {
+        viewport.scrollBy({
+            left: direction * viewport.clientWidth * 0.8,
+            behavior: "smooth"
+        });
+    };
+
+    document.getElementById("seriesTimelinePrevious")
+        .addEventListener("click", () => scrollTimeline(-1));
+
+    document.getElementById("seriesTimelineNext")
+        .addEventListener("click", () => scrollTimeline(1));
+
+    let pointerDown = false;
+    let dragStartX = 0;
+    let dragStartScroll = 0;
+    let didDrag = false;
+    let suppressClick = false;
+
+    viewport.addEventListener("mousedown", event => {
+        if (event.button !== 0) {
+            return;
+        }
+
+        pointerDown = true;
+        dragStartX = event.clientX;
+        dragStartScroll = viewport.scrollLeft;
+        didDrag = false;
+    });
+
+    window.addEventListener("mousemove", event => {
+        if (!pointerDown) {
+            return;
+        }
+
+        const distance = event.clientX - dragStartX;
+
+        if (Math.abs(distance) > 5) {
+            didDrag = true;
+            viewport.classList.add("isDragging");
+            viewport.scrollLeft = dragStartScroll - distance;
+        }
+    });
+
+    window.addEventListener("mouseup", () => {
+        if (!pointerDown) {
+            return;
+        }
+
+        pointerDown = false;
+        viewport.classList.remove("isDragging");
+
+        if (didDrag) {
+            suppressClick = true;
+            window.setTimeout(() => {
+                suppressClick = false;
+            }, 0);
+        }
+    });
+
+    viewport.addEventListener("click", event => {
+        if (suppressClick) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    }, true);
+
+    if (currentCard) {
+        const currentItem =
+            currentCard.closest(".seriesTimelineItem");
+
+        requestAnimationFrame(() => {
+            viewport.scrollTo({
+                left: currentItem.offsetLeft -
+                    (viewport.clientWidth - currentItem.clientWidth) / 2,
+                behavior: "smooth"
+            });
+        });
+    }
+
+}
+
+
 async function loadGame() {
 
     const response = await fetch(
@@ -19,6 +229,7 @@ async function loadGame() {
     const game = await response.json();
 
     currentGame = game;
+    renderSeriesTimeline(game);
 
     const hero = document.getElementById("hero");
 
