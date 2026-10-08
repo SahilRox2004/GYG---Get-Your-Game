@@ -564,7 +564,7 @@ function getPlatformSVG(slug) {
             "assets/platform-logos/sega.svg",
 
         "game gear":
-            "assets/platform-logos/sega.svg",
+            "assets/platform-logos/game-gear.svg",
 
         "atari 2600":
             "assets/platform-logos/atari-mark.svg",
@@ -591,10 +591,10 @@ function getPlatformSVG(slug) {
             "assets/platform-logos/3do.svg",
 
         "commodore 64":
-            "assets/platform-logos/commodore.svg",
+            "assets/platform-logos/commodore-mark.svg",
 
         "commodore amiga":
-            "assets/platform-logos/commodore.svg"
+            "assets/platform-logos/commodore-amiga.svg"
 
     };
 

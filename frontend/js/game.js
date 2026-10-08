@@ -387,12 +387,12 @@ const platformLogos = {
     "Sega Mega Drive": "sega-mega-drive.svg",
     "Sega Saturn": "sega-saturn.svg",
     "Dreamcast": "dreamcast.svg",
-    "Game Gear": "sega.svg",
+    "Game Gear": "game-gear.svg",
     "Atari ST/STE": "atari-mark.svg",
     "Turbografx-16/PC Engine CD": "pc-engine.svg",
     "Amstrad CPC": "amstrad-cpc.svg",
-    "Sega CD": "Sega-genesis.svg",
-    "Sega 32X": "Sega-genesis.svg",
+    "Sega CD": "sega.svg",
+    "Sega 32X": "sega.svg",
     "Famicom Disk System": "nes.svg",
 
     "Steam": "steam.svg",
@@ -413,12 +413,10 @@ const platformLogos = {
     "Oculus Quest": "meta.svg",
     "Oculus Quest 2": "meta.svg",
 
-    "HTC Vive": "meta.svg",
-    "HTC Vive Pro": "meta.svg",
-    "Valve Index": "steam.svg",
+    "Valve Index": "valve-index.svg",
 
-    "PlayStation VR": "ps1.svg",
-    "PlayStation VR2": "ps1.svg",
+    "PlayStation VR": "psvr.svg",
+    "PlayStation VR2": "psvr2.svg",
 
     "Atari 2600": "atari-mark.svg",
     "Atari 5200": "atari-mark.svg",
@@ -431,8 +429,8 @@ const platformLogos = {
     "3DO Interactive Multiplayer": "3do.svg",
     "Commodore 64": "commodore-mark.svg",
     "Commodore C64/128/MAX": "commodore-mark.svg",
-    "Commodore Amiga": "commodore-mark.svg",
-    "Amiga": "commodore-mark.svg",
+    "Commodore Amiga": "commodore-amiga.svg",
+    "Amiga": "commodore-amiga.svg",
 
     "Arcade": "arcade.svg",
     "Web": "web.svg",
@@ -790,20 +788,20 @@ game.platforms.forEach(platform => {
         }
 
         else if (
-            name.includes("vive")
-        ) {
-
-            file =
-                "meta.svg";
-
-        }
-
-        else if (
             name.includes("valve index")
         ) {
 
             file =
-                "steam.svg";
+                "valve-index.svg";
+
+        }
+
+        else if (
+            name.includes("playstation vr2")
+        ) {
+
+            file =
+                "psvr2.svg";
 
         }
 
@@ -812,7 +810,7 @@ game.platforms.forEach(platform => {
         ) {
 
             file =
-                "ps1.svg";
+                "psvr.svg";
 
         }
 
@@ -868,10 +866,14 @@ game.platforms.forEach(platform => {
 
         }
 
-        else if (
-            name.includes("commodore") ||
-            name.includes("amiga")
-        ) {
+        else if (name.includes("amiga")) {
+
+            file =
+                "commodore-amiga.svg";
+
+        }
+
+        else if (name.includes("commodore")) {
 
             file =
                 "commodore-mark.svg";

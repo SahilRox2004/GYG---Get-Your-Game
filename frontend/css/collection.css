@@ -1906,6 +1906,14 @@ body {
 
     height: 22px;
 
+    padding: 3px;
+
+    box-sizing: border-box;
+
+    border-radius: 4px;
+
+    background: #fff;
+
     object-fit: contain;
 
     opacity: 0.75;
@@ -1916,6 +1924,20 @@ body {
 
 }
 
+.platformLogos img[src$="apple.svg"],
+.platformLogos img[src$="gamecube.svg"],
+.platformLogos img[src$="xbox-one-3.svg"],
+.platformLogos img[src$="ps3.svg"],
+.platformLogos img[src$="ps4.svg"],
+.platformLogos img[src$="ps5.svg"],
+.platformLogos img[src$="psp.svg"],
+.platformLogos img[src$="psvita.svg"],
+.platformLogos img[src$="Sega-genesis.svg"],
+.platformLogos img[src$="sega-saturn.svg"] {
+
+    background: #17121f;
+
+}
 
 .collectionGameCard:hover
 .platformLogos img {
@@ -1923,4 +1945,3 @@ body {
     opacity: 1;
 
 }
-

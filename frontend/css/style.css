@@ -42,12 +42,10 @@
         alternate;
 }
 
-img[src*="/platform-logos/"] {
-    filter: brightness(0) invert(1);
-}
-
-img[src$="xbox-series-x-s-1.svg"] {
-    filter: none;
+.platformLogo[src$="xbox-360-1.svg"],
+.platformLogos img[src$="xbox-360-1.svg"],
+.platformSearchLogo img[src$="xbox-360-1.svg"] {
+    background-color: #17121f;
 }
 
 @keyframes gygThemeCycle {

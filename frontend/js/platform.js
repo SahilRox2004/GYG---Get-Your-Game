@@ -800,6 +800,10 @@ async function loadPlatform() {
         /* PLATFORM NAME */
         /* ========================= */
 
+        renderPlatformHardwareTimeline(
+            data.name || platform
+        );
+
         if (platformName) {
 
             platformName.textContent =
@@ -1034,6 +1038,10 @@ async function loadPlatform() {
         console.error(
             "Platform loading error:",
             error
+        );
+
+        renderPlatformHardwareTimeline(
+            getPlatformFallbackContent(platform)?.name || platform
         );
 
 

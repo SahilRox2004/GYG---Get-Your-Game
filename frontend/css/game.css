@@ -229,7 +229,30 @@ overflow-x:auto;
 
     margin-right:10px;
 
+    padding:10px;
+
+    box-sizing:border-box;
+
+    border-radius:8px;
+
+    background:#fff;
+
     transition:.3s;
+
+}
+
+.platformLogo[src$="apple.svg"],
+.platformLogo[src$="gamecube.svg"],
+.platformLogo[src$="xbox-one-3.svg"],
+.platformLogo[src$="ps3.svg"],
+.platformLogo[src$="ps4.svg"],
+.platformLogo[src$="ps5.svg"],
+.platformLogo[src$="psp.svg"],
+.platformLogo[src$="psvita.svg"],
+.platformLogo[src$="Sega-genesis.svg"],
+.platformLogo[src$="sega-saturn.svg"] {
+
+    background: #17121f;
 
 }
 
