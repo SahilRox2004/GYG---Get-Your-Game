@@ -321,6 +321,327 @@
 }
 
 
+/* ========================= */
+/* HARDWARE TIMELINE */
+/* ========================= */
+
+#platformHardwareTimeline {
+
+    padding:
+        70px
+        10vw
+        85px;
+
+    overflow: hidden;
+
+    color: #f4f1f7;
+
+    background:
+        linear-gradient(
+            135deg,
+            #21192e,
+            #110c18 72%
+        );
+
+}
+
+
+#platformHardwareTimeline[hidden] {
+
+    display: none;
+
+}
+
+
+.platformTimelineHeader {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 40px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.platformTimelineHeader .sectionEyebrow {
+
+    margin-bottom: 14px;
+
+}
+
+
+.platformTimelineHeader h2 {
+
+    margin: 0;
+
+    font-size: clamp(34px, 4vw, 62px);
+
+    line-height: 0.95;
+
+}
+
+
+.platformTimelineTrack {
+
+    position: relative;
+
+    display: grid;
+
+    grid-auto-columns: minmax(245px, 1fr);
+
+    grid-auto-flow: column;
+
+    gap: 20px;
+
+    overflow-x: auto;
+
+    padding: 22px 8px 38px;
+
+    scrollbar-color: #7e66a2 #21192e;
+
+    scrollbar-width: thin;
+
+}
+
+
+.platformTimelineTrack::before {
+
+    position: absolute;
+
+    top: 37px;
+
+    right: 8px;
+
+    left: 8px;
+
+    height: 1px;
+
+    background: rgba(205, 189, 231, 0.35);
+
+    content: "";
+
+}
+
+
+.platformTimelineCard {
+
+    position: relative;
+
+    z-index: 1;
+
+    min-width: 0;
+
+    padding: 36px 22px 22px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 14px;
+
+    background: #21192e;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+
+    outline: none;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.platformTimelineCard:hover,
+.platformTimelineCard:focus-within,
+.platformTimelineCard:focus-visible {
+
+    z-index: 2;
+
+    transform: translateY(-5px) scale(1.025);
+
+    border-color: rgba(198, 161, 255, 0.75);
+
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.4);
+
+}
+
+
+.platformTimelineMarker {
+
+    position: absolute;
+
+    top: 8px;
+
+    left: 22px;
+
+    width: 18px;
+
+    height: 18px;
+
+    border: 4px solid #21192e;
+
+    border-radius: 50%;
+
+    background: #c6a1ff;
+
+    box-shadow: 0 0 0 1px rgba(198, 161, 255, 0.7);
+
+}
+
+
+.platformTimelineNumber,
+.platformTimelineDetailLabel {
+
+    display: block;
+
+    color: #bba9d3;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+.platformTimelineCard h3 {
+
+    margin: 10px 0 0;
+
+    font-size: 23px;
+
+    line-height: 1.15;
+
+}
+
+
+.platformTimelineImage {
+
+    display: none; /* Hidden - images removed from timeline */
+
+}
+
+
+.platformTimelineImageMissing {
+
+    display: none; /* Hidden - images removed from timeline */
+
+}
+
+
+.platformTimelineDate {
+
+    margin: 8px 0 0;
+
+    color: #d1c8dc;
+
+    font-size: 14px;
+
+}
+
+
+.platformTimelineDetails {
+
+    max-height: 0;
+
+    margin-top: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        max-height 0.3s ease,
+        margin-top 0.3s ease,
+        opacity 0.2s ease,
+        visibility 0.2s ease;
+
+}
+
+
+.platformTimelineCard:hover .platformTimelineDetails,
+.platformTimelineCard:focus-within .platformTimelineDetails,
+.platformTimelineCard:focus-visible .platformTimelineDetails {
+
+    max-height: 320px;
+
+    margin-top: 22px;
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+.platformTimelinePrice {
+
+    display: block;
+
+    margin: 5px 0 18px;
+
+    font-size: 19px;
+
+}
+
+
+.platformTimelineChanges {
+
+    margin: 7px 0 15px;
+
+    color: #e4deeb;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+}
+
+
+.platformTimelineSource {
+
+    display: inline-block;
+
+    color: #d2b6ff;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    text-underline-offset: 3px;
+
+}
+
+
+.platformTimelineSource:hover,
+.platformTimelineSource:focus-visible {
+
+    color: #ffffff;
+
+}
+
+
+.platformTimelineNote {
+
+    margin: 0;
+
+    color: #aaa0b7;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+}
+
+
 
 /* ========================= */
 /* GAME SECTIONS */
@@ -746,6 +1067,15 @@
 
     }
 
+    #platformHardwareTimeline {
+
+        padding:
+            60px
+            7vw
+            70px;
+
+    }
+
 
     .platformAboutContent {
 
@@ -830,6 +1160,57 @@
 
     }
 
+    #platformHardwareTimeline {
+
+        padding:
+            55px
+            25px
+            60px;
+
+    }
+
+
+    .platformTimelineHeader {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 16px;
+
+    }
+
+
+    .platformTimelineTrack {
+
+        grid-auto-columns: minmax(250px, 82vw);
+
+        margin-right: -25px;
+
+    }
+
+
+    .platformTimelineDetails {
+
+        max-height: none;
+
+        margin-top: 22px;
+
+        opacity: 1;
+
+        visibility: visible;
+
+    }
+
+
+    .platformTimelineCard:hover,
+    .platformTimelineCard:focus-within,
+    .platformTimelineCard:focus-visible {
+
+        transform: none;
+
+    }
+
 
     #platformSummary {
 
@@ -891,6 +1272,32 @@
     .carouselControls {
 
         display: none;
+
+    }
+
+}
+
+
+@media (hover: none) {
+
+    .platformTimelineDetails {
+
+        max-height: none;
+
+        margin-top: 22px;
+
+        opacity: 1;
+
+        visibility: visible;
+
+    }
+
+
+    .platformTimelineCard:hover,
+    .platformTimelineCard:focus-within,
+    .platformTimelineCard:focus-visible {
+
+        transform: none;
 
     }
 
