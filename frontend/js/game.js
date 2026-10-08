@@ -387,7 +387,13 @@ const platformLogos = {
     "Sega Mega Drive": "sega-mega-drive.svg",
     "Sega Saturn": "sega-saturn.svg",
     "Dreamcast": "dreamcast.svg",
-    "Game Gear": "game-gear.svg",
+    "Game Gear": "sega.svg",
+    "Atari ST/STE": "atari-mark.svg",
+    "Turbografx-16/PC Engine CD": "pc-engine.svg",
+    "Amstrad CPC": "amstrad-cpc.svg",
+    "Sega CD": "Sega-genesis.svg",
+    "Sega 32X": "Sega-genesis.svg",
+    "Famicom Disk System": "nes.svg",
 
     "Steam": "steam.svg",
     "Steam Deck": "steam.svg",
@@ -407,25 +413,26 @@ const platformLogos = {
     "Oculus Quest": "meta.svg",
     "Oculus Quest 2": "meta.svg",
 
-    "HTC Vive": "vive.svg",
-    "HTC Vive Pro": "vive.svg",
-    "Valve Index": "valve.svg",
+    "HTC Vive": "meta.svg",
+    "HTC Vive Pro": "meta.svg",
+    "Valve Index": "steam.svg",
 
-    "PlayStation VR": "psvr.svg",
-    "PlayStation VR2": "psvr.svg",
+    "PlayStation VR": "ps1.svg",
+    "PlayStation VR2": "ps1.svg",
 
-    "Atari 2600": "atari.svg",
-    "Atari 5200": "atari.svg",
-    "Atari 7800": "atari.svg",
-    "Atari Jaguar": "atari.svg",
-    "Atari Lynx": "atari.svg",
+    "Atari 2600": "atari-mark.svg",
+    "Atari 5200": "atari-mark.svg",
+    "Atari 7800": "atari-mark.svg",
+    "Atari Jaguar": "atari-mark.svg",
+    "Atari Lynx": "atari-mark.svg",
 
     "Neo Geo": "neo-geo.svg",
     "Neo Geo CD": "neo-geo.svg",
     "3DO Interactive Multiplayer": "3do.svg",
-    "Commodore 64": "commodore.svg",
-    "Commodore Amiga": "commodore.svg",
-    "Amiga": "commodore.svg",
+    "Commodore 64": "commodore-mark.svg",
+    "Commodore C64/128/MAX": "commodore-mark.svg",
+    "Commodore Amiga": "commodore-mark.svg",
+    "Amiga": "commodore-mark.svg",
 
     "Arcade": "arcade.svg",
     "Web": "web.svg",
@@ -462,7 +469,8 @@ game.platforms.forEach(platform => {
 
         if (
             name.includes("windows") ||
-            name.includes("pc")
+            name === "pc" ||
+            name === "pc (microsoft windows)"
         ) {
 
             file = "windows.svg";
@@ -668,7 +676,9 @@ game.platforms.forEach(platform => {
         ) {
 
             file =
-                "nintendo-ds.svg";
+                name.includes("dsi")
+                    ? "nintendo-ds-i.svg"
+                    : "nintendo-ds-1.svg";
 
         }
 
@@ -716,7 +726,7 @@ game.platforms.forEach(platform => {
         ) {
 
             file =
-                "game-gear.svg";
+                "sega.svg";
 
         }
 
@@ -784,7 +794,7 @@ game.platforms.forEach(platform => {
         ) {
 
             file =
-                "vive.svg";
+                "meta.svg";
 
         }
 
@@ -793,7 +803,7 @@ game.platforms.forEach(platform => {
         ) {
 
             file =
-                "valve.svg";
+                "steam.svg";
 
         }
 
@@ -802,7 +812,7 @@ game.platforms.forEach(platform => {
         ) {
 
             file =
-                "psvr.svg";
+                "ps1.svg";
 
         }
 
@@ -814,7 +824,26 @@ game.platforms.forEach(platform => {
         ) {
 
             file =
-                "atari.svg";
+                "atari-mark.svg";
+
+        }
+
+        else if (
+            name.includes("turbografx") ||
+            name.includes("pc engine")
+        ) {
+
+            file =
+                "pc-engine.svg";
+
+        }
+
+        else if (
+            name.includes("amstrad cpc")
+        ) {
+
+            file =
+                "amstrad-cpc.svg";
 
         }
 
@@ -845,7 +874,7 @@ game.platforms.forEach(platform => {
         ) {
 
             file =
-                "commodore.svg";
+                "commodore-mark.svg";
 
         }
 

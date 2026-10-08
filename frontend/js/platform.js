@@ -539,7 +539,6 @@ const platformImageSettings = {
 
 };
 
-
 /* ========================= */
 /* PLATFORM ELEMENTS */
 /* ========================= */
@@ -808,7 +807,6 @@ async function loadPlatform() {
                 platform;
 
         }
-
 
         /* ========================= */
         /* HERO INFORMATION */

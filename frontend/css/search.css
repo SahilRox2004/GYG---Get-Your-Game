@@ -177,7 +177,8 @@ body {
         scale(1.08);
 
     filter:
-
+        brightness(0)
+        invert(1)
         drop-shadow(
             0 0 12px
             rgba(170, 100, 255, 0.45)

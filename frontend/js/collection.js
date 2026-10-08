@@ -63,21 +63,27 @@ const platformLogos = {
     "Wii U": "wii-u.svg",
 
     "Game Boy": "game-boy.svg",
-    "Game Boy Color": "game-boy.svg",
+    "Game Boy Color": "game-boy-color.svg",
     "Game Boy Advance": "game-boy-advance.svg",
 
-    "Nintendo DS": "nintendo-ds.svg",
-    "Nintendo DSi": "nintendo-ds.svg",
+    "Nintendo DS": "nintendo-ds-1.svg",
+    "Nintendo DSi": "nintendo-ds-i.svg",
 
     "Nintendo 3DS": "nintendo-3ds.svg",
     "New Nintendo 3DS": "nintendo-3ds.svg",
 
     "Sega Master System": "sega.svg",
-    "Sega Genesis": "sega.svg",
-    "Sega Mega Drive": "sega.svg",
+    "Sega Genesis": "Sega-genesis.svg",
+    "Sega Mega Drive": "sega-mega-drive.svg",
     "Sega Saturn": "sega-saturn.svg",
     "Dreamcast": "dreamcast.svg",
-    "Game Gear": "game-gear.svg",
+    "Game Gear": "sega.svg",
+    "Atari ST/STE": "atari-mark.svg",
+    "Turbografx-16/PC Engine CD": "pc-engine.svg",
+    "Amstrad CPC": "amstrad-cpc.svg",
+    "Sega CD": "Sega-genesis.svg",
+    "Sega 32X": "Sega-genesis.svg",
+    "Famicom Disk System": "nes.svg",
 
     "Steam": "steam.svg",
     "Steam Deck": "steam.svg",
@@ -99,28 +105,29 @@ const platformLogos = {
     "Oculus Quest": "meta.svg",
     "Oculus Quest 2": "meta.svg",
 
-    "HTC Vive": "vive.svg",
-    "HTC Vive Pro": "vive.svg",
+    "HTC Vive": "meta.svg",
+    "HTC Vive Pro": "meta.svg",
 
-    "Valve Index": "valve.svg",
+    "Valve Index": "steam.svg",
 
-    "PlayStation VR": "psvr.svg",
-    "PlayStation VR2": "psvr.svg",
+    "PlayStation VR": "ps1.svg",
+    "PlayStation VR2": "ps1.svg",
 
-    "Atari 2600": "atari.svg",
-    "Atari 5200": "atari.svg",
-    "Atari 7800": "atari.svg",
-    "Atari Jaguar": "atari.svg",
-    "Atari Lynx": "atari.svg",
+    "Atari 2600": "atari-mark.svg",
+    "Atari 5200": "atari-mark.svg",
+    "Atari 7800": "atari-mark.svg",
+    "Atari Jaguar": "atari-mark.svg",
+    "Atari Lynx": "atari-mark.svg",
 
     "Neo Geo": "neo-geo.svg",
     "Neo Geo CD": "neo-geo.svg",
 
     "3DO Interactive Multiplayer": "3do.svg",
 
-    "Commodore 64": "commodore.svg",
-    "Commodore Amiga": "commodore.svg",
-    "Amiga": "commodore.svg",
+    "Commodore 64": "commodore-mark.svg",
+    "Commodore C64/128/MAX": "commodore-mark.svg",
+    "Commodore Amiga": "commodore-mark.svg",
+    "Amiga": "commodore-mark.svg",
 
     "Arcade": "arcade.svg",
 
@@ -163,7 +170,8 @@ function getPlatformLogo(platformName) {
 
     if (
         name.includes("windows") ||
-        name.includes("pc")
+        name === "pc" ||
+        name === "pc (microsoft windows)"
     ) {
 
         return "windows.svg";
@@ -355,7 +363,9 @@ function getPlatformLogo(platformName) {
         name.includes("nintendo ds")
     ) {
 
-        return "nintendo-ds.svg";
+        return name.includes("dsi")
+            ? "nintendo-ds-i.svg"
+            : "nintendo-ds-1.svg";
 
     }
 
@@ -364,6 +374,14 @@ function getPlatformLogo(platformName) {
     ) {
 
         return "game-boy-advance.svg";
+
+    }
+
+    else if (
+        name.includes("game boy color")
+    ) {
+
+        return "game-boy-color.svg";
 
     }
 
@@ -398,7 +416,7 @@ function getPlatformLogo(platformName) {
         name.includes("game gear")
     ) {
 
-        return "game-gear.svg";
+        return "sega.svg";
 
     }
 
@@ -460,7 +478,7 @@ function getPlatformLogo(platformName) {
         name.includes("vive")
     ) {
 
-        return "vive.svg";
+        return "meta.svg";
 
     }
 
@@ -468,7 +486,7 @@ function getPlatformLogo(platformName) {
         name.includes("valve index")
     ) {
 
-        return "valve.svg";
+        return "steam.svg";
 
     }
 
@@ -476,7 +494,7 @@ function getPlatformLogo(platformName) {
         name.includes("playstation vr")
     ) {
 
-        return "psvr.svg";
+        return "ps1.svg";
 
     }
 
@@ -487,7 +505,24 @@ function getPlatformLogo(platformName) {
         name.includes("atari")
     ) {
 
-        return "atari.svg";
+        return "atari-mark.svg";
+
+    }
+
+    else if (
+        name.includes("turbografx") ||
+        name.includes("pc engine")
+    ) {
+
+        return "pc-engine.svg";
+
+    }
+
+    else if (
+        name.includes("amstrad cpc")
+    ) {
+
+        return "amstrad-cpc.svg";
 
     }
 
@@ -515,7 +550,7 @@ function getPlatformLogo(platformName) {
         name.includes("amiga")
     ) {
 
-        return "commodore.svg";
+        return "commodore-mark.svg";
 
     }
 
@@ -601,7 +636,8 @@ function createPlatformLogos(platforms) {
 
                     if (
                         name.includes("windows") ||
-                        name.includes("pc")
+                        name === "pc" ||
+                        name === "pc (microsoft windows)"
                     ) {
 
                         file =
@@ -812,7 +848,9 @@ function createPlatformLogos(platforms) {
                     ) {
 
                         file =
-                            "nintendo-ds.svg";
+                            name.includes("dsi")
+                                ? "nintendo-ds-i.svg"
+                                : "nintendo-ds-1.svg";
 
                     }
 
@@ -822,6 +860,15 @@ function createPlatformLogos(platforms) {
 
                         file =
                             "game-boy-advance.svg";
+
+                    }
+
+                    else if (
+                        name.includes("game boy color")
+                    ) {
+
+                        file =
+                            "game-boy-color.svg";
 
                     }
 
@@ -860,7 +907,7 @@ function createPlatformLogos(platforms) {
                     ) {
 
                         file =
-                            "game-gear.svg";
+                            "sega.svg";
 
                     }
 
@@ -928,7 +975,7 @@ function createPlatformLogos(platforms) {
                     ) {
 
                         file =
-                            "vive.svg";
+                            "meta.svg";
 
                     }
 
@@ -937,7 +984,7 @@ function createPlatformLogos(platforms) {
                     ) {
 
                         file =
-                            "valve.svg";
+                            "steam.svg";
 
                     }
 
@@ -946,7 +993,7 @@ function createPlatformLogos(platforms) {
                     ) {
 
                         file =
-                            "psvr.svg";
+                            "ps1.svg";
 
                     }
 
@@ -958,7 +1005,26 @@ function createPlatformLogos(platforms) {
                     ) {
 
                         file =
-                            "atari.svg";
+                            "atari-mark.svg";
+
+                    }
+
+                    else if (
+                        name.includes("turbografx") ||
+                        name.includes("pc engine")
+                    ) {
+
+                        file =
+                            "pc-engine.svg";
+
+                    }
+
+                    else if (
+                        name.includes("amstrad cpc")
+                    ) {
+
+                        file =
+                            "amstrad-cpc.svg";
 
                     }
 
@@ -986,7 +1052,7 @@ function createPlatformLogos(platforms) {
                     ) {
 
                         file =
-                            "commodore.svg";
+                            "commodore-mark.svg";
 
                     }
 

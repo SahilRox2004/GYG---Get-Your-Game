@@ -309,6 +309,111 @@ const platformList = [
             "dreamcast"
         ],
         slug: "dreamcast"
+    },
+
+    {
+        name: "Sega Master System",
+        aliases: [
+            "sega master system",
+            "master system"
+        ],
+        slug: "sega master system"
+    },
+
+    {
+        name: "Game Gear",
+        aliases: [
+            "game gear",
+            "sega game gear"
+        ],
+        slug: "game gear"
+    },
+
+    {
+        name: "Atari 2600",
+        aliases: [
+            "atari 2600",
+            "atari vcs"
+        ],
+        slug: "atari 2600"
+    },
+
+    {
+        name: "Atari 5200",
+        aliases: [
+            "atari 5200"
+        ],
+        slug: "atari 5200"
+    },
+
+    {
+        name: "Atari 7800",
+        aliases: [
+            "atari 7800"
+        ],
+        slug: "atari 7800"
+    },
+
+    {
+        name: "Atari Jaguar",
+        aliases: [
+            "atari jaguar",
+            "jaguar"
+        ],
+        slug: "atari jaguar"
+    },
+
+    {
+        name: "Atari Lynx",
+        aliases: [
+            "atari lynx",
+            "lynx"
+        ],
+        slug: "atari lynx"
+    },
+
+    {
+        name: "Neo Geo AES",
+        aliases: [
+            "neo geo",
+            "neo geo aes"
+        ],
+        slug: "neo geo aes"
+    },
+
+    {
+        name: "Neo Geo CD",
+        aliases: [
+            "neo geo cd"
+        ],
+        slug: "neo geo cd"
+    },
+
+    {
+        name: "3DO Interactive Multiplayer",
+        aliases: [
+            "3do",
+            "3do interactive multiplayer"
+        ],
+        slug: "3do interactive multiplayer"
+    },
+
+    {
+        name: "Commodore 64",
+        aliases: [
+            "commodore 64",
+            "c64"
+        ],
+        slug: "commodore 64"
+    },
+
+    {
+        name: "Commodore Amiga",
+        aliases: [
+            "commodore amiga",
+            "amiga"
+        ],
+        slug: "commodore amiga"
     }
 
 ];
@@ -453,7 +558,43 @@ function getPlatformSVG(slug) {
             "assets/platform-logos/sega-saturn.svg",
 
         "dreamcast":
-            "assets/platform-logos/dreamcast.svg"
+            "assets/platform-logos/dreamcast.svg",
+
+        "sega master system":
+            "assets/platform-logos/sega.svg",
+
+        "game gear":
+            "assets/platform-logos/sega.svg",
+
+        "atari 2600":
+            "assets/platform-logos/atari-mark.svg",
+
+        "atari 5200":
+            "assets/platform-logos/atari-mark.svg",
+
+        "atari 7800":
+            "assets/platform-logos/atari-mark.svg",
+
+        "atari jaguar":
+            "assets/platform-logos/atari-mark.svg",
+
+        "atari lynx":
+            "assets/platform-logos/atari-mark.svg",
+
+        "neo geo aes":
+            "assets/platform-logos/neo-geo.svg",
+
+        "neo geo cd":
+            "assets/platform-logos/neo-geo.svg",
+
+        "3do interactive multiplayer":
+            "assets/platform-logos/3do.svg",
+
+        "commodore 64":
+            "assets/platform-logos/commodore.svg",
+
+        "commodore amiga":
+            "assets/platform-logos/commodore.svg"
 
     };
 
