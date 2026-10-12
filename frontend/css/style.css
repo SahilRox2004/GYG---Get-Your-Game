@@ -3024,46 +3024,20 @@ header.header-hidden {
 
 .hypedPlatformLogos {
     display: flex;
-    gap: 10px;
+    gap: 20px;
     align-items: center;
-    flex-wrap: wrap;
-}
-
-.hypedPlatformBox {
-    width: 100px;
-    height: 100px;
-    padding: 10px;
-    box-sizing: border-box;
-    border-radius: 8px;
-    background: #fff;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hypedPlatformBox:hover {
-    transform: scale(1.1);
 }
 
 .hypedPlatformLogo {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    width: 100px;
+    height: auto;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.9;
 }
 
-/* Platform-specific backgrounds for dark logos */
-.hypedPlatformBox[data-platform*="apple"],
-.hypedPlatformBox[data-platform*="gamecube"],
-.hypedPlatformBox[data-platform*="xbox-one"],
-.hypedPlatformBox[data-platform*="ps3"],
-.hypedPlatformBox[data-platform*="ps4"],
-.hypedPlatformBox[data-platform*="ps5"],
-.hypedPlatformBox[data-platform*="psp"],
-.hypedPlatformBox[data-platform*="psvita"],
-.hypedPlatformBox[data-platform*="genesis"],
-.hypedPlatformBox[data-platform*="saturn"] {
-    background: #17121f;
+.hypedPlatformLogo:hover {
+    transform: scale(1.1);
+    opacity: 1;
 }
 
 .hypedInfo h3 {
@@ -3145,83 +3119,6 @@ header.header-hidden {
     font-size: 15px;
     line-height: 1.7;
     color: rgba(255,255,255,0.9);
-}
-
-.hypedEditions {
-    margin-top: 40px;
-    padding-top: 30px;
-}
-
-.hypedEditionsTitle {
-    font-size: 28px;
-    font-weight: 800;
-    margin-bottom: 24px;
-    color: var(--hyped-primary, #5fff8c);
-}
-
-.hypedEditionsGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-}
-
-.hypedEdition {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(95, 255, 140, 0.2);
-    border-radius: 16px;
-    padding: 24px;
-    transition: all 0.3s ease;
-}
-
-.hypedEdition:hover {
-    transform: translateY(-4px);
-    border-color: rgba(95, 255, 140, 0.5);
-    box-shadow: 0 8px 24px rgba(95, 255, 140, 0.15);
-}
-
-.hypedEditionHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid rgba(95, 255, 140, 0.2);
-}
-
-.hypedEditionHeader h4 {
-    font-size: 20px;
-    font-weight: 700;
-    color: #fff;
-}
-
-.hypedEditionPrice {
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--hyped-primary, #5fff8c);
-}
-
-.hypedEditionFeatures {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.hypedEditionFeatures li {
-    padding: 10px 0;
-    padding-left: 28px;
-    position: relative;
-    font-size: 14px;
-    color: rgba(255,255,255,0.85);
-    line-height: 1.6;
-}
-
-.hypedEditionFeatures li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: var(--hyped-primary, #5fff8c);
-    font-weight: bold;
-    font-size: 16px;
 }
 
 .hypedCTA {
