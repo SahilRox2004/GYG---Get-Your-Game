@@ -2919,7 +2919,7 @@ header.header-hidden {
 /* GTA VI SHOWCASE */
 /* ========================= */
 
-#gtaviShowcase {
+#hypedShowcase {
     position: relative;
     min-height: 100vh;
     padding: 80px 60px;
@@ -2927,7 +2927,7 @@ header.header-hidden {
     background: linear-gradient(135deg, #0d4a2e 0%, #1a1a1a 50%, #2d0a1f 100%);
 }
 
-.gtaviBackdrop {
+.hypedBackdrop {
     position: absolute;
     inset: 0;
     background: 
@@ -2938,7 +2938,7 @@ header.header-hidden {
     z-index: 0;
 }
 
-.gtaviOverlay {
+.hypedOverlay {
     position: absolute;
     inset: 0;
     background: 
@@ -2948,32 +2948,32 @@ header.header-hidden {
     z-index: 0;
 }
 
-.gtaviContent {
+.hypedContent {
     position: relative;
     z-index: 1;
     max-width: 1400px;
     margin: 0 auto;
 }
 
-.gtaviHeader {
+.hypedHeader {
     display: flex;
     align-items: center;
     gap: 30px;
     margin-bottom: 60px;
 }
 
-.gtaviDeveloperLogo {
+.hypedDeveloperLogo {
     width: 120px;
     height: auto;
     filter: brightness(0) invert(1);
     opacity: 0.95;
 }
 
-.gtaviTitleArea {
+.hypedTitleArea {
     flex: 1;
 }
 
-.gtaviEyebrow {
+.hypedEyebrow {
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 3px;
@@ -2982,7 +2982,7 @@ header.header-hidden {
     text-transform: uppercase;
 }
 
-.gtaviTitle {
+.hypedTitle {
     font-size: 64px;
     font-weight: 900;
     letter-spacing: -2px;
@@ -2993,27 +2993,27 @@ header.header-hidden {
     line-height: 1;
 }
 
-.gtaviMain {
+.hypedMain {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     margin-bottom: 80px;
 }
 
-.gtaviLeft {
+.hypedLeft {
     display: flex;
     flex-direction: column;
     gap: 40px;
 }
 
-.gtaviPlatforms {
+.hypedPlatforms {
     background: rgba(13, 74, 46, 0.2);
     border: 1px solid rgba(95, 255, 140, 0.2);
     border-radius: 16px;
     padding: 24px;
 }
 
-.gtaviPlatformsLabel {
+.hypedPlatformsLabel {
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -3022,46 +3022,72 @@ header.header-hidden {
     text-transform: uppercase;
 }
 
-.gtaviPlatformLogos {
+.hypedPlatformLogos {
     display: flex;
-    gap: 20px;
+    gap: 10px;
     align-items: center;
+    flex-wrap: wrap;
 }
 
-.gtaviPlatformLogo {
+.hypedPlatformBox {
     width: 100px;
-    height: auto;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    opacity: 0.9;
+    height: 100px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background: #fff;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.gtaviPlatformLogo:hover {
+.hypedPlatformBox:hover {
     transform: scale(1.1);
-    opacity: 1;
 }
 
-.gtaviInfo h3 {
+.hypedPlatformLogo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Platform-specific backgrounds for dark logos */
+.hypedPlatformBox[data-platform*="apple"],
+.hypedPlatformBox[data-platform*="gamecube"],
+.hypedPlatformBox[data-platform*="xbox-one"],
+.hypedPlatformBox[data-platform*="ps3"],
+.hypedPlatformBox[data-platform*="ps4"],
+.hypedPlatformBox[data-platform*="ps5"],
+.hypedPlatformBox[data-platform*="psp"],
+.hypedPlatformBox[data-platform*="psvita"],
+.hypedPlatformBox[data-platform*="genesis"],
+.hypedPlatformBox[data-platform*="saturn"] {
+    background: #17121f;
+}
+
+.hypedInfo h3 {
     font-size: 28px;
     font-weight: 800;
     margin-bottom: 16px;
     color: #5fff8c;
 }
 
-.gtaviInfo > p {
+.hypedInfo > p {
     font-size: 16px;
     line-height: 1.7;
     color: rgba(255,255,255,0.85);
     margin-bottom: 30px;
 }
 
-.gtaviFeatures {
+.hypedFeatures {
     display: flex;
     flex-direction: column;
     gap: 20px;
     margin-bottom: 30px;
 }
 
-.gtaviFeature {
+.hypedFeature {
     display: flex;
     gap: 16px;
     align-items: flex-start;
@@ -3072,18 +3098,18 @@ header.header-hidden {
     transition: all 0.3s ease;
 }
 
-.gtaviFeature:hover {
+.hypedFeature:hover {
     background: rgba(95, 255, 140, 0.05);
     border-color: rgba(95, 255, 140, 0.3);
     transform: translateX(8px);
 }
 
-.gtaviFeatureIcon {
+.hypedFeatureIcon {
     font-size: 28px;
     flex-shrink: 0;
 }
 
-.gtaviFeature strong {
+.hypedFeature strong {
     display: block;
     font-size: 16px;
     font-weight: 700;
@@ -3091,20 +3117,20 @@ header.header-hidden {
     margin-bottom: 4px;
 }
 
-.gtaviFeature p {
+.hypedFeature p {
     font-size: 14px;
     color: rgba(255,255,255,0.7);
     line-height: 1.5;
 }
 
-.gtaviRecommendation {
+.hypedRecommendation {
     background: linear-gradient(135deg, rgba(13, 74, 46, 0.3), rgba(45, 10, 31, 0.3));
     border: 2px solid #5fff8c;
     border-radius: 16px;
     padding: 24px;
 }
 
-.gtaviRecommendation h4 {
+.hypedRecommendation h4 {
     font-size: 14px;
     font-weight: 800;
     letter-spacing: 2px;
@@ -3115,18 +3141,95 @@ header.header-hidden {
     gap: 8px;
 }
 
-.gtaviRecommendation p {
+.hypedRecommendation p {
     font-size: 15px;
     line-height: 1.7;
     color: rgba(255,255,255,0.9);
 }
 
-.gtaviCTA {
+.hypedEditions {
+    margin-top: 40px;
+    padding-top: 30px;
+}
+
+.hypedEditionsTitle {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 24px;
+    color: var(--hyped-primary, #5fff8c);
+}
+
+.hypedEditionsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.hypedEdition {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(95, 255, 140, 0.2);
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s ease;
+}
+
+.hypedEdition:hover {
+    transform: translateY(-4px);
+    border-color: rgba(95, 255, 140, 0.5);
+    box-shadow: 0 8px 24px rgba(95, 255, 140, 0.15);
+}
+
+.hypedEditionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(95, 255, 140, 0.2);
+}
+
+.hypedEditionHeader h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.hypedEditionPrice {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--hyped-primary, #5fff8c);
+}
+
+.hypedEditionFeatures {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hypedEditionFeatures li {
+    padding: 10px 0;
+    padding-left: 28px;
+    position: relative;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+}
+
+.hypedEditionFeatures li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--hyped-primary, #5fff8c);
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.hypedCTA {
     display: flex;
     gap: 16px;
 }
 
-.gtaviButton {
+.hypedButton {
     padding: 16px 32px;
     border-radius: 12px;
     font-size: 14px;
@@ -3140,35 +3243,35 @@ header.header-hidden {
     display: inline-block;
 }
 
-.gtaviButtonPrimary {
+.hypedButtonPrimary {
     background: linear-gradient(135deg, #5fff8c 0%, #3dd168 100%);
     color: #0a2815;
     box-shadow: 0 4px 20px rgba(95, 255, 140, 0.4);
 }
 
-.gtaviButtonPrimary:hover {
+.hypedButtonPrimary:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 30px rgba(95, 255, 140, 0.6);
 }
 
-.gtaviButtonSecondary {
+.hypedButtonSecondary {
     background: rgba(255, 255, 255, 0.05);
     color: #5fff8c;
     border: 2px solid #5fff8c;
 }
 
-.gtaviButtonSecondary:hover {
+.hypedButtonSecondary:hover {
     background: rgba(95, 255, 140, 0.1);
     transform: translateY(-2px);
 }
 
-.gtaviRight {
+.hypedRight {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.gtaviScreenshots {
+.hypedScreenshots {
     position: relative;
     border-radius: 20px;
     overflow: hidden;
@@ -3176,7 +3279,7 @@ header.header-hidden {
     box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 }
 
-.gtaviScreenshot {
+.hypedScreenshot {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -3185,17 +3288,17 @@ header.header-hidden {
     transition: opacity 0.6s ease;
 }
 
-.gtaviScreenshotActive {
+.hypedScreenshotActive {
     opacity: 1;
 }
 
-.gtaviScreenshotNav {
+.hypedScreenshotNav {
     display: flex;
     gap: 12px;
     justify-content: center;
 }
 
-.gtaviNavBtn {
+.hypedNavBtn {
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -3205,23 +3308,23 @@ header.header-hidden {
     transition: all 0.3s ease;
 }
 
-.gtaviNavBtn:hover {
+.hypedNavBtn:hover {
     border-color: rgba(95, 255, 140, 0.6);
 }
 
-.gtaviNavBtnActive {
+.hypedNavBtnActive {
     background: #5fff8c;
     border-color: #5fff8c;
     box-shadow: 0 0 10px rgba(95, 255, 140, 0.6);
 }
 
-.gtaviNews {
+.hypedNews {
     margin-top: 40px;
     padding-top: 60px;
     border-top: 1px solid rgba(95, 255, 140, 0.2);
 }
 
-.gtaviNews h3 {
+.hypedNews h3 {
     font-size: 32px;
     font-weight: 800;
     color: #5fff8c;
@@ -3229,13 +3332,13 @@ header.header-hidden {
     text-align: center;
 }
 
-.gtaviNewsGrid {
+.hypedNewsGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
-.gtaviNewsCard {
+.hypedNewsCard {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(95, 255, 140, 0.2);
     border-radius: 16px;
@@ -3243,23 +3346,23 @@ header.header-hidden {
     transition: all 0.3s ease;
 }
 
-.gtaviNewsCard:hover {
+.hypedNewsCard:hover {
     transform: translateY(-8px);
     border-color: rgba(95, 255, 140, 0.5);
     box-shadow: 0 10px 30px rgba(95, 255, 140, 0.2);
 }
 
-.gtaviNewsImage {
+.hypedNewsImage {
     width: 100%;
     height: 180px;
     object-fit: cover;
 }
 
-.gtaviNewsContent {
+.hypedNewsContent {
     padding: 20px;
 }
 
-.gtaviNewsTitle {
+.hypedNewsTitle {
     font-size: 18px;
     font-weight: 700;
     color: #ffffff;
@@ -3267,21 +3370,21 @@ header.header-hidden {
     line-height: 1.3;
 }
 
-.gtaviNewsExcerpt {
+.hypedNewsExcerpt {
     font-size: 14px;
     color: rgba(255,255,255,0.7);
     line-height: 1.6;
     margin-bottom: 12px;
 }
 
-.gtaviNewsDate {
+.hypedNewsDate {
     font-size: 12px;
     color: #5fff8c;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-.gtaviNewsLoading {
+.hypedNewsLoading {
     text-align: center;
     color: rgba(255,255,255,0.5);
     padding: 40px;
@@ -3542,11 +3645,11 @@ header.header-hidden {
 /* ========================= */
 
 @media (max-width: 1200px) {
-    .gtaviMain {
+    .hypedMain {
         grid-template-columns: 1fr;
     }
 
-    .gtaviTitle {
+    .hypedTitle {
         font-size: 48px;
     }
 
@@ -3561,34 +3664,34 @@ header.header-hidden {
 }
 
 @media (max-width: 768px) {
-    #gtaviShowcase {
+    #hypedShowcase {
         padding: 40px 20px;
     }
 
-    .gtaviHeader {
+    .hypedHeader {
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
     }
 
-    .gtaviDeveloperLogo {
+    .hypedDeveloperLogo {
         width: 80px;
     }
 
-    .gtaviTitle {
+    .hypedTitle {
         font-size: 36px;
     }
 
-    .gtaviCTA {
+    .hypedCTA {
         flex-direction: column;
     }
 
-    .gtaviButton {
+    .hypedButton {
         width: 100%;
         text-align: center;
     }
 
-    .gtaviNewsGrid {
+    .hypedNewsGrid {
         grid-template-columns: 1fr;
     }
 
