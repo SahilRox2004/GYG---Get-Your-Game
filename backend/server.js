@@ -42,8 +42,6 @@ app.use("/api/hero", require("./routes/hero"));
 
 app.use("/api/news", require("./routes/news"));
 
-app.use("/api/updates", require("./routes/updates"));
-
 app.use("/api/guide", require("./routes/groq"));
 
 app.use(
