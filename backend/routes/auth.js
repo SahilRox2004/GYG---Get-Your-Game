@@ -515,6 +515,7 @@ router.put(
                 });
             }
 
+            user.markModified("ratings");
             await user.save();
 
             const savedRating = user.ratings.find(

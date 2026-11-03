@@ -99,6 +99,11 @@ ratingForm.addEventListener("submit", async event => {
         return;
     }
 
+    if (!window.gygCurrentGame) {
+        ratingMessage.textContent = "Game details are still loading.";
+        return;
+    }
+
     const savedRatingData = {
         rating: Number(ratingInput.value),
         gameTitle: window.gygCurrentGame.name,
