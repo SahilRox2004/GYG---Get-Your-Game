@@ -229,6 +229,10 @@ async function loadGame() {
     const game = await response.json();
 
     currentGame = game;
+    window.gygCurrentGame = game;
+    window.dispatchEvent(
+        new CustomEvent("gyg:game-loaded", { detail: game })
+    );
     renderSeriesTimeline(game);
 
     const hero = document.getElementById("hero");
@@ -280,41 +284,40 @@ document.getElementById("gameCover").src =
     document.getElementById("gameRating");
 
 const releaseDate =
-    new Date(game.release_date);
+    game.release_date
+        ? new Date(`${game.release_date}T00:00:00`)
+        : null;
 
 const today =
     new Date();
 
 const isReleased =
-    Boolean(game.release_date) &&
+    releaseDate &&
+    !Number.isNaN(releaseDate.getTime()) &&
     releaseDate <= today;
 
-const actionButton =
-    document.getElementById(
-        "favouriteButton"
-    );
+const ratingSection =
+    document.getElementById("userRatingSection");
+const releaseElement =
+    document.getElementById("gameRelease");
+const infoDivider =
+    document.querySelector(".infoDivider");
 
-if (actionButton) {
-
-    actionButton.textContent =
-        isReleased
-            ? "♡ ADD TO FAVOURITES"
-            : "♡ ADD TO WISHLIST";
-
-    currentListType =
-        isReleased
-            ? "favourites"
-            : "wishlist";
-
-    await syncSavedState(actionButton);
-
+if (ratingSection) {
+    ratingSection.hidden = !isReleased;
 }
 
-if (releaseDate > today) {
+if (!game.release_date || !releaseDate ||
+    Number.isNaN(releaseDate.getTime())) {
 
     ratingElement.textContent =
         "Not yet released";
-
+    releaseElement.textContent = "";
+}
+else if (!isReleased) {
+    ratingElement.textContent =
+        `Coming on ${formatFullDate(game.release_date)}`;
+    releaseElement.textContent = "";
 }
 else if (game.rating) {
 
@@ -328,8 +331,35 @@ else {
         "Not yet rated";
 
 }
-    document.getElementById("gameRelease").textContent =
-    formatFullDate(game.release_date);
+    if (isReleased) {
+        releaseElement.textContent =
+            formatFullDate(game.release_date);
+    }
+
+    if (infoDivider) {
+        infoDivider.hidden = !isReleased;
+    }
+
+    const favouriteButton =
+        document.getElementById("favouriteButton");
+    const wishlistButton =
+        document.getElementById("wishlistButton");
+
+    if (favouriteButton && wishlistButton) {
+        favouriteButton.hidden =
+            !localStorage.getItem("token") || !isReleased;
+        wishlistButton.hidden =
+            !localStorage.getItem("token");
+
+        const isFavourite =
+            isReleased &&
+            await syncSavedState(favouriteButton, "favourites");
+
+        await syncSavedState(wishlistButton, "wishlist");
+
+        wishlistButton.hidden =
+            !localStorage.getItem("token") || isFavourite;
+    }
 
     const platformContainer =
     document.getElementById("platformContainer");
@@ -1949,7 +1979,7 @@ async function loadGameGuide() {
 
 loadGameGuide();
 
-async function syncSavedState(actionButton) {
+async function syncSavedState(actionButton, listType) {
 
     const token = localStorage.getItem("token");
 
@@ -1977,24 +2007,28 @@ async function syncSavedState(actionButton) {
         }
 
         const data = await response.json();
-        const savedGames = data.user[currentListType] || [];
+        const savedGames = data.user[listType] || [];
 
-        currentGameSaved = savedGames.some(
+        const isSaved = savedGames.some(
             game => Number(game.gameId) === Number(currentGame.id)
         );
 
-        if (currentGameSaved) {
+        if (isSaved) {
 
             actionButton.textContent =
-                currentListType === "wishlist"
+                listType === "wishlist"
                     ? "REMOVE FROM WISHLIST"
                     : "REMOVE FROM FAVOURITES";
 
         }
 
+        return isSaved;
+
     } catch (error) {
 
         console.error("Saved game check error:", error);
+
+        return false;
 
     }
 
@@ -2004,25 +2038,13 @@ async function syncSavedState(actionButton) {
 /* ADD TO FAVOURITES */
 /* ========================= */
 
-const favouriteButton =
-    document.getElementById(
-        "favouriteButton"
-    );
+function attachListButton(actionButton, listType, addLabel, removeLabel) {
 
+    if (!actionButton) {
+        return;
+    }
 
-if (
-    favouriteButton &&
-    localStorage.getItem("token")
-) {
-
-    favouriteButton.hidden = false;
-
-}
-
-
-if (favouriteButton) {
-
-    favouriteButton.addEventListener(
+    actionButton.addEventListener(
         "click",
         async () => {
 
@@ -2035,7 +2057,7 @@ if (favouriteButton) {
             if (!token) {
 
                 alert(
-                    "Please sign in to add games to favourites"
+                    "Please sign in to save this game"
                 );
 
                 return;
@@ -2050,8 +2072,22 @@ if (favouriteButton) {
             }
 
             try {
+                const savedGames =
+                    await fetch(
+                        "https://gyg-backend-hjbx.onrender.com/api/auth/profile",
+                        {
+                            headers: {
+                                Authorization: `Bearer ${token}`
+                            }
+                        }
+                    ).then(response => response.json());
 
-                const request = currentGameSaved
+                const isSaved =
+                    (savedGames.user[listType] || []).some(
+                        game => Number(game.gameId) === Number(currentGame.id)
+                    );
+
+                const request = isSaved
                     ? {
                         method: "DELETE",
                         headers: {
@@ -2071,14 +2107,14 @@ if (favouriteButton) {
                             gameId: currentGame.id,
                             name: currentGame.name,
                             image: currentGame.cover,
-                            listType: currentListType
+                            listType
                         })
                     };
 
                 const response =
                     await fetch(
-                        currentGameSaved
-                            ? `https://gyg-backend-hjbx.onrender.com/api/auth/favourites/${currentGame.id}?list=${currentListType}`
+                        isSaved
+                            ? `https://gyg-backend-hjbx.onrender.com/api/auth/favourites/${currentGame.id}?list=${listType}`
                             : "https://gyg-backend-hjbx.onrender.com/api/auth/favourites",
                         request
                     );
@@ -2100,15 +2136,16 @@ if (favouriteButton) {
                 }
 
 
-                currentGameSaved = !currentGameSaved;
+                actionButton.textContent =
+                    isSaved ? addLabel : removeLabel;
 
-                favouriteButton.textContent = currentGameSaved
-                    ? currentListType === "wishlist"
-                        ? "REMOVE FROM WISHLIST"
-                        : "REMOVE FROM FAVOURITES"
-                    : currentListType === "wishlist"
-                        ? "♡ ADD TO WISHLIST"
-                        : "♡ ADD TO FAVOURITES";
+                if (listType === "favourites") {
+                    const wishlistButton =
+                        document.getElementById("wishlistButton");
+
+                    wishlistButton.hidden =
+                        !isSaved;
+                }
 
             }
 
@@ -2129,3 +2166,17 @@ if (favouriteButton) {
     );
 
 }
+
+attachListButton(
+    document.getElementById("favouriteButton"),
+    "favourites",
+    "♡ ADD TO FAVOURITES",
+    "REMOVE FROM FAVOURITES"
+);
+
+attachListButton(
+    document.getElementById("wishlistButton"),
+    "wishlist",
+    "♡ ADD TO WISHLIST",
+    "REMOVE FROM WISHLIST"
+);

@@ -414,4 +414,113 @@ router.delete(
     }
 );
 
+router.get(
+    "/ratings/:gameId",
+    authMiddleware,
+    async (req, res) => {
+
+        try {
+
+            const gameId = Number(req.params.gameId);
+
+            if (!Number.isInteger(gameId)) {
+                return res.status(400).json({
+                    message: "Invalid game ID"
+                });
+            }
+
+            const user = await User.findById(req.userId)
+                .select("ratings");
+
+            if (!user) {
+                return res.status(404).json({
+                    message: "User not found"
+                });
+            }
+
+            const rating = (user.ratings || []).find(
+                item => item.gameId === gameId
+            );
+
+            res.json({ rating: rating || null });
+
+        }
+        catch (error) {
+            console.error("Rating lookup error:", error);
+            res.status(500).json({
+                message: "Unable to load rating"
+            });
+        }
+
+    }
+);
+
+router.put(
+    "/ratings/:gameId",
+    authMiddleware,
+    async (req, res) => {
+
+        try {
+
+            const gameId = Number(req.params.gameId);
+            const rating = Number(req.body.rating);
+            if (
+                !Number.isInteger(gameId) ||
+                !Number.isFinite(rating) ||
+                rating < 0 ||
+                rating > 10
+            ) {
+                return res.status(400).json({
+                    message: "Provide a rating from 0 to 10"
+                });
+            }
+
+            const user = await User.findById(req.userId);
+
+            if (!user) {
+                return res.status(404).json({
+                    message: "User not found"
+                });
+            }
+
+            if (!Array.isArray(user.ratings)) {
+                user.ratings = [];
+            }
+
+            const existingRating = user.ratings.find(
+                item => item.gameId === gameId
+            );
+
+            if (existingRating) {
+                existingRating.rating = rating;
+            }
+            else {
+                user.ratings.push({
+                    gameId,
+                    rating
+                });
+            }
+
+            await user.save();
+
+            const savedRating = user.ratings.find(
+                item => item.gameId === gameId
+            );
+
+            res.json({
+                message: "Rating saved",
+                rating: savedRating
+            });
+
+        }
+        catch (error) {
+            console.error("Rating save error:", error);
+            res.status(500).json({
+                message: "Unable to save rating"
+            });
+        }
+
+    }
+);
+
 module.exports = router;

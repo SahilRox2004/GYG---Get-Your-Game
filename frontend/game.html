@@ -439,13 +439,28 @@
 
             </div>
 
+            <div class="gameActionButtons">
+                <button
+                    id="favouriteButton"
+                    hidden
+                >
+                    ♡ ADD TO FAVOURITES
+                </button>
+
+                <button
+                    id="wishlistButton"
+                    hidden
+                >
+                    ♡ ADD TO WISHLIST
+                </button>
+            </div>
 
             <button
-                id="favouriteButton"
-                hidden
+                id="shareStoryButton"
+                type="button"
+                aria-label="Share game story"
             >
-
-♡ ADD TO FAVOURITES
+                SHARE STORY
             </button>
 
 
@@ -758,6 +773,29 @@
 
 </section>
 
+<section id="userRatingSection" class="gameSection" hidden>
+    <div class="sectionHeading">
+        <p class="sectionEyebrow">YOUR EXPERIENCE</p>
+        <h2>RATE THIS GAME</h2>
+    </div>
+
+    <form id="userRatingForm">
+        <label for="userRatingInput">
+            Your rating:
+            <output id="userRatingValue">5.0/10</output>
+        </label>
+        <input
+            id="userRatingInput"
+            type="range"
+            min="0"
+            max="10"
+            step="0.1"
+            value="5"
+        >
+        <button type="submit">SAVE RATING</button>
+        <p id="userRatingMessage" role="status"></p>
+    </form>
+</section>
 
 
 <!-- ========================= -->
@@ -901,6 +939,8 @@
     <script src="js/loginDropdown.js"></script>
 
 <script src="js/game.js"></script>
+<script src="js/rating.js"></script>
+<script src="js/shareStory.js"></script>
 
 
 </body>
