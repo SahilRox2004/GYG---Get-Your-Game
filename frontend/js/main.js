@@ -1,6 +1,84 @@
 console.log("GYG Loaded");
 
 
+/* ========================= */
+/* PAGE LOADING SCREEN */
+/* ========================= */
+
+const loadingScreen =
+    document.createElement("div");
+
+loadingScreen.id =
+    "gygLoadingScreen";
+
+loadingScreen.setAttribute(
+    "role",
+    "status"
+);
+
+loadingScreen.setAttribute(
+    "aria-label",
+    "Loading GYG"
+);
+
+loadingScreen.innerHTML =
+    `<img src="assets/logo.png" alt="">`;
+
+document.body.prepend(
+    loadingScreen
+);
+
+let activeFetches = 0;
+let pageLoaded = document.readyState === "complete";
+let loadingStartedAt = performance.now();
+
+const originalFetch =
+    window.fetch.bind(window);
+
+window.fetch = (...args) => {
+
+    activeFetches += 1;
+
+    return originalFetch(...args)
+        .finally(() => {
+            activeFetches -= 1;
+            hideLoadingScreen();
+        });
+
+};
+
+function hideLoadingScreen() {
+
+    if (!pageLoaded || activeFetches > 0) {
+        return;
+    }
+
+    const remainingTime =
+        Math.max(
+            0,
+            350 - (performance.now() - loadingStartedAt)
+        );
+
+    window.setTimeout(() => {
+
+        if (pageLoaded && activeFetches === 0) {
+            loadingScreen.classList.add("isHidden");
+        }
+
+    }, remainingTime);
+
+}
+
+window.addEventListener(
+    "load",
+    () => {
+        pageLoaded = true;
+        hideLoadingScreen();
+    },
+    { once: true }
+);
+
+
 /* Hide the mobile header while scrolling down. */
 
 const mobileHeaderQuery =
