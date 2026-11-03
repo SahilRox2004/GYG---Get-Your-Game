@@ -262,6 +262,16 @@ function openSearch() {
         "searchOpen"
     );
 
+    searchButton.setAttribute(
+        "aria-label",
+        "Search"
+    );
+
+    searchButton.setAttribute(
+        "aria-expanded",
+        "true"
+    );
+
 
     setTimeout(() => {
 
@@ -278,6 +288,16 @@ function closeSearch() {
 
     searchWrapper.classList.remove(
         "searchOpen"
+    );
+
+    searchButton.setAttribute(
+        "aria-label",
+        "Open search"
+    );
+
+    searchButton.setAttribute(
+        "aria-expanded",
+        "false"
     );
 
 
@@ -877,4 +897,3 @@ document.addEventListener(
 
     }
 );
-
