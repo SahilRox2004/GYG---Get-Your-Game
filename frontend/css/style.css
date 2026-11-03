@@ -3096,43 +3096,6 @@ header.header-hidden {
     max-width: 300px;
 }
 
-.footerSocial {
-    display: flex;
-    gap: 16px;
-}
-
-.footerSocialLink {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(155, 109, 255, 0.1);
-    border: 1px solid rgba(155, 109, 255, 0.3);
-    border-radius: 10px;
-    color: #9B6DFF;
-    transition: all 0.3s ease;
-}
-
-.footerSocialLink img {
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
-    opacity: 0.9;
-}
-
-.footerSocialLink:hover {
-    background: rgba(155, 109, 255, 0.2);
-    border-color: #9B6DFF;
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(155, 109, 255, 0.3);
-}
-
-.footerSocialLink:hover img {
-    opacity: 1;
-}
-
 .footerLinks {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
