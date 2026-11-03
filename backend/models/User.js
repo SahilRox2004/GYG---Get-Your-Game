@@ -82,6 +82,12 @@ const userSchema = new mongoose.Schema(
                 required: true,
                 min: 0,
                 max: 10
+            },
+            gameTitle: String,
+            gameCover: String,
+            ratedAt: {
+                type: Date,
+                default: Date.now
             }
         }
     ]

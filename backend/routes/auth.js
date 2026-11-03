@@ -464,6 +464,14 @@ router.put(
 
             const gameId = Number(req.params.gameId);
             const rating = Number(req.body.rating);
+            const gameTitle =
+                typeof req.body.gameTitle === "string"
+                    ? req.body.gameTitle.trim().slice(0, 200)
+                    : "";
+            const gameCover =
+                typeof req.body.gameCover === "string"
+                    ? req.body.gameCover.trim().slice(0, 1000)
+                    : "";
             if (
                 !Number.isInteger(gameId) ||
                 !Number.isFinite(rating) ||
@@ -493,11 +501,17 @@ router.put(
 
             if (existingRating) {
                 existingRating.rating = rating;
+                existingRating.gameTitle = gameTitle;
+                existingRating.gameCover = gameCover;
+                existingRating.ratedAt = new Date();
             }
             else {
                 user.ratings.push({
                     gameId,
-                    rating
+                    rating,
+                    gameTitle,
+                    gameCover,
+                    ratedAt: new Date()
                 });
             }
 

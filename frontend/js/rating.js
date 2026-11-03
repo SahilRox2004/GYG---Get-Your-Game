@@ -12,6 +12,8 @@ const ratingValue =
 
 const ratingMessage =
     document.getElementById("userRatingMessage");
+const savedRatingDisplay =
+    document.getElementById("userRatingSaved");
 
 const ratingApiBase =
     "https://gyg-backend-hjbx.onrender.com/api/auth/ratings";
@@ -75,6 +77,8 @@ async function loadUserRating(game) {
     if (data.rating) {
         ratingInput.value = data.rating.rating;
         updateRatingValue();
+        savedRatingDisplay.textContent =
+            `Saved rating: ${Number(data.rating.rating).toFixed(1)}/10`;
     }
 }
 
@@ -95,17 +99,21 @@ ratingForm.addEventListener("submit", async event => {
         return;
     }
 
-    const savedRating = {
-        rating: Number(ratingInput.value)
+    const savedRatingData = {
+        rating: Number(ratingInput.value),
+        gameTitle: window.gygCurrentGame.name,
+        gameCover: window.gygCurrentGame.cover
     };
 
     if (ratingTestMode) {
         localStorage.setItem(
             `gyg-test-rating-${window.gygCurrentGame.id}`,
-            JSON.stringify(savedRating)
+            JSON.stringify(savedRatingData)
         );
-        window.gygCurrentRating = savedRating;
+        window.gygCurrentRating = savedRatingData;
         ratingMessage.textContent = "Saved locally for template testing.";
+        savedRatingDisplay.textContent =
+            `Saved rating: ${Number(savedRatingData.rating).toFixed(1)}/10`;
         window.dispatchEvent(new CustomEvent("gyg:rating-loaded"));
         return;
     }
@@ -121,7 +129,7 @@ ratingForm.addEventListener("submit", async event => {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`
                 },
-                body: JSON.stringify(savedRating)
+                body: JSON.stringify(savedRatingData)
             }
         );
 
@@ -133,6 +141,8 @@ ratingForm.addEventListener("submit", async event => {
 
         window.gygCurrentRating = data.rating;
         ratingMessage.textContent = "Rating saved.";
+        savedRatingDisplay.textContent =
+            `Saved rating: ${Number(data.rating.rating).toFixed(1)}/10`;
         window.dispatchEvent(new CustomEvent("gyg:rating-loaded"));
     }
     catch (error) {

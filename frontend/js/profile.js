@@ -7,6 +7,9 @@ const favouritesMessage = document.getElementById("favouritesMessage");
 const wishlistCount = document.getElementById("wishlistCount");
 const wishlistGrid = document.getElementById("wishlistGrid");
 const wishlistMessage = document.getElementById("wishlistMessage");
+const ratingsCount = document.getElementById("ratingsCount");
+const ratingsList = document.getElementById("ratingsList");
+const ratingsMessage = document.getElementById("ratingsMessage");
 
 if (!token) {
 
@@ -44,14 +47,17 @@ async function loadProfile() {
 
         const favourites = data.user.favourites || [];
         const wishlist = data.user.wishlist || [];
+        const ratings = data.user.ratings || [];
 
         favouritesGrid.innerHTML = "";
         wishlistGrid.innerHTML = "";
         favouritesMessage.textContent = "";
         wishlistMessage.textContent = "";
+        ratingsMessage.textContent = "";
 
         favouritesCount.textContent = favourites.length;
         wishlistCount.textContent = wishlist.length;
+        ratingsCount.textContent = ratings.length;
 
         if (!favourites.length) {
 
@@ -77,6 +83,13 @@ async function loadProfile() {
                 "wishlist"
             );
 
+        }
+
+        if (!ratings.length) {
+            ratingsMessage.textContent = "No ratings saved yet.";
+        }
+        else {
+            ratingsList.innerHTML = renderRatings(ratings);
         }
 
         document.querySelectorAll(".removeGameButton").forEach(button => {
@@ -119,6 +132,45 @@ function renderGames(games, listType) {
         </article>
     `).join("");
 
+}
+
+function renderRatings(ratings) {
+    return ratings
+        .slice()
+        .sort((first, second) =>
+            new Date(second.ratedAt || 0) - new Date(first.ratedAt || 0)
+        )
+        .map(rating => {
+            const title = rating.gameTitle || `Game #${rating.gameId}`;
+
+            return `
+                <article class="profileRating">
+                    <a href="game.html?id=${encodeURIComponent(rating.gameId)}">
+                        <img src="${rating.gameCover || "assets/logo.png"}"
+                            alt="${escapeHtml(title)}"
+                            loading="lazy">
+                        <div class="profileRatingInfo">
+                            <strong>${escapeHtml(title)}</strong>
+                            <span>${Number(rating.rating).toFixed(1)}/10</span>
+                            <time>${formatRatingDate(rating.ratedAt)}</time>
+                        </div>
+                    </a>
+                </article>
+            `;
+        })
+        .join("");
+}
+
+function formatRatingDate(value) {
+    const date = new Date(value);
+
+    return Number.isNaN(date.getTime())
+        ? "Date unavailable"
+        : date.toLocaleDateString(undefined, {
+            day: "numeric",
+            month: "short",
+            year: "numeric"
+        });
 }
 
 async function removeGame(event) {
