@@ -354,13 +354,10 @@ margin-top: 20px;
     position: absolute;
     bottom: 14px;
     left: 50%;
-    display: flex;
-    gap: 8px;
     transform: translateX(-50%);
 }
 
-.storyPreviewShare,
-.storyPreviewSocial {
+.storyPreviewShare {
     padding: 9px 18px;
     border: 1px solid #9B6DFF;
     border-radius: 6px;
@@ -369,11 +366,6 @@ margin-top: 20px;
     font-weight: 700;
     cursor: pointer;
     white-space: nowrap;
-}
-
-.storyPreviewSocial {
-    padding: 9px 12px;
-    background: rgba(22, 11, 46, .92);
 }
 
 .storyPreviewBackground1,

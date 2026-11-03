@@ -80,9 +80,7 @@ function showStoryPreview(game) {
                 <img class="storyPreviewLogo" src="assets/logo.png" alt="GYG">
             </div>
             <div class="storyPreviewActions">
-                <button class="storyPreviewShare" type="button">SHARE IMAGE</button>
-                <button class="storyPreviewSocial storyPreviewWhatsApp" type="button">WHATSAPP</button>
-                <button class="storyPreviewSocial storyPreviewInstagram" type="button">INSTAGRAM</button>
+                <button class="storyPreviewShare" type="button">SHARE STORY</button>
             </div>
         </div>
     `;
@@ -111,16 +109,6 @@ function showStoryPreview(game) {
     preview.querySelector(".storyPreviewShare").addEventListener(
         "click",
         () => shareGeneratedStory(game)
-    );
-
-    preview.querySelector(".storyPreviewWhatsApp").addEventListener(
-        "click",
-        () => shareOnWhatsApp(game)
-    );
-
-    preview.querySelector(".storyPreviewInstagram").addEventListener(
-        "click",
-        () => shareOnInstagram(game)
     );
 
     preview.hidden = false;
@@ -354,35 +342,6 @@ function downloadStoryFile(file) {
     URL.revokeObjectURL(link.href);
 }
 
-function shareOnWhatsApp(game) {
-    const message =
-        `Check out ${game.name} on GYG: ${window.location.href}`;
-    const whatsappUrl =
-        `https://wa.me/?text=${encodeURIComponent(message)}`;
-
-    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
-}
-
-async function shareOnInstagram(game) {
-    const instagramWindow =
-        window.open("https://www.instagram.com/", "_blank", "noopener,noreferrer");
-
-    try {
-        const file = await createStoryFile(game);
-        downloadStoryFile(file);
-    }
-    catch (error) {
-        if (instagramWindow) {
-            instagramWindow.close();
-        }
-
-        console.error("Instagram sharing failed:", error);
-        window.alert(
-            "The Instagram page could not be prepared. Please try sharing the image again."
-        );
-    }
-}
-
 async function shareGeneratedStory(game) {
     const previewShare =
         document.querySelector(".storyPreviewShare");
@@ -421,7 +380,7 @@ async function shareGeneratedStory(game) {
     finally {
         if (previewShare) {
             previewShare.disabled = false;
-            previewShare.textContent = "SHARE IMAGE";
+            previewShare.textContent = "SHARE STORY";
         }
     }
 }
